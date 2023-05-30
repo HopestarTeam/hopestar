@@ -1,0 +1,44 @@
+.GUIBackground {
+    background-color: rgba(115, 115, 115, 0.57);
+}
+
+.unity-button {
+    -unity-background-image-tint-color: rgba(89, 89, 89, 255);
+    background-color: rgba(115, 115, 115, 255);
+    border-left-color: rgba(0, 0, 0, 255);
+    border-right-color: rgba(0, 0, 0, 255);
+    border-top-color: rgba(0, 0, 0, 255);
+    border-bottom-color: rgba(0, 0, 0, 255);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.unity-text-element {
+    -unity-font: url('project://database/Assets/resources/Fonts/Skranji-Regular.ttf?fileID=12800000&guid=37263ac24ff12694fb14b4fc4d66bd85&type=3#Skranji-Regular');
+    -unity-font-definition: url('project://database/Assets/resources/Fonts/Skranji-Regular%20SDF.asset?fileID=11400000&guid=d68846a1da32a464499c561074aa80ed&type=2#Skranji-Regular SDF');
+    -unity-font-style: normal;
+    color: rgba(231, 231, 231, 255);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.51);
+}
+
+#Options > .unity-button {
+    width: 100%;
+}
+
+.unity-progress-bar__progress {
+    background-color: rgba(255, 0, 0, 255);
+}
+
+#BottomBarButtons > .unity-button {
+    flex-basis: 65px;
+}
