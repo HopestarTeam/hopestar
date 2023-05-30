@@ -2,26 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClickableBuilding : Clickable
+public class ClickableBuilding : MonoBehaviour, IClickable
 {
-    public override void OnClick()
+    public void OnHoverEnter()
     {
-        //Open a menu
-        throw new System.NotImplementedException();
+
     }
 
-    public override void OnHoverEnter()
+    public void OnHoverStay()
     {
-        throw new System.NotImplementedException();
+
     }
 
-    public override void OnHoverExit()
+    public void OnHoverExit()
     {
-        throw new System.NotImplementedException();
+
     }
 
-    public override void OnHoverStay()
+    public void OnClick()
     {
-        throw new System.NotImplementedException();
+
     }
+
 }

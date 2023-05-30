@@ -2,24 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClickableBox : Clickable
+public class ClickableBox : MonoBehaviour, IClickable
 {
-    public override void OnClick()
+    public void OnClick()
     {
         Debug.Log($"Clicked {gameObject.name}");
     }
 
-    public override void OnHoverEnter()
+    public void OnHoverEnter()
     {
         Debug.Log($"Entering hover over {gameObject.name}");
     }
 
-    public override void OnHoverExit()
+    public void OnHoverExit()
     {
         Debug.Log($"Exiting hover over {gameObject.name}");
     }
 
-    public override void OnHoverStay()
+    public void OnHoverStay()
     {
     }
 }

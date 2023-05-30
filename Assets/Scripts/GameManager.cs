@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
         else
         {
             gm = this;
+            menuManager.Initialize();
         }
     }
 }
