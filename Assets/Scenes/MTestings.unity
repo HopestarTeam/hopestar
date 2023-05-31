@@ -312,10 +312,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card
       objectReference: {fileID: 0}
-    - target: {fileID: 4434464965460730412, guid: 364776332b9de784abe19406dfaa9d7f, type: 3}
-      propertyPath: resourceGains.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5083975620738546987, guid: 364776332b9de784abe19406dfaa9d7f, type: 3}
       propertyPath: m_RootOrder
       value: 2
