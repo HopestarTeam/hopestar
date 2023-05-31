@@ -17,23 +17,41 @@ public class Grid : MonoBehaviour
     public GameObject this[int i]
     {
         get
-        {
-            return m_objects[i];
+        {   
+            if(i > m_objects.Capacity || i < 0)
+            {
+                Debug.LogError("index out of bounds"); 
+                return null;
+            }
+            else return m_objects[i];
         }
 
         set
         {
-            m_objects[i] = value;
+            if(i > m_objects.Capacity || i < 0)
+            {
+                Debug.LogError("no value set: index out of bounds");
+            }
+            else m_objects[i] = value;
         }
     }
     public GameObject this[int x, int y]
     {
         get
         {
+            if(x >= size.x || x < 0 || y >= size.y || y < 0)
+            {
+                Debug.LogError("index out of range");
+                return null;
+            }
             return m_objects[x + y*size.x];
         }
         set
         {
+            if(x >= size.x || x < 0 || y >= size.y || y < 0)
+            {
+                Debug.LogError("no value set: index out of range");
+            }
             m_objects[x+y*size.x] = value;
         }
     }
