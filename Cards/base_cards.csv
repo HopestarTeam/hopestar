@@ -1,0 +1,16 @@
+Name,Cost,Upkeep,Restriction1,Restriction2,Restriction3,Effect1,Effect2,Effect3,,Count
+Wheat,,E,Non-Urban,,,<center>(food)(food),<center>(co2),,,6
+Rice,,E,Wet,Non-Urban,,<center>(food)(food)(food),<center>(co2),,,6
+Potatoes,,E,Non-(Dry & Hot),,,<center>(food),,,,6
+Cattle,M,,Wet,Non-Urban,,<center>(food),<center>(co2)(co2),,,6
+Coal Mine,,E,Resource,,,<center>(material)(material)(material),<center>(co2)(co2),,,6
+Quarry,,E,Non-Wet,,,<center>(material),<center>(co2)(co2),,,6
+Forestry,,E,Non-Dry,,,<center>(material)(material),<center>(co2),,,6
+Bad Forestry,,E,Non-Dry,,,<center>3T: slot -> Dry,<center>(material)(material)(material),<center>(co2),,6
+Coal Plant,MM,,,,,<center>(energy)(energy)(energy),<center>(co2)(co2)(co2)(co2),,,6
+Solar Farm,MM,,,,,<center>(energy),<center>if Hot: (energy),,,6
+Nuclear Plant,MMMMI,,,,,<center>(energy)(energy)(energy)(energy),,,,3
+Commercial D.,M,EF,Urban,,,<center>(consumer)(consumer),,,,3
+Steel Mill,MM,ME,Industrial,,,<center>(industry),<center>(co2),,,6
+Chip Foundry,MMI,EEM,Industrial,,,<center>(industry)(industry),<center>(consumer)(consumer),<center>(co2),,3
+University,MMC,E,Urban,,,<center>(science)(science)(science),,,,3
