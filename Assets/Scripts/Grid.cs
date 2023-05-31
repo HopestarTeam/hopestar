@@ -7,10 +7,36 @@ public class Grid : MonoBehaviour
     [SerializeField]
     GameObject instantiable;
 
+
     public Vector2 tileSize;
     public Vector2Int size;
 
     public Vector3 offset;
+
+    private List<GameObject> m_objects;
+    public GameObject this[int i]
+    {
+        get
+        {
+            return m_objects[i];
+        }
+
+        set
+        {
+            m_objects[i] = value;
+        }
+    }
+    public GameObject this[int x, int y]
+    {
+        get
+        {
+            return m_objects[x + y*size.x];
+        }
+        set
+        {
+            m_objects[x+y*size.x] = value;
+        }
+    }
 
     void Start()
     {
@@ -19,6 +45,8 @@ public class Grid : MonoBehaviour
     
     public void Generate()
     {
+        m_objects = new List<GameObject>(size.x * size.y);
+        Debug.Log(m_objects.Capacity);
         for(int i = 0; i < size.y; i++)
         {
             for(int j = 0; j < size.x; j++)
@@ -32,7 +60,10 @@ public class Grid : MonoBehaviour
                 current.transform.localPosition = offsetPos;
                 current.transform.rotation = transform.rotation;
                 Debug.Log(current.transform.position);
+                Debug.Log($"{i * size.x + j}");
+                m_objects.Add(current);
             }
+            Debug.Log(m_objects.Capacity);
         }
     }
 
