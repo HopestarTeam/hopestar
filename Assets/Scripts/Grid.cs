@@ -7,10 +7,54 @@ public class Grid : MonoBehaviour
     [SerializeField]
     GameObject instantiable;
 
+
     public Vector2 tileSize;
     public Vector2Int size;
 
     public Vector3 offset;
+
+    private List<GameObject> m_objects;
+    public GameObject this[int i]
+    {
+        get
+        {   
+            if(i > m_objects.Capacity || i < 0)
+            {
+                Debug.LogError("index out of bounds"); 
+                return null;
+            }
+            else return m_objects[i];
+        }
+
+        set
+        {
+            if(i > m_objects.Capacity || i < 0)
+            {
+                Debug.LogError("no value set: index out of bounds");
+            }
+            else m_objects[i] = value;
+        }
+    }
+    public GameObject this[int x, int y]
+    {
+        get
+        {
+            if(x >= size.x || x < 0 || y >= size.y || y < 0)
+            {
+                Debug.LogError("index out of range");
+                return null;
+            }
+            return m_objects[x + y*size.x];
+        }
+        set
+        {
+            if(x >= size.x || x < 0 || y >= size.y || y < 0)
+            {
+                Debug.LogError("no value set: index out of range");
+            }
+            m_objects[x+y*size.x] = value;
+        }
+    }
 
     void Start()
     {
@@ -19,6 +63,8 @@ public class Grid : MonoBehaviour
     
     public void Generate()
     {
+        m_objects = new List<GameObject>(size.x * size.y);
+        Debug.Log(m_objects.Capacity);
         for(int i = 0; i < size.y; i++)
         {
             for(int j = 0; j < size.x; j++)
@@ -32,7 +78,10 @@ public class Grid : MonoBehaviour
                 current.transform.localPosition = offsetPos;
                 current.transform.rotation = transform.rotation;
                 Debug.Log(current.transform.position);
+                Debug.Log($"{i * size.x + j}");
+                m_objects.Add(current);
             }
+            Debug.Log(m_objects.Capacity);
         }
     }
 
