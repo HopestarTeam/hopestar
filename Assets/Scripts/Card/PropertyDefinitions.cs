@@ -32,3 +32,13 @@ public class ResourceTypeDefinition
     public ResourceType resourceType;
     public int amount;
 }
+
+public class CardTypeDefinition
+{
+    public enum CardType
+    {
+        PRODUCTION,
+        INDUSTRY,
+        URBAN
+    }
+}
