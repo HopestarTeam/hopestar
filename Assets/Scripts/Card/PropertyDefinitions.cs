@@ -11,7 +11,9 @@ public class TilePropertyDefinition
         HOT,
         COLD,
         DRY,
-        WET
+        WET,
+        URBAN,
+        INDUSTRY
     }
     public TileProperty property;
 }

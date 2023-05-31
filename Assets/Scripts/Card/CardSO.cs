@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class CardSO : MonoBehaviour
 {
+    public string cardName;
+    public TileType tileType;
     public TilePropertyDefinition[] requiredProperties;
     public TilePropertyDefinition[] blockedProperties;
+    public ResourceTypeDefinition[] resourceCosts;
+    public ResourceTypeDefinition[] resourceUpkeep;
+    public ResourceTypeDefinition[] resourceGains;
     public enum TileType
     {
-        FOODPRODUCTION,
-        RAWPRODUCTION,
-        ENERGYPRODUCTION,
+        PRODUCTION,
         INDUSTRY,
         URBAN
     }
-    public ResourceTypeDefinition[] resourceCosts;
-    public ResourceTypeDefinition[] resourceGains;
     public int emsissionAmount;
-    public TileType tileType;
+    public bool hasFunction;
     public int tileTimer;
 }
