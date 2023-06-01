@@ -22,4 +22,9 @@ public class GameManager : MonoBehaviour
             menuManager.Initialize();
         }
     }
+
+    void Update()
+    {
+        menuManager.Update();
+    }
 }

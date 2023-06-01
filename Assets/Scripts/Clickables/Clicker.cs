@@ -7,7 +7,7 @@ public class Clicker : MonoBehaviour
 {
     Camera cam;
 
-    IClickable lastClickable;
+    IClickable clickable, lastClickable;
 
     [SerializeField] float distance = 100;
 
@@ -36,7 +36,7 @@ public class Clicker : MonoBehaviour
             Debug.DrawRay(ray.origin, ray.direction * distance, Color.red, 0.01f);
 
             RaycastHit hit;
-            IClickable clickable = null;
+            clickable = null;
             if (Physics.Raycast(ray, out hit, distance, Physics.AllLayers))
             {
                 clickable = hit.collider.GetComponent(typeof(IClickable)) as IClickable;
