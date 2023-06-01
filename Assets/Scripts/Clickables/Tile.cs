@@ -11,20 +11,17 @@ public class Tile : MonoBehaviour, IClickable
     //returns true if the tile meets the conditions for the card used as an argument
     bool IsCompatibleWith(CardSO card)
     {
+        if(card.requiredProperties.Length > 0)
         foreach(TilePropertyDefinition definition in card.requiredProperties)
         {
             if(!tileProperties.Contains(definition.property)) return false;
         }
+        if(card.blockedProperties.Length > 0)
         foreach(TilePropertyDefinition definition in card.blockedProperties)
         {
             if(tileProperties.Contains(definition.property)) return false;
         }
         return true;
-    }
-
-    void Start()
-    {
-            Debug.Log(IsCompatibleWith(card));
     }
 
     public void OnClick()
