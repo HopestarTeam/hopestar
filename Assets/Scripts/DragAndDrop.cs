@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DragAndDrop : MonoBehaviour
-{   float pickUpHeight = 0.5f;
+{   
+    float pickUpHeight = 0.5f;
     Vector3 mouseOffset;    //the mouse position relative to the object when it is clicked
 
     private Vector3 GetMouseWorldPosition(){
@@ -19,15 +20,22 @@ public class DragAndDrop : MonoBehaviour
             gameObject.transform.position.z - GetMouseWorldPosition().z);
         
         GetComponent<Rigidbody>().position += Vector3.up * pickUpHeight;
+        Cursor.visible = false;
+        gameObject.tag = "CurrentCard";
     }
 
     private void OnMouseDrag() {
-        GetComponent<Rigidbody>().position = new Vector3(GetMouseWorldPosition().x, pickUpHeight, GetMouseWorldPosition().z) 
+        GetComponent<Rigidbody>().position = new Vector3(
+                                                    GetMouseWorldPosition().x, 
+                                                    GetComponent<Rigidbody>().position.y, 
+                                                    GetMouseWorldPosition().z) 
                                                 + mouseOffset;
 
     }
 
     private void OnMouseUp() {
         GetComponent<Rigidbody>().position -= Vector3.up * pickUpHeight;
+        Cursor.visible = true;
+        gameObject.tag = "Card";
     }
 }
