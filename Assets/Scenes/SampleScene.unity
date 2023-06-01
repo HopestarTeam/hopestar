@@ -438,6 +438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2065526795}
   - component: {fileID: 2065526794}
+  - component: {fileID: 2065526796}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -457,9 +458,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eaab2cb2065e904a8de7021f04bfbac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instantiable: {fileID: 1925538816972524452, guid: 5dcbe6584aca88748acb16a917bd0e8c, type: 3}
+  instantiable: {fileID: 1838371337467799270, guid: 641dd7c41f9517c4e8d8a5da3dbee27e, type: 3}
   tileSize: {x: 1, y: 1}
-  size: {x: 10, y: 10}
+  size: {x: 3, y: 3}
   offset: {x: 0, y: 0, z: 0}
 --- !u!4 &2065526795
 Transform:
@@ -476,3 +477,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2065526796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065526793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53162223be5c04348a2063fff957d6db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 2065526794}
