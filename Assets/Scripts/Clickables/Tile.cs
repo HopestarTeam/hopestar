@@ -45,10 +45,12 @@ public class Tile : MonoBehaviour, IClickable
         }
         GameManager.gm.menuManager.toolTip.text = tilePropetyToolTip;
     }
+
     public void OnHoverExit()
     {
         GameManager.gm.menuManager.toolTip.visible = false;
     }
+    
     public void OnHoverStay()
     {
 
