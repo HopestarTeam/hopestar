@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tile : MonoBehaviour, IClickable, IEnumerable<GameObject>
+public class Tile : MonoBehaviour, IClickable
 {
     public List<CardSO> cards;
 
