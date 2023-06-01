@@ -19,19 +19,24 @@ public class IfTileCardSO : CardSO
         bool passed = true;
         foreach(TileProperty property in conditionalTileProperties)
         {
+            //switch passed to be true on default when uncomment this
             //passed = placedOn.CheckForProperty(property);
             if(!passed)
                 break;
         }
 
+        //Have to change this so it changes the values in the handler instead
+        //This changes the whole SO, meaning for all instances of this card
         if(passed)
             resourceGains = newResourceGains;
         else
             resourceGains = oldResourceGains;
     }
 
-    public new void RunCard()
+    public void RunFunction()
     {
+        CheckCardIf();
         Debug.Log("Ran If Variant With " + conditionalTileProperties[0]);
+        RunCard();
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5ae3cfc984498499e7c0658b34c7b0, type: 3}
   m_Name: SolarFarm
   m_EditorClassIdentifier: 
-  cardName: 
+  cardName: Solar Farm
   cardType: 0
   requiredTileProperties: 
   blockedTileProperties: 
@@ -22,7 +22,7 @@ MonoBehaviour:
   resourceUpkeep: []
   resourceGains:
   - resourceType: 0
-    amount: 1
+    amount: 2
   emsissionAmount: 0
   hasFunction: 1
   functionType: 1

@@ -48,5 +48,7 @@ MonoBehaviour:
   cardSOs:
   - {fileID: 11400000, guid: f7b18c3a66a0be844bee67f09814682d, type: 2}
   - {fileID: 11400000, guid: 86833238a0209264aa048002d77d04cf, type: 2}
+  - {fileID: 11400000, guid: 81bc0e5ad21f3204bb7bf60d2510b24b, type: 2}
   deckMatrixMaxWidth: 2
-  widthSpace: 2
+  widthSpace: 5
+  depthSpace: 6

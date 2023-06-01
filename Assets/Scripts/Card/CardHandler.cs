@@ -38,22 +38,23 @@ public class CardHandler : MonoBehaviour
             switch (properties.functionType)
             {
                 case CardSO.FunctionType.IF:
-                    IfTileCardSO tmp = (IfTileCardSO)properties;
-                    tmp.CheckCardIf();
-                    tmp.RunCard();
+                    IfTileCardSO iCard = (IfTileCardSO)properties;
+                    iCard.RunFunction();
                     break;
                 case CardSO.FunctionType.TIMER:
                     if(properties.cardTimer == 0)
                     {
-                        SendMessage("RunCardFunction");
+                        TimerCardSO tCard = (TimerCardSO)properties;
+                        tCard.RunFunction();
                     }
                     break;
                 default:
-                    SendMessage("RunCardFunction");
+
                     break;
             }
         }
-        properties.RunCard();
+        else
+            properties.RunCard();
         
     }
 }

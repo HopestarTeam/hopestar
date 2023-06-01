@@ -16,10 +16,11 @@ public class CardSO : ScriptableObject
     public bool hasFunction;
     public enum FunctionType
     {
-        TIMER,
+        DEFAULT,
         IF,
-        CUSTOM
+        TIMER
     }
+    [HideInInspector]
     public FunctionType functionType;
     public int cardTimer {get {return cardTimer;} set {if(value>0) cardTimer = value; else cardTimer = 0;}}
     public Tile placedOn;
@@ -27,7 +28,52 @@ public class CardSO : ScriptableObject
 
     public void RunCard()
     {
-        Debug.Log("Ran Normal Variant");
-        //GameManager.gm.variables.CO2 += emsissionAmount;
+        GameManager.gm.variables.CO2 += emsissionAmount;
+        foreach(ResourceTypeDefinition definition in resourceGains)
+        {
+            switch(definition.resourceType)
+            {
+                case ResourceTypeDefinition.ResourceType.RAW:
+                    GameManager.gm.variables.RawResources += definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.FOOD:
+                    GameManager.gm.variables.Food += definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.ENERGY:
+                    GameManager.gm.variables.Energy += definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.CONSUMER:
+                    GameManager.gm.variables.ConsumerGoods += definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.INDUSTRY:
+                    GameManager.gm.variables.IndustryGoods += definition.amount;
+                    break;
+                default:
+                    break;
+            }
+        }
+        foreach(ResourceTypeDefinition definition in resourceUpkeep)
+        {
+            switch(definition.resourceType)
+            {
+                case ResourceTypeDefinition.ResourceType.RAW:
+                    GameManager.gm.variables.RawResources -= definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.FOOD:
+                    GameManager.gm.variables.Food -= definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.ENERGY:
+                    GameManager.gm.variables.Energy -= definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.CONSUMER:
+                    GameManager.gm.variables.ConsumerGoods -= definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.INDUSTRY:
+                    GameManager.gm.variables.IndustryGoods -= definition.amount;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
