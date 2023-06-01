@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tile : MonoBehaviour, IClickable
+public class Tile : MonoBehaviour, IClickable, IEnumerable<GameObject>
 {
     public List<CardSO> cards;
 
@@ -11,16 +11,25 @@ public class Tile : MonoBehaviour, IClickable
     //returns true if the tile meets the conditions for the card used as an argument
     public bool IsCompatibleWith(CardSO card)
     {
-        foreach(TileProperty property in card.requiredTileProperties)
+        return (HasProperties(card.requiredTileProperties) && !HasProperties(card.blockedTileProperties));
+    }
+
+    //Returns true if the tile has the property
+    public bool HasProperty(TileProperty property)
+    {
+        return tileProperties.Contains(property);
+    }
+
+    //Returns true if the tile has all of the tile properties
+    bool HasProperties(TileProperty[] properties)
+    {
+        foreach(TileProperty property in properties)
         {
-            if(!tileProperties.Contains(property)) return false;
-        }
-        foreach(TileProperty property in card.blockedTileProperties)
-        {
-            if(tileProperties.Contains(property)) return false;
+            if(!tileProperties.Contains(property))return false;
         }
         return true;
     }
+
 
     void Start()
     {
