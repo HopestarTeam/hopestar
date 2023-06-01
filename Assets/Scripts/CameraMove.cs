@@ -49,7 +49,7 @@ public class CameraMove : MonoBehaviour
         float xPos = Mathf.Clamp01(input.x / Screen.width) * 2 - 1;
         float yPos = Mathf.Clamp01(input.y / Screen.height) * 2 - 1;
         
-        Debug.Log($"{xPos}, {yPos}");
+//        Debug.Log($"{xPos}, {yPos}");
 
         return Vector2.ClampMagnitude(new Vector2(xPos, yPos), 1);
     }

@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 122024952}
   - component: {fileID: 122024951}
   - component: {fileID: 122024950}
+  - component: {fileID: 122024954}
   m_Layer: 0
   m_Name: Slot_1
   m_TagString: Untagged
@@ -220,6 +221,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &122024954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122024949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb08aaa8e46ab745bc68829a1b3ff4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &557123628
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +249,7 @@ GameObject:
   - component: {fileID: 557123634}
   m_Layer: 0
   m_Name: Card
-  m_TagString: Untagged
+  m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -328,7 +341,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557123628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.47, y: 0.005, z: -4.89}
+  m_LocalPosition: {x: -0.2, y: 0.005, z: -4.8}
   m_LocalScale: {x: 1, y: 0.01, z: 1.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -473,6 +486,7 @@ GameObject:
   - component: {fileID: 1171609303}
   - component: {fileID: 1171609302}
   - component: {fileID: 1171609301}
+  - component: {fileID: 1171609305}
   m_Layer: 0
   m_Name: Slot_2
   m_TagString: Untagged
@@ -558,6 +572,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1171609305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171609300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb08aaa8e46ab745bc68829a1b3ff4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1338227058
 GameObject:
   m_ObjectHideFlags: 0
