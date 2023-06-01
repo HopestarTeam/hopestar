@@ -27,6 +27,7 @@ public class CardSO : ScriptableObject
 
     public void RunCard()
     {
-        GameManager.gm.variables.CO2 += emsissionAmount;
+        Debug.Log("Ran Normal Variant");
+        //GameManager.gm.variables.CO2 += emsissionAmount;
     }
 }

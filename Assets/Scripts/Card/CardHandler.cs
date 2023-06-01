@@ -28,6 +28,7 @@ public class CardHandler : MonoBehaviour
                 mesh.material.color = Color.magenta;
                 break;
         }
+        ResolveCard();
     }
 
     public void ResolveCard()
@@ -37,8 +38,9 @@ public class CardHandler : MonoBehaviour
             switch (properties.functionType)
             {
                 case CardSO.FunctionType.IF:
-                    //RunCardFunction should be ran inside the CheckCardIf of the card
-                    SendMessage("CheckCardIf");
+                    IfTileCardSO tmp = (IfTileCardSO)properties;
+                    tmp.CheckCardIf();
+                    tmp.RunCard();
                     break;
                 case CardSO.FunctionType.TIMER:
                     if(properties.cardTimer == 0)
@@ -47,10 +49,11 @@ public class CardHandler : MonoBehaviour
                     }
                     break;
                 default:
-                    Debug.LogWarning("No Function type handling set");
+                    SendMessage("RunCardFunction");
                     break;
             }
         }
         properties.RunCard();
+        
     }
 }

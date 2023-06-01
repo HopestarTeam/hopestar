@@ -7,26 +7,31 @@ public class IfTileCardSO : CardSO
 {
     [SerializeField] TileProperty[] conditionalTileProperties;
     [SerializeField] ResourceTypeDefinition[] newResourceGains;
+    ResourceTypeDefinition[] oldResourceGains;
 
     private void Awake() {
         functionType = FunctionType.IF;
+        oldResourceGains = resourceGains;
     }
 
     public void CheckCardIf()
     {
+        bool passed = true;
         foreach(TileProperty property in conditionalTileProperties)
         {
-            //placedOn.CheckForProperty(property);
+            //passed = placedOn.CheckForProperty(property);
+            if(!passed)
+                break;
         }
+
+        if(passed)
+            resourceGains = newResourceGains;
+        else
+            resourceGains = oldResourceGains;
     }
 
     public new void RunCard()
     {
-        GameManager.gm.variables.CO2 += emsissionAmount;
-    }
-
-    public void RunCardFunction()
-    {
-
+        Debug.Log("Ran If Variant With " + conditionalTileProperties[0]);
     }
 }
