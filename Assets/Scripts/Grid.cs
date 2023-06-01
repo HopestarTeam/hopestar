@@ -72,7 +72,7 @@ public class Grid : MonoBehaviour
     public void Generate()
     {
         m_objects = new List<GameObject>(size.x * size.y);
-        Debug.Log(m_objects.Capacity);
+        // Debug.Log(m_objects.Capacity);
         for(int i = 0; i < size.y; i++)
         {
             for(int j = 0; j < size.x; j++)
@@ -85,11 +85,11 @@ public class Grid : MonoBehaviour
                 Vector3 offsetPos = new Vector3(tileSize.x * j, 0, tileSize.y * i) + offset;
                 current.transform.localPosition = offsetPos;
                 current.transform.rotation = transform.rotation;
-                Debug.Log(current.transform.position);
-                Debug.Log($"{i * size.x + j}");
+                // Debug.Log(current.transform.position);
+                // Debug.Log($"{i * size.x + j}");
                 m_objects.Add(current);
             }
-            Debug.Log(m_objects.Capacity);
+            // Debug.Log(m_objects.Capacity);
         }
     }
 

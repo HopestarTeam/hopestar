@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour, IClickable
 {
-    public List<CardSO> cards;
+    public CardSO card;
 
     public List<TileProperty> tileProperties;
 
@@ -22,14 +22,6 @@ public class Tile : MonoBehaviour, IClickable
         return true;
     }
 
-    void Start()
-    {
-        foreach(CardSO card in cards)
-        {
-            Debug.Log(IsCompatibleWith(card));
-        }
-    }
-
     public void OnClick()
     {
 
@@ -45,10 +37,12 @@ public class Tile : MonoBehaviour, IClickable
         }
         GameManager.gm.menuManager.toolTip.text = tilePropetyToolTip;
     }
+
     public void OnHoverExit()
     {
         GameManager.gm.menuManager.toolTip.visible = false;
     }
+    
     public void OnHoverStay()
     {
 

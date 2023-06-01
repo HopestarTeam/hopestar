@@ -43,7 +43,7 @@ public class ToolTip : Label
         set
         {
             m_ScreenPosition = value;
-            Debug.Log(screenPosition);
+           // Debug.Log(screenPosition);
             this.style.top = m_ScreenPosition.y;
             this.style.right = m_ScreenPosition.x;
         }
