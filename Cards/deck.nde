@@ -1,0 +1,40 @@
+;LINKMULTI = "Count"
+LINK = "base_cards.csv"
+
+;Settings
+UNIT = MM
+PAGE = 210, 297, PORTRAIT
+BORDER = RECTANGLE, #000000, 3
+
+;Icons
+ICON = , F, FoodIcon.png
+ICON = , E, EnergyIcon.png
+ICON = , M, RawMaterialIcon.png
+ICON = , I, IndustrialGoodsIcon.png
+ICON = , C, ConsumerGoodsIcon.png
+ICON = , S, ScienceIcon.png
+ICON = , X, CO2Icon.png
+
+HTMLIMAGE = , (food), FoodIcon.png, 8, 8
+HTMLIMAGE = , (energy), EnergyIcon.png, 8, 8
+HTMLIMAGE = , (material), RawMaterialIcon.png, 8, 8
+HTMLIMAGE = , (industry), IndustrialGoodsIcon.png, 8, 8
+HTMLIMAGE = , (consumer), ConsumerGoodsIcon.png, 8, 8
+HTMLIMAGE = , (science), ScienceIcon.png, 8, 8
+HTMLIMAGE = , (co2), CO2Icon.png, 8, 8
+
+
+;Visual
+VISUAL=, 10, 10
+FONT=Garamond,16,,#000000
+TEXT="1-{(NAME)}",[NAME],{600/37}%,3.4%,{22300/333}%,18.8%,CENTER,WORDWRAP
+FONT=Garamond,14,,#000000
+ICONS="1-{(COST)}",[COST],{200/111}%,3.2%,{5200/333}%,37.8%,12%,7.5%,0,V,CENTER,TOP
+ICONS="1-{(UPKEEP)}",[UPKEEP],{27400/333}%,3.2%,{5200/333}%,37.8%,12%,7.5%,0,V,CENTER,TOP
+TEXT="1-{(RESTRICTION1)}",[RESTRICTION1],0%,40%,100%,10%
+TEXT="1-{(RESTRICTION2)}",[RESTRICTION2],0%,50%,100%,10%
+TEXT="1-{(RESTRICTION3)}",[RESTRICTION3],0%,60%,100%,10%
+HTMLTEXT="1-{(EFFECT1)}",[EFFECT1],0%,70%,100%,10%,#FFFFFF,0,A
+HTMLTEXT="1-{(EFFECT2)}",[EFFECT2],0%,80%,100%,10%,#FFFFFF,0,A
+HTMLTEXT="1-{(EFFECT3)}",[EFFECT3],0%,90%,100%,10%,#FFFFFF,0,A
+ENDVISUAL
