@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grid : MonoBehaviour
+public class Grid : MonoBehaviour, IEnumerable
 {
     [SerializeField]
     GameObject instantiable;
@@ -144,5 +144,8 @@ public class Grid : MonoBehaviour
         }
     }
 
-    
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return m_objects.GetEnumerator();
+    }
 }
