@@ -56,6 +56,14 @@ public class Grid : MonoBehaviour
         }
     }
 
+    public int count
+    {
+        get
+        {
+            return m_objects.Count;
+        }
+    }
+
     void Start()
     {
         Generate();
