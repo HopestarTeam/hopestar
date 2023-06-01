@@ -6,18 +6,18 @@ public class Tile : MonoBehaviour, IClickable
 {
     public List<CardSO> cards;
 
-    public List<TilePropertyDefinition.TileProperty> tileProperties;
+    public List<TileProperty> tileProperties;
 
     //returns true if the tile meets the conditions for the card used as an argument
-    bool IsCompatibleWith(CardSO card)
+    public bool IsCompatibleWith(CardSO card)
     {
-        foreach(TilePropertyDefinition definition in card.requiredProperties)
+        foreach(TileProperty property in card.requiredTileProperties)
         {
-            if(!tileProperties.Contains(definition.property)) return false;
+            if(!tileProperties.Contains(property)) return false;
         }
-        foreach(TilePropertyDefinition definition in card.blockedProperties)
+        foreach(TileProperty property in card.blockedTileProperties)
         {
-            if(tileProperties.Contains(definition.property)) return false;
+            if(tileProperties.Contains(property)) return false;
         }
         return true;
     }
@@ -39,7 +39,7 @@ public class Tile : MonoBehaviour, IClickable
     {
         GameManager.gm.menuManager.toolTip.visible = true;
         string tilePropetyToolTip = "";
-        foreach(TilePropertyDefinition.TileProperty property in tileProperties)
+        foreach(TileProperty property in tileProperties)
         {
             tilePropetyToolTip += $"{property} \n";
         }

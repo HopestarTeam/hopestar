@@ -3,20 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
+public enum TileProperty
+{
+    HOT,
+    COLD,
+    DRY,
+    WET,
+    URBAN,
+    INDUSTRY
+}
+
+/*[Serializable]
 public class TilePropertyDefinition
 {
-    public enum TileProperty
-    {
-        HOT,
-        COLD,
-        DRY,
-        WET,
-        URBAN,
-        INDUSTRY
-    }
     public TileProperty property;
-}
+}*/
 
 [Serializable]
 public class ResourceTypeDefinition
@@ -33,12 +34,11 @@ public class ResourceTypeDefinition
     public int amount;
 }
 
-public class CardTypeDefinition
+public enum CardType
 {
-    public enum CardType
-    {
-        PRODUCTION,
-        INDUSTRY,
-        URBAN
-    }
+    ENERGY,
+    RAW,
+    FOOD,
+    INDUSTRY,
+    URBAN
 }

@@ -9,21 +9,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fccc3239a4105941b641f032744b083, type: 3}
-  m_Name: RiceFarm
+  m_Script: {fileID: 11500000, guid: 0e5ae3cfc984498499e7c0658b34c7b0, type: 3}
+  m_Name: SolarFarm
   m_EditorClassIdentifier: 
-  cardName: Rice Farm
-  cardType: 2
+  cardName: 
+  cardType: 0
   requiredTileProperties: 00000000
-  blockedTileProperties: 00000000
-  resourceCosts: []
-  resourceUpkeep:
+  blockedTileProperties: 
+  resourceCosts:
+  - resourceType: 1
+    amount: 2
+  resourceUpkeep: []
+  resourceGains:
   - resourceType: 0
     amount: 1
-  resourceGains:
-  - resourceType: 2
-    amount: 3
-  emsissionAmount: 1
-  hasFunction: 0
-  functionType: 0
+  emsissionAmount: 0
+  hasFunction: 1
+  functionType: 1
   placedOn: {fileID: 0}
+  conditionalTileProperties: 00000000
+  newResourceGains:
+  - resourceType: 0
+    amount: 2

@@ -19,14 +19,11 @@ public class DeckBehaviour : MonoBehaviour
         {
             if(i%deckMatrixMaxWidth == 0)
                 row++;
-            GameObject newCard = Instantiate(cardPrefab, transform.position + new Vector3(widthSpace*(i%deckMatrixMaxWidth),-depthSpace*row,0), transform.rotation, transform);
+            GameObject newCard = Instantiate(cardPrefab,
+                        transform.position + new Vector3(widthSpace*(i%deckMatrixMaxWidth),-depthSpace*row,0),
+                        transform.rotation,
+                        transform);
             newCard.GetComponent<CardHandler>().properties = cardSOs[i];
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

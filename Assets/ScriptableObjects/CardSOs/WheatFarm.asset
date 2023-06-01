@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: WheatFarm
   m_EditorClassIdentifier: 
   cardName: Wheat Farm
-  cardType: 1
-  requiredTileProperties: []
-  blockedTileProperties:
-  - property: 4
+  cardType: 2
+  requiredTileProperties: 
+  blockedTileProperties: 00000000
   resourceCosts: []
   resourceUpkeep:
   - resourceType: 0
@@ -26,3 +25,5 @@ MonoBehaviour:
     amount: 2
   emsissionAmount: 1
   hasFunction: 0
+  functionType: 0
+  placedOn: {fileID: 0}
