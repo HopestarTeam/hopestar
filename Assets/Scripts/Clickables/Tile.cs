@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour, IClickable
 {
-    public List<CardSO> cards;
+    public CardSO card;
 
     public List<TilePropertyDefinition.TileProperty> tileProperties;
 
@@ -24,10 +24,7 @@ public class Tile : MonoBehaviour, IClickable
 
     void Start()
     {
-        foreach(CardSO card in cards)
-        {
             Debug.Log(IsCompatibleWith(card));
-        }
     }
 
     public void OnClick()
