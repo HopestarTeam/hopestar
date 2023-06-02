@@ -6,6 +6,23 @@ public class DragAndDrop : MonoBehaviour
 {   
     float pickUpHeight = 0.5f;
     Vector3 mouseOffset;    //the mouse position relative to the object when it is clicked
+    Vector3 initialPosition;    //this will be removed once cards are stored in the card pool
+ 
+    GameObject target;  //the card slot where it will be placed
+    public void SetTarget(GameObject theTarget){target = theTarget;}    
+    public void SetTargetToNull(){target = null;}
+
+    public void ExecuteCardFunctions(){
+        //this is where you call the card functions
+        Debug.Log("card functions were called");
+    }
+
+    private void MoveCard(Vector3 targetPosition){   //this function should lerp in the final version
+        GetComponent<Rigidbody>().position = new Vector3(
+                                                    targetPosition.x, 
+                                                    GetComponent<Rigidbody>().position.y - pickUpHeight, 
+                                                    targetPosition.z);
+    }
 
     private Vector3 GetMouseWorldPosition(){
         float cameraDistance = Mathf.Abs(Camera.main.GetComponent<Transform>().position.z);
@@ -13,7 +30,14 @@ public class DragAndDrop : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(mousePosition);
     }
 
+    private void Awake() {
+        SetTargetToNull();
+        initialPosition = gameObject.transform.position;    //this will be removed once cards are stored in the card pool
+    }
+
     private void OnMouseDown() {
+        if (target != null){target.GetComponent<CardSlot>().RemoveCard();}
+
         mouseOffset = new Vector3(
             gameObject.transform.position.x - GetMouseWorldPosition().x,
             0f,
@@ -34,8 +58,20 @@ public class DragAndDrop : MonoBehaviour
     }
 
     private void OnMouseUp() {
-        GetComponent<Rigidbody>().position -= Vector3.up * pickUpHeight;
         Cursor.visible = true;
+        if (target == null){
+            MoveCard(initialPosition);
+            //the card goes back to the card pool
+        }
+        if (target != null){
+            MoveCard(target.transform.position);
+            target.GetComponent<CardSlot>().AddCard(gameObject);
+        }
+
         gameObject.tag = "Card";
+    }
+
+    private void Update() {
+        //Debug.Log(target);
     }
 }
