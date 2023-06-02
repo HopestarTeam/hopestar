@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eaab2cb2065e904a8de7021f04bfbac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instantiable: {fileID: 1838371337467799270, guid: 641dd7c41f9517c4e8d8a5da3dbee27e, type: 3}
+  instantiable: {fileID: 1017021125014232963, guid: 6e84a2a2e135d424ea5729f508ec7f41, type: 3}
   tileSize: {x: 1, y: 1}
   size: {x: 3, y: 3}
   offset: {x: 0, y: 0, z: 0}

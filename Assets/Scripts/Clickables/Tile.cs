@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CardHandler))]
 public class Tile : MonoBehaviour, IClickable
 {
-    public CardSO card;
+    public CardHandler cardHandler;
 
+    public CardSO card;
     public List<TileProperty> tileProperties;
 
     //returns true if the tile meets the conditions for the card used as an argument
