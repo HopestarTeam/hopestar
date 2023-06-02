@@ -35,15 +35,14 @@ public class EndTurn : MonoBehaviour
                 Debug.Log("No tile component found");
                 continue;
             }
-            if (current.card == null)
+            if (current.cardHandler == null)
             {
                 Debug.Log("There is no card");
             }
            
-           if (current.card != null)
+           if (current.cardHandler != null)
            {
-                // myCardHandler = current.card; // Fetch card from current, activate this later.
-                myCardHandler.ResolveCard();
+                current.cardHandler.ResolveCard();
            }
 
         }
