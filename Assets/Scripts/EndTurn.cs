@@ -26,8 +26,8 @@ public class EndTurn : MonoBehaviour
     {
         for (int i = 0; i < listSize; i++)
         {
-            int currentItem = i;  //this should be the current item in the list
-           // Debug.Log(currentItem);
+            //int currentItem = i;  //this should be the current item in the list ; you can just use i instead
+            // Debug.Log(currentItem);
 
             Tile current = myGrid[i].GetComponent<Tile>();
             if(current == null)
@@ -35,16 +35,17 @@ public class EndTurn : MonoBehaviour
                 Debug.Log("No tile component found");
                 continue;
             }
-            if (current.card == null)
+
+            if (current.cardHandler != null)
+            {
+                 // Fetch card from current, activate this later.
+                 myCardHandler = current.cardHandler;
+                 myCardHandler.ResolveCard();
+            }
+            else
             {
                 Debug.Log("There is no card");
             }
-           
-           if (current.card != null)
-           {
-                // myCardHandler = current.card; // Fetch card from current, activate this later.
-                myCardHandler.ResolveCard();
-           }
 
         }
      
