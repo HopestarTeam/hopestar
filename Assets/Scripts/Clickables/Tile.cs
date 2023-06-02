@@ -7,7 +7,6 @@ public class Tile : MonoBehaviour, IClickable
 {
     public CardHandler cardHandler;
 
-    public CardSO card;
     public List<TileProperty> tileProperties;
 
     //returns true if the tile meets the conditions for the card used as an argument
