@@ -8,9 +8,12 @@ public class CardSlot : MonoBehaviour
     float halfHeight;
     float currentCardCenterX;
     float currentCardCenterZ;
+    bool oldValue = false;  //we use this to check when the CardIsAbove valuse changes
 
 
-    private bool cardIsAbove(){
+
+
+    private bool CardIsAbove(){
         if (GameObject.FindGameObjectWithTag("CurrentCard") != null){
             currentCard = GameObject.FindGameObjectWithTag("CurrentCard");
             currentCardCenterX = currentCard.transform.position.x;
@@ -37,8 +40,18 @@ public class CardSlot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
+        if (CardIsAbove()){
+            oldValue = true;
+            GameObject.FindGameObjectWithTag("CurrentCard").GetComponent<DragAndDrop>().SetTarget(gameObject);
+        }
+
+        if (!CardIsAbove() && oldValue){
+            oldValue = false;
+            GameObject.FindGameObjectWithTag("CurrentCard").GetComponent<DragAndDrop>().SetTargetToNull();
+        }
+
         //this is for testing, comment out if not needed
-        if (cardIsAbove()){GetComponent<Renderer>().material.SetColor("_Color", Color.red);}
-        if (!cardIsAbove()){GetComponent<Renderer>().material.SetColor("_Color", new Color(255f, 218f, 218f, 255));}
+        if (CardIsAbove()){GetComponent<Renderer>().material.SetColor("_Color", Color.red);}
+        if (!CardIsAbove()){GetComponent<Renderer>().material.SetColor("_Color", new Color(255f, 218f, 218f, 255));}
     }
 }
