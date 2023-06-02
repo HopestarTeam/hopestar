@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myGrid: {fileID: 2065526794}
   myCardHandler: {fileID: 1128577735209292274, guid: 364776332b9de784abe19406dfaa9d7f, type: 3}
+  myGameManager: {fileID: 353284547}
 --- !u!65 &230770328
 BoxCollider:
   m_ObjectHideFlags: 0

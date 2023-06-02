@@ -6,7 +6,8 @@ public class EndTurn : MonoBehaviour
 {
    [SerializeField] Grid myGrid;
    [SerializeField] CardHandler myCardHandler;
-  int listSize;
+
+     int listSize;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +47,27 @@ public class EndTurn : MonoBehaviour
            }
 
         }
+     
+        Debug.Log(GameManager.gm.variables.CO2);
+        Debug.Log(GameManager.gm.variables.CitizenUnrest);
+        Debug.Log(GameManager.gm.variables.RawResources);
+        Debug.Log(GameManager.gm.variables.Food);
+        Debug.Log(GameManager.gm.variables.Energy);
+        Debug.Log(GameManager.gm.variables.ConsumerGoods);
+        Debug.Log(GameManager.gm.variables.IndustryGoods);
+        
+        // Here should come a popup window with stats and a close button.
+
+
+        // Here the script should clear Raw Resources, Food, Energy, ConsumerGoods and IndustryGoods.
+        GameManager.gm.variables.RawResources = 0f;
+        GameManager.gm.variables.Food = 0f;
+        GameManager.gm.variables.Energy = 0f;
+        GameManager.gm.variables.ConsumerGoods = 0f;
+        GameManager.gm.variables.IndustryGoods = 0f;
+
+    
+
     }
 
     private void OnMouseDown() {
