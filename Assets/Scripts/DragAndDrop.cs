@@ -12,6 +12,11 @@ public class DragAndDrop : MonoBehaviour
     public void SetTarget(GameObject theTarget){target = theTarget;}    
     public void SetTargetToNull(){target = null;}
 
+    public void ExecuteCardFunctions(){
+        //this is where you call the card functions
+        Debug.Log("card functions were called");
+    }
+
     private void MoveCard(Vector3 targetPosition){   //this function should lerp in the final version
         GetComponent<Rigidbody>().position = new Vector3(
                                                     targetPosition.x, 
@@ -31,7 +36,7 @@ public class DragAndDrop : MonoBehaviour
     }
 
     private void OnMouseDown() {
-        if (target != null){target.GetComponent<CardSlot>().SetFree();}
+        if (target != null){target.GetComponent<CardSlot>().RemoveCard();}
 
         mouseOffset = new Vector3(
             gameObject.transform.position.x - GetMouseWorldPosition().x,
@@ -60,13 +65,13 @@ public class DragAndDrop : MonoBehaviour
         }
         if (target != null){
             MoveCard(target.transform.position);
-            target.GetComponent<CardSlot>().SetOccupied();
+            target.GetComponent<CardSlot>().AddCard(gameObject);
         }
 
         gameObject.tag = "Card";
     }
 
     private void Update() {
-        Debug.Log(target);
+        //Debug.Log(target);
     }
 }

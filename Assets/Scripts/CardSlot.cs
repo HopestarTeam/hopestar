@@ -11,15 +11,21 @@ public class CardSlot : MonoBehaviour
     GameObject currentCard;
     bool oldValue = false;  //we use this to check when the CardIsAbove valuse changes
 
-    bool isFree = true;
-    public bool SlotIsFree(){return isFree;}
-    public void SetOccupied(){isFree = false;}
-    public void SetFree(){isFree = true;}
+    GameObject slottedCard;
+    public bool IsFree(){return slottedCard == null;}
+    public void AddCard(GameObject card){slottedCard = card;}
+    public void RemoveCard(){slottedCard = null;}
+
+    public void ActivateCard(){
+        if (!IsFree()){
+            slottedCard.GetComponent<DragAndDrop>().ExecuteCardFunctions();
+        }
+    }
         
     
 
     private bool CardIsAbove(){
-        if (GameObject.FindGameObjectWithTag("CurrentCard") != null && isFree){
+        if (GameObject.FindGameObjectWithTag("CurrentCard") != null && IsFree()){
             currentCard = GameObject.FindGameObjectWithTag("CurrentCard");
             currentCardCenterX = currentCard.transform.position.x;
             currentCardCenterZ = currentCard.transform.position.z;
