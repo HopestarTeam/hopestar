@@ -10,7 +10,8 @@ public enum TileProperty
     DRY,
     WET,
     URBAN,
-    INDUSTRY
+    INDUSTRY,
+    RESOURCERICH
 }
 
 /*[Serializable]
@@ -28,7 +29,8 @@ public class ResourceTypeDefinition
         RAW,
         FOOD,
         INDUSTRY,
-        CONSUMER
+        CONSUMER,
+        RESEARCH
     }
     public ResourceType resourceType;
     public int amount;

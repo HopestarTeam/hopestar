@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140891021711403680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1006324, y: -1.5286767, z: 1.7785969}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46,9 +46,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 4196463696973087589, guid: 364776332b9de784abe19406dfaa9d7f, type: 3}
   cardSOs:
+  - {fileID: 11400000, guid: 02d39fa33f11e334784f05664f02410f, type: 2}
+  - {fileID: 11400000, guid: 130c1a5fd3e20b446bae35ce17ce846a, type: 2}
+  - {fileID: 11400000, guid: 2726545ab54c27d4e977bfc0605a9a65, type: 2}
+  - {fileID: 11400000, guid: 644467916c35d2945832f42354f0a81d, type: 2}
+  - {fileID: 11400000, guid: 1b506db3077b6464293d2166e3b96c44, type: 2}
+  - {fileID: 11400000, guid: 549dcab6025b3d244bb2190e9dc020ff, type: 2}
+  - {fileID: 11400000, guid: 123a515e80238f4489f65cb94038db65, type: 2}
+  - {fileID: 11400000, guid: 586a8ddc0cb2c9a4185caa36929070fb, type: 2}
+  - {fileID: 11400000, guid: cb0918f34be59654eb719aa026f614f7, type: 2}
+  - {fileID: 11400000, guid: f92003f285bbc6344bb3374edb0dc85f, type: 2}
   - {fileID: 11400000, guid: f7b18c3a66a0be844bee67f09814682d, type: 2}
-  - {fileID: 11400000, guid: 86833238a0209264aa048002d77d04cf, type: 2}
   - {fileID: 11400000, guid: 81bc0e5ad21f3204bb7bf60d2510b24b, type: 2}
-  deckMatrixMaxWidth: 2
+  - {fileID: 11400000, guid: fd284da4b8745854299e1ee020386b03, type: 2}
+  - {fileID: 11400000, guid: 6f6a303f9ddf1f64f8579ff741cfa386, type: 2}
+  - {fileID: 11400000, guid: 86833238a0209264aa048002d77d04cf, type: 2}
+  deckMatrixMaxWidth: 3
   widthSpace: 5
   depthSpace: 6

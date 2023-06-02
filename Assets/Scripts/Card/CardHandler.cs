@@ -26,6 +26,12 @@ public class CardHandler : MonoBehaviour
             case CardType.RAW:
                 mesh.material.color = Color.red;
                 break;
+            case CardType.INDUSTRY:
+                mesh.material.color = Color.gray;
+                break;
+            case CardType.URBAN:
+                mesh.material.color = Color.yellow;
+                break;
             default:
                 mesh.material.color = Color.magenta;
                 break;
