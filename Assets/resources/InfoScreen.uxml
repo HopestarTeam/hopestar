@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="InfoScreenTemplate" src="project://database/Assets/resources/InfoScreenTemplate.uxml?fileID=9197481963319205126&amp;guid=141cd3a380ce8ad479e2789a167f2181&amp;type=3#InfoScreenTemplate" />
+    <Style src="project://database/Assets/resources/styles.uss?fileID=7433441132597879392&amp;guid=ea77a08c0910114469079150d92af050&amp;type=3#styles" />
+    <ui:Instance template="InfoScreenTemplate" name="InfoScreenTemplate" />
+</ui:UXML>
