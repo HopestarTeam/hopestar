@@ -1,5 +1,5 @@
 .GUIBackground {
-    background-color: rgba(115, 115, 115, 0.57);
+    background-color: rgba(115, 115, 115, 0.89);
 }
 
 .unity-button {
