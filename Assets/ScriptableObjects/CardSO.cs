@@ -37,6 +37,7 @@ public class CardSO : ScriptableObject
     {
         GlobalVariables variables = GameManager.gm.variables;
         variables.CO2 += emsissionAmount;
+        if(resourceGains != null)
         foreach(ResourceTypeDefinition definition in resourceGains)
         {
             switch(definition.resourceType)
@@ -60,6 +61,7 @@ public class CardSO : ScriptableObject
                     break;
             }
         }
+        if(resourceUpkeep != null)
         foreach(ResourceTypeDefinition definition in resourceUpkeep)
         {
             switch(definition.resourceType)
