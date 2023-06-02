@@ -8,13 +8,18 @@ public class CardSlot : MonoBehaviour
     float halfHeight;
     float currentCardCenterX;
     float currentCardCenterZ;
+    GameObject currentCard;
     bool oldValue = false;  //we use this to check when the CardIsAbove valuse changes
 
-
-
+    bool isFree = true;
+    public bool SlotIsFree(){return isFree;}
+    public void SetOccupied(){isFree = false;}
+    public void SetFree(){isFree = true;}
+        
+    
 
     private bool CardIsAbove(){
-        if (GameObject.FindGameObjectWithTag("CurrentCard") != null){
+        if (GameObject.FindGameObjectWithTag("CurrentCard") != null && isFree){
             currentCard = GameObject.FindGameObjectWithTag("CurrentCard");
             currentCardCenterX = currentCard.transform.position.x;
             currentCardCenterZ = currentCard.transform.position.z;
@@ -29,7 +34,7 @@ public class CardSlot : MonoBehaviour
         
     }
 
-    GameObject currentCard;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +50,7 @@ public class CardSlot : MonoBehaviour
             GameObject.FindGameObjectWithTag("CurrentCard").GetComponent<DragAndDrop>().SetTarget(gameObject);
         }
 
-        if (!CardIsAbove() && oldValue){
+        if (!CardIsAbove() && oldValue && GameObject.FindGameObjectWithTag("CurrentCard") != null){
             oldValue = false;
             GameObject.FindGameObjectWithTag("CurrentCard").GetComponent<DragAndDrop>().SetTargetToNull();
         }
