@@ -6,15 +6,8 @@ using UnityEngine;
 public class IfTileCardSO : CardSO
 {
     [SerializeField] TileProperty[] conditionalTileProperties;
-    [SerializeField] ResourceTypeDefinition[] newResourceGains;
-    ResourceTypeDefinition[] oldResourceGains;
 
-    private void Awake() {
-        functionType = FunctionType.IF;
-        oldResourceGains = resourceGains;
-    }
-
-    public void CheckCardIf()
+    public bool CheckCardIf()
     {
         bool passed = true;
         foreach(TileProperty property in conditionalTileProperties)
@@ -24,19 +17,13 @@ public class IfTileCardSO : CardSO
             if(!passed)
                 break;
         }
-
+        return passed;
         //Have to change this so it changes the values in the handler instead
         //This changes the whole SO, meaning for all instances of this card
-        if(passed)
-            resourceGains = newResourceGains;
-        else
-            resourceGains = oldResourceGains;
     }
 
     public void RunFunction()
     {
-        CheckCardIf();
-        Debug.Log("Ran If Variant With " + conditionalTileProperties[0]);
-        RunCard();
+
     }
 }

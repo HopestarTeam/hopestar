@@ -5,6 +5,7 @@ using UnityEngine;
 public class EndTurn : MonoBehaviour
 {
    [SerializeField] Grid myGrid;
+   [SerializeField] CardHandler myCardHandler;
   int listSize;
 
     // Start is called before the first frame update
@@ -37,8 +38,13 @@ public class EndTurn : MonoBehaviour
             {
                 Debug.Log("There is no card");
             }
-
            
+           if (current.card != null)
+           {
+                // myCardHandler = current.card; // Fetch card from current, activate this later.
+                myCardHandler.ResolveCard();
+           }
+
         }
     }
 

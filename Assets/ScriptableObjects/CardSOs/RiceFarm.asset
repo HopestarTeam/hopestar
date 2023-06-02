@@ -12,18 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fccc3239a4105941b641f032744b083, type: 3}
   m_Name: RiceFarm
   m_EditorClassIdentifier: 
-  cardName: Rice Farm
-  cardType: 2
-  requiredTileProperties: 00000000
-  blockedTileProperties: 00000000
-  resourceCosts: []
-  resourceUpkeep:
-  - resourceType: 0
-    amount: 1
-  resourceGains:
-  - resourceType: 2
-    amount: 3
-  emsissionAmount: 1
-  hasFunction: 0
-  functionType: 0
+  _cardName: 
+  _cardType: 0
+  _requiredTileProperties: 
+  _blockedTileProperties: 
+  _resourceCosts: []
+  _resourceUpkeep: []
+  _resourceGains: []
+  _emsissionAmount: 0
+  _hasFunction: 0
+  _functionType: 0
+  _cardTimer: 0
   placedOn: {fileID: 0}
