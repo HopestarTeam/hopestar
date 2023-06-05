@@ -18,4 +18,11 @@ public class GlobalVariables
     public float ConsumerGoodsUpkeep;
     public float IndustryGoodsUpkeep;
     public float CitizenUnrest;
+    public float CO2Upkeep;
+    public float RawResourcesUpkeep;
+    public float FoodUpkeep;
+    public float EnergyUpkeep;
+    public float ConsumerGoodsUpkeep;
+    public float IndustryGoodsUpkeep;
+    public float CitizenUnrestUpkeep;
 }
