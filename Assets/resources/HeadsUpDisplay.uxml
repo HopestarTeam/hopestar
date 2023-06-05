@@ -3,17 +3,27 @@
     <Style src="project://database/Assets/resources/styles.uss?fileID=7433441132597879392&amp;guid=ea77a08c0910114469079150d92af050&amp;type=3#styles" />
     <ui:VisualElement class="GUIBackground" style="bottom: 0; position: absolute; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; right: 0; left: 0; flex-direction: row; justify-content: space-between; border-left-width: 5px; border-right-width: 5px; border-top-width: 5px; border-bottom-width: 0; border-top-left-radius: 10px; border-bottom-left-radius: 0; border-top-right-radius: 10px; border-bottom-right-radius: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
         <ui:VisualElement style="width: 150px;">
-            <ui:ProgressBar value="20" title="Time" />
-            <ui:Label text="CO2" display-tooltip-when-elided="true" />
-            <ui:Label text="Money" display-tooltip-when-elided="true" name="Label" />
-            <ui:Label text="Unrest" display-tooltip-when-elided="true" />
+            <ui:Label text="Emissions: " display-tooltip-when-elided="true" name="EmissionText" />
+            <ui:Label text="Energy:" display-tooltip-when-elided="true" name="EnergyText" />
+            <ui:Label text="Raw Resources:" display-tooltip-when-elided="true" name="RawText" />
+            <ui:Label text="Food:" display-tooltip-when-elided="true" name="FoodText" />
+            <ui:Label text="Consumer Goods:" display-tooltip-when-elided="true" name="ConsumerText" />
+            <ui:Label text="Industrial Goods:" display-tooltip-when-elided="true" name="IndustrialText" />
+        </ui:VisualElement>
+        <ui:VisualElement style="width: 150px;">
+            <ui:Label text="Happiness:" display-tooltip-when-elided="true" name="HappinessText" />
+            <ui:Label text="Energy Upkeep:" display-tooltip-when-elided="true" name="EnergyUpkeepText" />
+            <ui:Label text="Raw Resources Upkeep:" display-tooltip-when-elided="true" name="RawUpkeepText" />
+            <ui:Label text="Food Upkeep:" display-tooltip-when-elided="true" name="FoodUpkeepText" />
+            <ui:Label text="Consumer Goods Upkeep:" display-tooltip-when-elided="true" name="ConsumerUpkeepText" />
+            <ui:Label text="Industrial Goods Upkeep:" display-tooltip-when-elided="true" name="IndustrialUpkeepText" />
         </ui:VisualElement>
         <ui:VisualElement name="VisualElement" style="width: 150px;">
             <ui:VisualElement name="BottomBarButtons" style="display: flex; justify-content: center; flex-wrap: wrap; flex-direction: row;">
-                <ui:Button text="Money" display-tooltip-when-elided="true" />
+                <ui:Button text="Money" display-tooltip-when-elided="true" style="display: none; visibility: visible;" />
                 <ui:Button text="End Turn" display-tooltip-when-elided="true" name="EndTurnButton" />
-                <ui:Button text="Energy" display-tooltip-when-elided="true" />
-                <ui:Button text="Research" display-tooltip-when-elided="true" />
+                <ui:Button text="Energy" display-tooltip-when-elided="true" style="display: none;" />
+                <ui:Button text="Research" display-tooltip-when-elided="true" style="display: none;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
