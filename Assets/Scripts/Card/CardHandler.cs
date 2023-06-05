@@ -45,7 +45,7 @@ public class CardHandler : MonoBehaviour
         }
         for (int i = 0; i < resourceGains.Length; i++)
         {
-            gainsText.text += resourceGains[i].amount + resourceGains[i].resourceType.ToString()[0].ToString() + "\n";
+            gainsText.text += resourceGains[i].amount + resourceGains[i].resourceType.ToString()[0].ToString() + " ";
         }
 
         mesh = transform.GetChild(0).GetComponent<MeshRenderer>();
