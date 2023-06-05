@@ -80,7 +80,7 @@ public class EndTurn : MonoBehaviour
         variables.ConsumerGoods = variables.EnergyUpkeep;
         variables.IndustryGoods = variables.IndustryGoodsUpkeep;
 
-    
+    GameManager.gm.menuManager.ShowInfoScreen(GameManager.gm.variables);
 
     }
 
