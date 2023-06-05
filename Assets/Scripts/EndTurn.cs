@@ -7,13 +7,15 @@ public class EndTurn : MonoBehaviour
    [SerializeField] Grid myGrid;
    [SerializeField] CardHandler myCardHandler;
 
+   GlobalVariables variables;
+
      int listSize;
 
     // Start is called before the first frame update
     void Start()
     {
         listSize = myGrid.count;
-       
+        variables = GameManager.gm.variables;
     }
 
     // Update is called once per frame
@@ -24,6 +26,12 @@ public class EndTurn : MonoBehaviour
 
     void EndTurnFunction()
     {
+        variables.ConsumerGoodsUpkeep = 0f;
+        variables.EnergyUpkeep = 0f;
+        variables.FoodUpkeep = 0f;
+        variables.RawResourcesUpkeep = 0f;
+        variables.IndustryGoodsUpkeep = 0f;
+
         for (int i = 0; i < listSize; i++)
         {
             int currentItem = i;  //this should be the current item in the list
@@ -35,20 +43,25 @@ public class EndTurn : MonoBehaviour
                 Debug.Log("No tile component found");
                 continue;
             }
+
            /* if (current.card == null)
             {
                 Debug.Log("There is no card");
             }
-           
-           if (current.card != null)
+            */
+
+           if (current.cardHandler != null)
            {
-                // myCardHandler = current.card; // Fetch card from current, activate this later.
+                myCardHandler = current.cardHandler; // Fetch card from current, activate this later.
                 myCardHandler.ResolveCard();
+
+
            }
-           */
+          
 
         }
      
+     /*
         Debug.Log(GameManager.gm.variables.CO2);
         Debug.Log(GameManager.gm.variables.CitizenUnrest);
         Debug.Log(GameManager.gm.variables.RawResources);
@@ -56,18 +69,18 @@ public class EndTurn : MonoBehaviour
         Debug.Log(GameManager.gm.variables.Energy);
         Debug.Log(GameManager.gm.variables.ConsumerGoods);
         Debug.Log(GameManager.gm.variables.IndustryGoods);
-        
+     */   
         // Here should come a popup window with stats and a close button.
 
 
         // Here the script should clear Raw Resources, Food, Energy, ConsumerGoods and IndustryGoods.
-        GameManager.gm.variables.RawResources = 0f;
-        GameManager.gm.variables.Food = 0f;
-        GameManager.gm.variables.Energy = 0f;
-        GameManager.gm.variables.ConsumerGoods = 0f;
-        GameManager.gm.variables.IndustryGoods = 0f;
+        variables.RawResources = variables.RawResourcesUpkeep;
+        variables.Food = variables.FoodUpkeep;
+        variables.Energy = variables.EnergyUpkeep;
+        variables.ConsumerGoods = variables.EnergyUpkeep;
+        variables.IndustryGoods = variables.IndustryGoodsUpkeep;
 
-    
+    GameManager.gm.menuManager.ShowInfoScreen(GameManager.gm.variables);
 
     }
 
