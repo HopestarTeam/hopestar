@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EndTurn : MonoBehaviour
 {
-   [SerializeField] Grid myGrid;
-   [SerializeField] CardHandler myCardHandler;
+    [SerializeField] Grid myGrid;
+    [SerializeField] CardHandler myCardHandler;
 
-   GlobalVariables variables;
+    GlobalVariables variables;
 
-     int listSize;
+    int listSize;
 
     // Start is called before the first frame update
     void Start()
@@ -50,22 +50,6 @@ public class EndTurn : MonoBehaviour
                  myCardHandler = current.cardHandler;
                  myCardHandler.ResolveCard();
             }
-            else
-
-           /* if (current.card == null)
-            {
-                Debug.Log("There is no card");
-            }
-            */
-
-           if (current.cardHandler != null)
-           {
-                myCardHandler = current.cardHandler; // Fetch card from current, activate this later.
-                myCardHandler.ResolveCard();
-
-
-           }
-          
 
         }
      
@@ -78,17 +62,17 @@ public class EndTurn : MonoBehaviour
         Debug.Log(GameManager.gm.variables.ConsumerGoods);
         Debug.Log(GameManager.gm.variables.IndustryGoods);
      */   
-        // Here should come a popup window with stats and a close button.
 
 
-        // Here the script should clear Raw Resources, Food, Energy, ConsumerGoods and IndustryGoods.
+        // Here the script should set Raw Resources, Food, Energy, ConsumerGoods and IndustryGoods to upkeep.
         variables.RawResources = variables.RawResourcesUpkeep;
         variables.Food = variables.FoodUpkeep;
         variables.Energy = variables.EnergyUpkeep;
-        variables.ConsumerGoods = variables.EnergyUpkeep;
+        variables.ConsumerGoods = variables.ConsumerGoodsUpkeep;
         variables.IndustryGoods = variables.IndustryGoodsUpkeep;
 
-    GameManager.gm.menuManager.ShowInfoScreen(GameManager.gm.variables);
+        // Here should come a popup window with stats and a close button.
+        GameManager.gm.menuManager.ShowInfoScreen(GameManager.gm.variables);
 
     }
 

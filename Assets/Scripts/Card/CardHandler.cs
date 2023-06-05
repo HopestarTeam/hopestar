@@ -76,7 +76,7 @@ public class CardHandler : MonoBehaviour
                 default:
                     break;
             }
-            //Debug.Log("Enough " + definition.resourceType.ToString() + " = " + result);
+            Debug.Log("Enough " + definition.resourceType.ToString() + " = " + result);
             if(!result)
                 break;
         }
@@ -103,7 +103,7 @@ public class CardHandler : MonoBehaviour
                 default:
                     break;
             }
-            //Debug.Log("Enough " + definition.resourceType.ToString() + " Upkeep = " + result);
+            Debug.Log("Enough " + definition.resourceType.ToString() + " Upkeep = " + result);
             if(!result)
                 break;
         }

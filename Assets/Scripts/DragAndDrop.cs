@@ -57,7 +57,14 @@ public class DragAndDrop : MonoBehaviour
     }
 
     private void OnMouseDown() {
-        if (target != null){target.GetComponent<CardSlot>().RemoveCard();}
+        if (target != null) // = if card is on a slot
+        {
+            target.GetComponent<CardSlot>().RemoveCard();
+        }
+        else
+        {
+            Instantiate(gameObject, transform.position, transform.rotation);
+        }
 
         mouseOffset = new Vector3(
             gameObject.transform.position.x - GetMouseWorldPosition().x,
@@ -82,6 +89,7 @@ public class DragAndDrop : MonoBehaviour
         Cursor.visible = true;
         if (target == null){
             MoveCard(initialPosition);
+            Destroy(gameObject, lerpDuration);
             //the card goes back to the card pool
         }
         if (target != null){
@@ -95,6 +103,8 @@ public class DragAndDrop : MonoBehaviour
             {
                 // insufficent resources to place card
                 MoveCard(initialPosition);
+                Destroy(gameObject, lerpDuration);
+                
             }
         }
 
