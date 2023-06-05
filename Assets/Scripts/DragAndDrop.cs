@@ -27,7 +27,7 @@ public class DragAndDrop : MonoBehaviour
     private void MoveCard(Vector3 targetPosition){   //this function should lerp in the final version
         endPosition = new Vector3(
                                 targetPosition.x, 
-                                GetComponent<Rigidbody>().position.y - pickUpHeight, 
+                                targetPosition.y + 0.1f, 
                                 targetPosition.z);
         startPosition = GetComponent<Rigidbody>().position;
         lerpElapsedTime = 0;
@@ -64,7 +64,7 @@ public class DragAndDrop : MonoBehaviour
             }
             else
             {
-                Instantiate(gameObject, transform.position, transform.rotation);
+                Instantiate(gameObject, transform.position, transform.rotation, handler.deck.transform);
             }
 
             mouseOffset = new Vector3(
@@ -101,8 +101,17 @@ public class DragAndDrop : MonoBehaviour
             }
             
             if (target != null){
-                MoveCard(target.transform.position);
-                target.GetComponent<CardSlot>().AddCard(gameObject);
+                if(handler.CheckCard()) // if enough resources to place the card
+                {
+                    handler.RunCosts();
+                    MoveCard(target.transform.position);
+                    target.GetComponent<CardSlot>().AddCard(gameObject);
+                }
+                else
+                {
+                    MoveCard(initialPosition);
+                    Destroy(gameObject,lerpDuration*0.9f);
+                }
             }
 
             gameObject.tag = "Card";

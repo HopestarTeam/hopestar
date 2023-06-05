@@ -8,7 +8,8 @@ public class CardHandler : MonoBehaviour
     public CardSO properties;
 
     GlobalVariables variables;
-    [SerializeField] TextMeshProUGUI cardName;
+    public DeckBehaviour deck;
+    [SerializeField] TextMeshProUGUI cardName, costText, upkeepText, gainsText, emissionText, flavorText;
     MeshRenderer mesh;
     public ResourceTypeDefinition[] resourceCosts, resourceUpkeep, resourceGains;
     public int emsissionAmount;
@@ -17,12 +18,35 @@ public class CardHandler : MonoBehaviour
     void Start()
     {
         cardName.text = properties.cardName;
+        flavorText.text = properties.flavorText;
         resourceCosts = properties.resourceCosts;
         resourceUpkeep = properties.resourceUpkeep;
         resourceGains = properties.resourceGains;
         emsissionAmount = properties.emsissionAmount;
         variables = GameManager.gm.variables;
+        deck = transform.parent.GetComponent<DeckBehaviour>();
         gameObject.name = properties.cardName;
+
+        costText.text = "";
+        upkeepText.text = "";
+        gainsText.text = "";
+        if(emsissionAmount > 0)
+            emissionText.text = emsissionAmount + "c";
+        else
+            emissionText.text = "";
+        
+        for (int i = 0; i < resourceCosts.Length; i++)
+        {
+            costText.text += resourceCosts[i].amount + resourceCosts[i].resourceType.ToString()[0].ToString() + "\n";
+        }
+        for (int i = 0; i < resourceUpkeep.Length; i++)
+        {
+            upkeepText.text += resourceUpkeep[i].amount + resourceUpkeep[i].resourceType.ToString()[0].ToString() + "\n";
+        }
+        for (int i = 0; i < resourceGains.Length; i++)
+        {
+            gainsText.text += resourceGains[i].amount + resourceGains[i].resourceType.ToString()[0].ToString() + "\n";
+        }
 
         mesh = transform.GetChild(0).GetComponent<MeshRenderer>();
         switch (properties.cardType)
@@ -76,7 +100,7 @@ public class CardHandler : MonoBehaviour
                 default:
                     break;
             }
-            Debug.Log("Enough " + definition.resourceType.ToString() + " = " + result);
+            //Debug.Log("Enough " + definition.resourceType.ToString() + " = " + result);
             if(!result)
                 break;
         }
@@ -103,7 +127,7 @@ public class CardHandler : MonoBehaviour
                 default:
                     break;
             }
-            Debug.Log("Enough " + definition.resourceType.ToString() + " Upkeep = " + result);
+            //Debug.Log("Enough " + definition.resourceType.ToString() + " Upkeep = " + result);
             if(!result)
                 break;
         }

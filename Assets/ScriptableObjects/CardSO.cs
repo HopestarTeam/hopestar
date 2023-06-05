@@ -31,6 +31,6 @@ public class CardSO : ScriptableObject
     public int cardTimer {get {return _cardTimer;}}
     [SerializeField] int _cardTimer;
     public Tile placedOn;
-
+    public string flavorText;
     
 }
