@@ -32,13 +32,13 @@ public class MenuManager
         TextElement co2 = StatsContainer.Q<TextElement>(name:"CO2");
         co2.text = $"CO<sup>2</sup>: {variables.CO2}";
         TextElement happiness = StatsContainer.Q<TextElement>(name:"Happiness");
-        happiness.text = $"Happiness: ${variables.CitizenUnrest}";
+        happiness.text = $"Happiness: {variables.CitizenUnrest}";
         TextElement resources = StatsContainer.Q<TextElement>(name:"Resources");
-        resources.text = $"Resources: ${variables.RawResources}";
+        resources.text = $"Resources: {variables.RawResources}";
         TextElement food = StatsContainer.Q<TextElement>(name:"Food");
-        food.text = $"Food: ${variables.Food}";
+        food.text = $"Food: {variables.Food}";
         TextElement energy = StatsContainer.Q<TextElement>(name:"Energy");
-        energy.text = $"Energy: ${variables.Energy}";
+        energy.text = $"Energy: {variables.Energy}";
         TextElement consumerGoods = StatsContainer.Q<TextElement>(name:"ConsumerGoods");
         consumerGoods.text = $"Consumer Goods {variables.ConsumerGoods}";
         TextElement industryGoods = StatsContainer.Q<TextElement>(name:"IndustryGoods");
