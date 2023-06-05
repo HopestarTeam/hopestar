@@ -57,58 +57,49 @@ public class DragAndDrop : MonoBehaviour
     }
 
     private void OnMouseDown() {
-        if (target != null) // = if card is on a slot
-        {
-            target.GetComponent<CardSlot>().RemoveCard();
-        }
-        else
-        {
-            Instantiate(gameObject, transform.position, transform.rotation);
-        }
+        if(!moving){
+            if (target != null){target.GetComponent<CardSlot>().RemoveCard();}
 
-        mouseOffset = new Vector3(
-            gameObject.transform.position.x - GetMouseWorldPosition().x,
-            0f,
-            gameObject.transform.position.z - GetMouseWorldPosition().z);
+            mouseOffset = new Vector3(
+                                gameObject.transform.position.x - GetMouseWorldPosition().x,
+                                0f,
+                                gameObject.transform.position.z - GetMouseWorldPosition().z);
         
-        GetComponent<Rigidbody>().position += Vector3.up * pickUpHeight;
-        Cursor.visible = false;
-        gameObject.tag = "CurrentCard";
+            GetComponent<Rigidbody>().position += Vector3.up * pickUpHeight;
+            Cursor.visible = false;
+            gameObject.tag = "CurrentCard";
+        }
+        
     }
 
     private void OnMouseDrag() {
-        GetComponent<Rigidbody>().position = new Vector3(
+        if(!moving){
+            GetComponent<Rigidbody>().position = new Vector3(
                                                     GetMouseWorldPosition().x, 
                                                     GetComponent<Rigidbody>().position.y, 
                                                     GetMouseWorldPosition().z) 
                                                 + mouseOffset;
+        }
+        
 
     }
 
     private void OnMouseUp() {
-        Cursor.visible = true;
-        if (target == null){
-            MoveCard(initialPosition);
-            Destroy(gameObject, lerpDuration);
-            //the card goes back to the card pool
-        }
-        if (target != null){
-            if(handler.CheckCard())
-            {
-                handler.RunCosts();
+        if(!moving){
+            Cursor.visible = true;
+            if (target == null){
+                MoveCard(initialPosition);
+                //the card goes back to the card pool
+            }
+            
+            if (target != null){
                 MoveCard(target.transform.position);
                 target.GetComponent<CardSlot>().AddCard(gameObject);
             }
-            else
-            {
-                // insufficent resources to place card
-                MoveCard(initialPosition);
-                Destroy(gameObject, lerpDuration);
-                
-            }
-        }
 
-        gameObject.tag = "Card";
+            gameObject.tag = "Card";
+        }
+        
     }
 
     private void Update() {
