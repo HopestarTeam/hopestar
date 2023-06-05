@@ -20,7 +20,38 @@ public class MenuManager
         toolTip = new ToolTip("Test",Input.mousePosition);
         Hud.rootVisualElement.Add(toolTip);
     }
-    
+
+    //TODO: Someone please fix this code.  It has way too many lines
+    public void ShowInfoScreen(GlobalVariables variables)
+    {
+        VisualElement InfoScreen = Hud.rootVisualElement.Query(name:"InfoScreen");
+        InfoScreen.SetEnabled(true);
+        InfoScreen.visible = true;
+        VisualElement StatsContainer = InfoScreen.Query(name:"Stats");
+
+        TextElement co2 = StatsContainer.Q<TextElement>(name:"CO2");
+        co2.text = $"CO<sup>2</sup>: {variables.CO2}";
+        TextElement happiness = StatsContainer.Q<TextElement>(name:"Happiness");
+        happiness.text = $"Happiness: ${variables.CitizenUnrest}";
+        TextElement resources = StatsContainer.Q<TextElement>(name:"Resources");
+        resources.text = $"Resources: ${variables.RawResources}";
+        TextElement food = StatsContainer.Q<TextElement>(name:"Food");
+        food.text = $"Food: ${variables.Food}";
+        TextElement energy = StatsContainer.Q<TextElement>(name:"Energy");
+        energy.text = $"Energy: ${variables.Energy}";
+        TextElement consumerGoods = StatsContainer.Q<TextElement>(name:"ConsumerGoods");
+        consumerGoods.text = $"Consumer Goods {variables.ConsumerGoods}";
+        TextElement industryGoods = StatsContainer.Q<TextElement>(name:"IndustryGoods");
+        industryGoods.text = $"Industry Goods: {variables.IndustryGoods}";
+        //Yet another thing that I could've used loops and arrays for if my foresight were as good as my hindsight
+    }
+
+    public void HideInfoScreen()
+    {
+        VisualElement InfoScreen = Hud.rootVisualElement.Query(name:"InfoScreen");
+        InfoScreen.SetEnabled(false);
+        InfoScreen.visible = false;
+    }    
     public void Update()
     {
         Vector2 mousePosition = Input.mousePosition;
