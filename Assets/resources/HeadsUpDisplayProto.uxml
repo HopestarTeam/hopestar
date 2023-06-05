@@ -1,0 +1,21 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="InfoScreenTemplate" src="project://database/Assets/resources/InfoScreenTemplate.uxml?fileID=9197481963319205126&amp;guid=141cd3a380ce8ad479e2789a167f2181&amp;type=3#InfoScreenTemplate" />
+    <Style src="project://database/Assets/resources/styles.uss?fileID=7433441132597879392&amp;guid=ea77a08c0910114469079150d92af050&amp;type=3#styles" />
+    <ui:VisualElement class="GUIBackground" style="bottom: 0; position: absolute; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; right: 0; left: 0; flex-direction: row; justify-content: space-between; border-left-width: 5px; border-right-width: 5px; border-top-width: 5px; border-bottom-width: 0; border-top-left-radius: 10px; border-bottom-left-radius: 0; border-top-right-radius: 10px; border-bottom-right-radius: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
+        <ui:VisualElement style="width: 150px;">
+            <ui:ProgressBar value="20" title="Time" />
+            <ui:Label text="CO2" display-tooltip-when-elided="true" />
+            <ui:Label text="Money" display-tooltip-when-elided="true" name="Label" />
+            <ui:Label text="Unrest" display-tooltip-when-elided="true" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" style="width: 150px;">
+            <ui:VisualElement name="BottomBarButtons" style="display: flex; justify-content: center; flex-wrap: wrap; flex-direction: row;">
+                <ui:Button text="Money" display-tooltip-when-elided="true" />
+                <ui:Button text="End Turn" display-tooltip-when-elided="true" name="EndTurnButton" />
+                <ui:Button text="Energy" display-tooltip-when-elided="true" />
+                <ui:Button text="Research" display-tooltip-when-elided="true" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Instance template="InfoScreenTemplate" name="InfoScreenTemplate" focusable="false" style="visibility: hidden; overflow: visible;" />
+</ui:UXML>

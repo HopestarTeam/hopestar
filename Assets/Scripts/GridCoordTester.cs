@@ -13,7 +13,7 @@ public class GridCoordTester : MonoBehaviour
         for(int x = 0; x < grid.size.x; x++)
         for(int y = 0; y < grid.size.y; y++)
         {
-            rend[x,y] = grid[x,y].GetComponent<Renderer>();
+            rend[x,y] = grid[x,y].transform.GetChild(0).GetComponent<Renderer>();
             Material mat = rend[x,y].sharedMaterial;
             rend[x,y].material = new Material(mat);
         }

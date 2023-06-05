@@ -16,7 +16,7 @@ public class IfTileCardSO : CardSO
         foreach(TileProperty property in conditionalTileProperties)
         {
             //switch passed to be true on default when uncomment this
-            //passed = placedOn.CheckForProperty(property);
+            passed = placedOn.HasProperty(property);
             if(!passed)
                 break;
         }

@@ -12,5 +12,10 @@ public class GlobalVariables
     public float Energy;
     public float ConsumerGoods;
     public float IndustryGoods;
+    public float RawResourcesUpkeep;
+    public float FoodUpkeep;
+    public float EnergyUpkeep;
+    public float ConsumerGoodsUpkeep;
+    public float IndustryGoodsUpkeep;
     public float CitizenUnrest;
 }

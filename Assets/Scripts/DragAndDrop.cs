@@ -9,10 +9,11 @@ public class DragAndDrop : MonoBehaviour
     Vector3 initialPosition;    //this will be removed once cards are stored in the card pool
  
     GameObject target;  //the card slot where it will be placed
+    CardHandler handler;
     public void SetTarget(GameObject theTarget){target = theTarget;}    
     public void SetTargetToNull(){target = null;}
 
-    public void ExecuteCardFunctions(){
+    public void CheckAndPlaceCard(){
         //this is where you call the card functions
         Debug.Log("card functions were called");
     }
@@ -25,13 +26,14 @@ public class DragAndDrop : MonoBehaviour
     }
 
     private Vector3 GetMouseWorldPosition(){
-        float cameraDistance = Mathf.Abs(Camera.main.GetComponent<Transform>().position.z);
+        float cameraDistance = Mathf.Abs(Camera.main.GetComponent<Transform>().position.y);
         Vector3 mousePosition = new Vector3(Input.mousePosition.x,Input.mousePosition.y, cameraDistance);
         return Camera.main.ScreenToWorldPoint(mousePosition);
     }
 
     private void Awake() {
         SetTargetToNull();
+        handler = GetComponent<CardHandler>();
         initialPosition = gameObject.transform.position;    //this will be removed once cards are stored in the card pool
     }
 
@@ -64,14 +66,19 @@ public class DragAndDrop : MonoBehaviour
             //the card goes back to the card pool
         }
         if (target != null){
-            MoveCard(target.transform.position);
-            target.GetComponent<CardSlot>().AddCard(gameObject);
+            if(handler.CheckCard())
+            {
+                handler.RunCosts();
+                MoveCard(target.transform.position);
+                target.GetComponent<CardSlot>().AddCard(gameObject);
+            }
+            else
+            {
+                // insufficent resources to place card
+                MoveCard(initialPosition);
+            }
         }
 
         gameObject.tag = "Card";
-    }
-
-    private void Update() {
-        //Debug.Log(target);
     }
 }

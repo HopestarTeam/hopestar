@@ -22,8 +22,9 @@ public class EndTurn : MonoBehaviour
        // On mouseclick, call the EndTurnFunction() 
     }
 
-    void EndTurnFunction()
+    public void EndTurnFunction()
     {
+        Debug.Log("EGG");
         for (int i = 0; i < listSize; i++)
         {
             //int currentItem = i;  //this should be the current item in the list ; you can just use i instead

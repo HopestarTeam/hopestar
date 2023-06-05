@@ -61,6 +61,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fd284da4b8745854299e1ee020386b03, type: 2}
   - {fileID: 11400000, guid: 6f6a303f9ddf1f64f8579ff741cfa386, type: 2}
   - {fileID: 11400000, guid: 86833238a0209264aa048002d77d04cf, type: 2}
-  deckMatrixMaxWidth: 3
-  widthSpace: 5
-  depthSpace: 6
+  deckMatrixMaxWidth: 5
+  widthSpace: 4
+  depthSpace: 5.5

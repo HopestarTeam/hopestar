@@ -7,14 +7,24 @@ public class CardHandler : MonoBehaviour
 {
     public CardSO properties;
 
+    GlobalVariables variables;
     [SerializeField] TextMeshProUGUI cardName;
     MeshRenderer mesh;
+    public ResourceTypeDefinition[] resourceCosts, resourceUpkeep, resourceGains;
+    public int emsissionAmount;
 
     // Start is called before the first frame update
     void Start()
     {
-        mesh = transform.GetChild(0).GetComponent<MeshRenderer>();
         cardName.text = properties.cardName;
+        resourceCosts = properties.resourceCosts;
+        resourceUpkeep = properties.resourceUpkeep;
+        resourceGains = properties.resourceGains;
+        emsissionAmount = properties.emsissionAmount;
+        variables = GameManager.gm.variables;
+        gameObject.name = properties.cardName;
+
+        mesh = transform.GetChild(0).GetComponent<MeshRenderer>();
         switch (properties.cardType)
         {
             case CardType.FOOD:
@@ -36,11 +46,125 @@ public class CardHandler : MonoBehaviour
                 mesh.material.color = Color.magenta;
                 break;
         }
-        ResolveCard();
+        //ResolveCard();
+    }
+    
+    public bool CheckCard()
+    {
+        bool result = true;
+        GlobalVariables variables = GameManager.gm.variables;
+        if(resourceGains != null)
+        foreach(ResourceTypeDefinition definition in resourceCosts)
+        {
+            switch(definition.resourceType)
+            {
+                case ResourceTypeDefinition.ResourceType.RAW:
+                    result = (variables.RawResources >= definition.amount);
+                    break;
+                case ResourceTypeDefinition.ResourceType.FOOD:
+                    result = (variables.Food >= definition.amount);
+                    break;
+                case ResourceTypeDefinition.ResourceType.ENERGY:
+                    result = (variables.Energy >= definition.amount);
+                    break;
+                case ResourceTypeDefinition.ResourceType.CONSUMER:
+                    result = (variables.ConsumerGoods >= definition.amount);
+                    break;
+                case ResourceTypeDefinition.ResourceType.INDUSTRY:
+                    result = (variables.IndustryGoods >= definition.amount);
+                    break;
+                default:
+                    break;
+            }
+            //Debug.Log("Enough " + definition.resourceType.ToString() + " = " + result);
+            if(!result)
+                break;
+        }
+        if(resourceUpkeep != null && result)
+        foreach(ResourceTypeDefinition definition in resourceUpkeep)
+        {
+            switch(definition.resourceType)
+            {
+                case ResourceTypeDefinition.ResourceType.RAW:
+                    result = (variables.RawResourcesUpkeep >= definition.amount);
+                    break;
+                case ResourceTypeDefinition.ResourceType.FOOD:
+                    result = (variables.FoodUpkeep >= definition.amount);
+                    break;
+                case ResourceTypeDefinition.ResourceType.ENERGY:
+                    result = (variables.EnergyUpkeep >= definition.amount);
+                    break;
+                case ResourceTypeDefinition.ResourceType.CONSUMER:
+                    result = (variables.ConsumerGoodsUpkeep >= definition.amount);
+                    break;
+                case ResourceTypeDefinition.ResourceType.INDUSTRY:
+                    result = (variables.IndustryGoodsUpkeep >= definition.amount);
+                    break;
+                default:
+                    break;
+            }
+            //Debug.Log("Enough " + definition.resourceType.ToString() + " Upkeep = " + result);
+            if(!result)
+                break;
+        }
+        return result;
+    }
+
+    public void RunCosts()
+    {
+        if(resourceGains != null)
+        foreach(ResourceTypeDefinition definition in resourceCosts)
+        {
+            switch(definition.resourceType)
+            {
+                case ResourceTypeDefinition.ResourceType.RAW:
+                    variables.RawResources -= definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.FOOD:
+                    variables.Food -= definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.ENERGY:
+                    variables.Energy -= definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.CONSUMER:
+                    variables.ConsumerGoods -= definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.INDUSTRY:
+                    variables.IndustryGoods -= definition.amount;
+                    break;
+                default:
+                    break;
+            }
+        }
+        if(resourceUpkeep != null)
+        foreach(ResourceTypeDefinition definition in resourceUpkeep)
+        {
+            switch(definition.resourceType)
+            {
+                case ResourceTypeDefinition.ResourceType.RAW:
+                    variables.RawResourcesUpkeep -= definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.FOOD:
+                    variables.FoodUpkeep -= definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.ENERGY:
+                    variables.EnergyUpkeep -= definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.CONSUMER:
+                    variables.ConsumerGoodsUpkeep -= definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.INDUSTRY:
+                    variables.IndustryGoodsUpkeep -= definition.amount;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     public void ResolveCard()
     {
+        variables.CO2 += emsissionAmount;
         if(properties.hasFunction)
         {
             switch (properties.functionType)
@@ -49,7 +173,11 @@ public class CardHandler : MonoBehaviour
                     IfTileCardSO iCard = (IfTileCardSO)properties;
                     if(iCard.CheckCardIf())
                     {
-
+                        resourceGains = iCard.conditionalResourceGains;
+                    }
+                    else
+                    {
+                        resourceGains = iCard.resourceGains;
                     }
                     break;
                 case CardSO.FunctionType.TIMER:
@@ -64,7 +192,53 @@ public class CardHandler : MonoBehaviour
                     break;
             }
         }
-        properties.RunCard();
-        
+        if(resourceGains != null)
+        foreach(ResourceTypeDefinition definition in resourceGains)
+        {
+            switch(definition.resourceType)
+            {
+                case ResourceTypeDefinition.ResourceType.RAW:
+                    variables.RawResourcesUpkeep += definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.FOOD:
+                    variables.FoodUpkeep += definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.ENERGY:
+                    variables.EnergyUpkeep += definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.CONSUMER:
+                    variables.ConsumerGoodsUpkeep += definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.INDUSTRY:
+                    variables.IndustryGoodsUpkeep += definition.amount;
+                    break;
+                default:
+                    break;
+            }
+        }
+        if(resourceUpkeep != null)
+        foreach(ResourceTypeDefinition definition in resourceUpkeep)
+        {
+            switch(definition.resourceType)
+            {
+                case ResourceTypeDefinition.ResourceType.RAW:
+                    variables.RawResourcesUpkeep -= definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.FOOD:
+                    variables.FoodUpkeep -= definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.ENERGY:
+                    variables.EnergyUpkeep -= definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.CONSUMER:
+                    variables.ConsumerGoodsUpkeep -= definition.amount;
+                    break;
+                case ResourceTypeDefinition.ResourceType.INDUSTRY:
+                    variables.IndustryGoodsUpkeep -= definition.amount;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
