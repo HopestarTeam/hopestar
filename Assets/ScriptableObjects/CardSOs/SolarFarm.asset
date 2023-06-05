@@ -28,6 +28,7 @@ MonoBehaviour:
   _functionType: 1
   _cardTimer: 0
   placedOn: {fileID: 0}
+  flavorText: If placed on Hot, Gain 2E instead
   _conditionalTileProperties: 00000000
   _conditionalResourceGains:
   - resourceType: 0
