@@ -44,6 +44,10 @@ public class MenuManager
         TextElement industryGoods = StatsContainer.Q<TextElement>(name:"IndustryGoods");
         industryGoods.text = $"Industry Goods: {variables.IndustryGoods}";
         //Yet another thing that I could've used loops and arrays for if my foresight were as good as my hindsight
+
+        Button closeButton = InfoScreen.Q<Button>();
+        closeButton.clicked -= HideInfoScreen;
+        closeButton.clicked += HideInfoScreen;
     }
 
     public void HideInfoScreen()
