@@ -6,8 +6,10 @@ using TMPro;
 public class CardHandler : MonoBehaviour
 {
     public CardSO properties;
+
     [SerializeField] TextMeshProUGUI cardName;
     MeshRenderer mesh;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,18 +40,21 @@ public class CardHandler : MonoBehaviour
             switch (properties.functionType)
             {
                 case CardSO.FunctionType.IF:
-                    IfTileCardSO tmp = (IfTileCardSO)properties;
-                    tmp.CheckCardIf();
-                    tmp.RunCard();
+                    IfTileCardSO iCard = (IfTileCardSO)properties;
+                    if(iCard.CheckCardIf())
+                    {
+
+                    }
                     break;
                 case CardSO.FunctionType.TIMER:
                     if(properties.cardTimer == 0)
                     {
-                        SendMessage("RunCardFunction");
+                        TimerCardSO tCard = (TimerCardSO)properties;
+                        tCard.RunFunction();
                     }
                     break;
                 default:
-                    SendMessage("RunCardFunction");
+
                     break;
             }
         }

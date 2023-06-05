@@ -12,22 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5ae3cfc984498499e7c0658b34c7b0, type: 3}
   m_Name: SolarFarm
   m_EditorClassIdentifier: 
-  cardName: 
-  cardType: 0
-  requiredTileProperties: 
-  blockedTileProperties: 
-  resourceCosts:
-  - resourceType: 1
-    amount: 2
-  resourceUpkeep: []
-  resourceGains:
-  - resourceType: 0
-    amount: 1
-  emsissionAmount: 0
-  hasFunction: 1
-  functionType: 1
+  _cardName: 
+  _cardType: 0
+  _requiredTileProperties: 
+  _blockedTileProperties: 
+  _resourceCosts: []
+  _resourceUpkeep: []
+  _resourceGains: []
+  _emsissionAmount: 0
+  _hasFunction: 0
+  _functionType: 1
+  _cardTimer: 0
   placedOn: {fileID: 0}
   conditionalTileProperties: 00000000
-  newResourceGains:
-  - resourceType: 0
-    amount: 2
