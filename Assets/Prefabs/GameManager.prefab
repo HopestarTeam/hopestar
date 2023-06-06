@@ -58,6 +58,7 @@ GameObject:
   m_Component:
   - component: {fileID: 496768691838329689}
   - component: {fileID: 496768691838329688}
+  - component: {fileID: 9019645980576864443}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -73,7 +74,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496768691838329691}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1006324, y: -1.5286767, z: 1.7785969}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -100,7 +101,26 @@ MonoBehaviour:
     Energy: 0
     ConsumerGoods: 0
     IndustryGoods: 0
+    RawResourcesUpkeep: 0
+    FoodUpkeep: 0
+    EnergyUpkeep: 0
+    ConsumerGoodsUpkeep: 0
+    IndustryGoodsUpkeep: 0
     CitizenUnrest: 0
   menuManager:
     Hud: {fileID: 496768690896938883}
     OnElement: 0
+--- !u!114 &9019645980576864443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496768691838329691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9751e345cf432024092e49641c8bf807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myGrid: {fileID: 0}
+  myCardHandler: {fileID: 0}

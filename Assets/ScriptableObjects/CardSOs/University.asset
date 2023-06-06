@@ -10,20 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fccc3239a4105941b641f032744b083, type: 3}
-  m_Name: WheatFarm
+  m_Name: University
   m_EditorClassIdentifier: 
-  cardName: Wheat Farm
-  cardType: 2
-  requiredTileProperties: 
-  blockedTileProperties: 00000000
-  resourceCosts: []
-  resourceUpkeep:
+  _cardName: University
+  _cardType: 4
+  _requiredTileProperties: 04000000
+  _blockedTileProperties: 
+  _resourceCosts:
+  - resourceType: 1
+    amount: 2
+  - resourceType: 4
+    amount: 1
+  _resourceUpkeep:
   - resourceType: 0
     amount: 1
-  resourceGains:
-  - resourceType: 2
-    amount: 2
-  emsissionAmount: 1
-  hasFunction: 0
-  functionType: 0
+  _resourceGains:
+  - resourceType: 5
+    amount: 3
+  _emsissionAmount: 0
+  _hasFunction: 0
+  _functionType: 0
+  _cardTimer: 0
   placedOn: {fileID: 0}

@@ -9,27 +9,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e5ae3cfc984498499e7c0658b34c7b0, type: 3}
-  m_Name: SolarFarm
+  m_Script: {fileID: 11500000, guid: 1fccc3239a4105941b641f032744b083, type: 3}
+  m_Name: SteelMill
   m_EditorClassIdentifier: 
-  _cardName: Solar Farm
-  _cardType: 0
-  _requiredTileProperties: 
+  _cardName: Steel Mill
+  _cardType: 3
+  _requiredTileProperties: 05000000
   _blockedTileProperties: 
   _resourceCosts:
   - resourceType: 1
     amount: 2
-  _resourceUpkeep: []
-  _resourceGains:
+  _resourceUpkeep:
+  - resourceType: 1
+    amount: 1
   - resourceType: 0
     amount: 1
-  _emsissionAmount: 0
+  _resourceGains:
+  - resourceType: 3
+    amount: 1
+  _emsissionAmount: 2
   _hasFunction: 0
-  _functionType: 1
+  _functionType: 0
   _cardTimer: 0
   placedOn: {fileID: 0}
-  flavorText: If placed on Hot, Gain 2E instead
-  _conditionalTileProperties: 00000000
-  _conditionalResourceGains:
-  - resourceType: 0
-    amount: 2
+  flavorText: 

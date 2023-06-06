@@ -5,7 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewIfCardProperties", menuName = "ScriptableObjects/New If Card Properties", order = 2)]
 public class IfTileCardSO : CardSO
 {
-    [SerializeField] TileProperty[] conditionalTileProperties;
+    public TileProperty[] conditionalTileProperties {get {return _conditionalTileProperties;}}
+    [SerializeField] TileProperty[] _conditionalTileProperties;
+    public ResourceTypeDefinition[] conditionalResourceGains {get {return _conditionalResourceGains;}}
+    [SerializeField] ResourceTypeDefinition[] _conditionalResourceGains;
 
     public bool CheckCardIf()
     {
@@ -13,7 +16,7 @@ public class IfTileCardSO : CardSO
         foreach(TileProperty property in conditionalTileProperties)
         {
             //switch passed to be true on default when uncomment this
-            //passed = placedOn.CheckForProperty(property);
+            passed = placedOn.HasProperty(property);
             if(!passed)
                 break;
         }

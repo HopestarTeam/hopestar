@@ -8,18 +8,21 @@ public class CardSlot : MonoBehaviour
     float halfHeight;
     float currentCardCenterX;
     float currentCardCenterZ;
+    Tile thisTile;
     GameObject currentCard;
     bool oldValue = false;  //we use this to check when the CardIsAbove valuse changes
 
     GameObject slottedCard;
     public bool IsFree(){return slottedCard == null;}
-    public void AddCard(GameObject card){slottedCard = card;}
-    public void RemoveCard(){slottedCard = null;}
-
-    public void ActivateCard(){
-        if (!IsFree()){
-            slottedCard.GetComponent<DragAndDrop>().ExecuteCardFunctions();
-        }
+    public void AddCard(GameObject card)
+    {
+        slottedCard = card;
+        thisTile.cardHandler = card.GetComponent<CardHandler>();
+    }
+    public void RemoveCard()
+    {
+        slottedCard = null;
+        thisTile.cardHandler = null;
     }
         
     
@@ -44,6 +47,7 @@ public class CardSlot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        thisTile = GetComponent<Tile>();
         halfWidth = GetComponent<Collider>().bounds.size.x / 2;
         halfHeight = GetComponent<Collider>().bounds.size.z / 2;
     }
@@ -62,7 +66,7 @@ public class CardSlot : MonoBehaviour
         }
 
         //this is for testing, comment out if not needed
-        if (CardIsAbove()){GetComponent<Renderer>().material.SetColor("_Color", Color.red);}
-        if (!CardIsAbove()){GetComponent<Renderer>().material.SetColor("_Color", new Color(255f, 218f, 218f, 255));}
+        //if (CardIsAbove()){GetComponent<Renderer>().material.SetColor("_Color", Color.red);}
+        //if (!CardIsAbove()){GetComponent<Renderer>().material.SetColor("_Color", Color.white);}
     }
 }

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EndTurn : MonoBehaviour
 {
-   [SerializeField] Grid myGrid;
-   [SerializeField] CardHandler myCardHandler;
+    [SerializeField] Grid myGrid;
+    [SerializeField] CardHandler myCardHandler;
 
-   GlobalVariables variables;
+    GlobalVariables variables;
 
-     int listSize;
+    int listSize;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class EndTurn : MonoBehaviour
        // On mouseclick, call the EndTurnFunction() 
     }
 
-    void EndTurnFunction()
+    public void EndTurnFunction()
     {
         variables.ConsumerGoodsUpkeep = 0f;
         variables.EnergyUpkeep = 0f;
@@ -34,8 +34,8 @@ public class EndTurn : MonoBehaviour
 
         for (int i = 0; i < listSize; i++)
         {
-            int currentItem = i;  //this should be the current item in the list
-           // Debug.Log(currentItem);
+            //int currentItem = i;  //this should be the current item in the list ; you can just use i instead
+            // Debug.Log(currentItem);
 
             Tile current = myGrid[i].GetComponent<Tile>();
             if(current == null)
@@ -44,20 +44,12 @@ public class EndTurn : MonoBehaviour
                 continue;
             }
 
-           /* if (current.card == null)
+            if (current.cardHandler != null)
             {
-                Debug.Log("There is no card");
+                 // Fetch card from current, activate this later.
+                 myCardHandler = current.cardHandler;
+                 myCardHandler.ResolveCard();
             }
-            */
-
-           if (current.cardHandler != null)
-           {
-                myCardHandler = current.cardHandler; // Fetch card from current, activate this later.
-                myCardHandler.ResolveCard();
-
-
-           }
-          
 
         }
      
@@ -70,17 +62,18 @@ public class EndTurn : MonoBehaviour
         Debug.Log(GameManager.gm.variables.ConsumerGoods);
         Debug.Log(GameManager.gm.variables.IndustryGoods);
      */   
-        // Here should come a popup window with stats and a close button.
 
 
-        // Here the script should clear Raw Resources, Food, Energy, ConsumerGoods and IndustryGoods.
+        // Here the script should set Raw Resources, Food, Energy, ConsumerGoods and IndustryGoods to upkeep.
         variables.RawResources = variables.RawResourcesUpkeep;
         variables.Food = variables.FoodUpkeep;
         variables.Energy = variables.EnergyUpkeep;
-        variables.ConsumerGoods = variables.EnergyUpkeep;
+        variables.ConsumerGoods = variables.ConsumerGoodsUpkeep;
         variables.IndustryGoods = variables.IndustryGoodsUpkeep;
 
-    GameManager.gm.menuManager.ShowInfoScreen(GameManager.gm.variables);
+        // Here should come a popup window with stats and a close button.
+        GameManager.gm.menuManager.ShowInfoScreen(GameManager.gm.variables);
+        GameManager.gm.menuManager.UpdateHud();
 
     }
 

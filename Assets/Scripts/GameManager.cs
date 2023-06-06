@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
     public GlobalVariables variables;
 
     public MenuManager menuManager;
+    EndTurn end;
+    Button endTurnButton;
 
     void Awake()
     {
@@ -20,7 +23,16 @@ public class GameManager : MonoBehaviour
         {
             gm = this;
             menuManager.Initialize();
+            end = GetComponent<EndTurn>();
+            endTurnButton = menuManager.Hud.rootVisualElement.Q("EndTurnButton") as Button;
+            endTurnButton.RegisterCallback<ClickEvent>(ClickEndTurn);
+            menuManager.UpdateHud();
         }
+    }
+
+    void ClickEndTurn(ClickEvent evt)
+    {
+        end.EndTurnFunction();
     }
 
     void Update()

@@ -10,16 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fccc3239a4105941b641f032744b083, type: 3}
-  m_Name: RiceFarm
+  m_Name: CoalMine
   m_EditorClassIdentifier: 
-  _cardName: 
-  _cardType: 0
-  _requiredTileProperties: 
+  _cardName: Coal Mine
+  _cardType: 1
+  _requiredTileProperties: 06000000
   _blockedTileProperties: 
   _resourceCosts: []
-  _resourceUpkeep: []
-  _resourceGains: []
-  _emsissionAmount: 0
+  _resourceUpkeep:
+  - resourceType: 0
+    amount: 1
+  _resourceGains:
+  - resourceType: 1
+    amount: 3
+  _emsissionAmount: 2
   _hasFunction: 0
   _functionType: 0
   _cardTimer: 0

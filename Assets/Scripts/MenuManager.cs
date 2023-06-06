@@ -32,18 +32,22 @@ public class MenuManager
         TextElement co2 = StatsContainer.Q<TextElement>(name:"CO2");
         co2.text = $"CO<sup>2</sup>: {variables.CO2}";
         TextElement happiness = StatsContainer.Q<TextElement>(name:"Happiness");
-        happiness.text = $"Happiness: ${variables.CitizenUnrest}";
+        happiness.text = $"Happiness: {variables.CitizenUnrest}";
         TextElement resources = StatsContainer.Q<TextElement>(name:"Resources");
-        resources.text = $"Resources: ${variables.RawResources}";
+        resources.text = $"Resources: {variables.RawResources}";
         TextElement food = StatsContainer.Q<TextElement>(name:"Food");
-        food.text = $"Food: ${variables.Food}";
+        food.text = $"Food: {variables.Food}";
         TextElement energy = StatsContainer.Q<TextElement>(name:"Energy");
-        energy.text = $"Energy: ${variables.Energy}";
+        energy.text = $"Energy: {variables.Energy}";
         TextElement consumerGoods = StatsContainer.Q<TextElement>(name:"ConsumerGoods");
         consumerGoods.text = $"Consumer Goods {variables.ConsumerGoods}";
         TextElement industryGoods = StatsContainer.Q<TextElement>(name:"IndustryGoods");
         industryGoods.text = $"Industry Goods: {variables.IndustryGoods}";
         //Yet another thing that I could've used loops and arrays for if my foresight were as good as my hindsight
+
+        Button closeButton = InfoScreen.Q<Button>();
+        closeButton.clicked -= HideInfoScreen;
+        closeButton.clicked += HideInfoScreen;
     }
 
     public void HideInfoScreen()
@@ -51,7 +55,40 @@ public class MenuManager
         VisualElement InfoScreen = Hud.rootVisualElement.Query(name:"InfoScreen");
         InfoScreen.SetEnabled(false);
         InfoScreen.visible = false;
-    }    
+    }
+
+    public void UpdateHud()
+    {
+        GlobalVariables variables = GameManager.gm.variables;
+        VisualElement CurrentContainer = Hud.rootVisualElement.Query(name:"CurrentResources");
+        VisualElement UpkeepContainer = Hud.rootVisualElement.Query(name:"UpkeepResources");
+        TextElement emission = CurrentContainer.Q<TextElement>(name:"EmissionText");
+        TextElement energy = CurrentContainer.Q<TextElement>(name:"EnergyText");
+        TextElement raw = CurrentContainer.Q<TextElement>(name:"RawText");
+        TextElement food = CurrentContainer.Q<TextElement>(name:"FoodText");
+        TextElement consumer = CurrentContainer.Q<TextElement>(name:"ConsumerText");
+        TextElement industrial = CurrentContainer.Q<TextElement>(name:"IndustrialText");
+        TextElement happiness = UpkeepContainer.Q<TextElement>(name:"HappinessText");
+        TextElement energyUpkeep = UpkeepContainer.Q<TextElement>(name:"EnergyUpkeepText");
+        TextElement rawUpkeep = UpkeepContainer.Q<TextElement>(name:"RawUpkeepText");
+        TextElement foodUpkeep = UpkeepContainer.Q<TextElement>(name:"FoodUpkeepText");
+        TextElement consumerUpkeep = UpkeepContainer.Q<TextElement>(name:"ConsumerUpkeepText");
+        TextElement industrialUpkeep = UpkeepContainer.Q<TextElement>(name:"IndustrialUpkeepText");
+
+        emission.text = $"Emission: {variables.CO2}";
+        energy.text = $"Energy: {variables.Energy}";
+        raw.text = $"Raw Resources: {variables.RawResources}";
+        food.text = $"Food: {variables.Food}";
+        consumer.text = $"Consumer Goods: {variables.ConsumerGoods}";
+        industrial.text = $"Industrial Goods: {variables.IndustryGoods}";
+        happiness.text = $"Happiness: {-variables.CitizenUnrest}";
+        energyUpkeep.text = $"Energy Upkeep: {variables.EnergyUpkeep}";
+        rawUpkeep.text = $"Raw Resources Upkeep: {variables.RawResourcesUpkeep}";
+        foodUpkeep.text = $"Food Upkeep: {variables.FoodUpkeep}";
+        consumerUpkeep.text = $"Consumer Goods Upkeep: {variables.ConsumerGoodsUpkeep}";
+        industrialUpkeep.text = $"Industry Goods Upkeep: {variables.IndustryGoodsUpkeep}";
+    }
+
     public void Update()
     {
         Vector2 mousePosition = Input.mousePosition;

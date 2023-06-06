@@ -31,59 +31,6 @@ public class CardSO : ScriptableObject
     public int cardTimer {get {return _cardTimer;}}
     [SerializeField] int _cardTimer;
     public Tile placedOn;
-
-
-    public void RunCard()
-    {
-        GlobalVariables variables = GameManager.gm.variables;
-        variables.CO2 += emsissionAmount;
-        if(resourceGains != null)
-        foreach(ResourceTypeDefinition definition in resourceGains)
-        {
-            switch(definition.resourceType)
-            {
-                case ResourceTypeDefinition.ResourceType.RAW:
-                    variables.RawResources += definition.amount;
-                    break;
-                case ResourceTypeDefinition.ResourceType.FOOD:
-                    variables.Food += definition.amount;
-                    break;
-                case ResourceTypeDefinition.ResourceType.ENERGY:
-                    variables.Energy += definition.amount;
-                    break;
-                case ResourceTypeDefinition.ResourceType.CONSUMER:
-                    variables.ConsumerGoods += definition.amount;
-                    break;
-                case ResourceTypeDefinition.ResourceType.INDUSTRY:
-                    variables.IndustryGoods += definition.amount;
-                    break;
-                default:
-                    break;
-            }
-        }
-        if(resourceUpkeep != null)
-        foreach(ResourceTypeDefinition definition in resourceUpkeep)
-        {
-            switch(definition.resourceType)
-            {
-                case ResourceTypeDefinition.ResourceType.RAW:
-                    variables.RawResources -= definition.amount;
-                    break;
-                case ResourceTypeDefinition.ResourceType.FOOD:
-                    variables.Food -= definition.amount;
-                    break;
-                case ResourceTypeDefinition.ResourceType.ENERGY:
-                    variables.Energy -= definition.amount;
-                    break;
-                case ResourceTypeDefinition.ResourceType.CONSUMER:
-                    variables.ConsumerGoods -= definition.amount;
-                    break;
-                case ResourceTypeDefinition.ResourceType.INDUSTRY:
-                    variables.IndustryGoods -= definition.amount;
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
+    public string flavorText;
+    
 }
