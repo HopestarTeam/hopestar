@@ -106,6 +106,7 @@ public class DragAndDrop : MonoBehaviour
                     handler.RunCosts();
                     MoveCard(target.transform.position);
                     target.GetComponent<CardSlot>().AddCard(gameObject);
+                    GameManager.gm.menuManager.UpdateHud();
                 }
                 else
                 {

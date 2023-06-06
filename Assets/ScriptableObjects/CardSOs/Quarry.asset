@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Quarry
   m_EditorClassIdentifier: 
   _cardName: Quarry
-  _cardType: 0
+  _cardType: 1
   _requiredTileProperties: 
   _blockedTileProperties: 03000000
   _resourceCosts: []
@@ -28,3 +28,4 @@ MonoBehaviour:
   _functionType: 0
   _cardTimer: 0
   placedOn: {fileID: 0}
+  flavorText: 

@@ -73,6 +73,7 @@ public class EndTurn : MonoBehaviour
 
         // Here should come a popup window with stats and a close button.
         GameManager.gm.menuManager.ShowInfoScreen(GameManager.gm.variables);
+        GameManager.gm.menuManager.UpdateHud();
 
     }
 
