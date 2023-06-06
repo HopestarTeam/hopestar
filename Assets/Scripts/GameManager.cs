@@ -24,6 +24,15 @@ public class GameManager : MonoBehaviour
             gm = this;
             menuManager.Initialize();
             variables.Initialize();
+            GlobalVariableAuthoringScript authorer;
+            if(TryGetComponent<GlobalVariableAuthoringScript>(out authorer))
+            {
+                authorer.Author();
+                foreach(KeyValuePair<GlobalVariableEnum,float> current in variables.variables)
+                {
+                    Debug.Log($"{current.Key}: {current.Value}");
+                }
+            }
             end = GetComponent<EndTurn>();
             endTurnButton = menuManager.Hud.rootVisualElement.Q("EndTurnButton") as Button;
             endTurnButton.RegisterCallback<ClickEvent>(ClickEndTurn);
