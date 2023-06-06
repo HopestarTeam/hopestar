@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
         {
             gm = this;
             menuManager.Initialize();
+            variables.Initialize();
             end = GetComponent<EndTurn>();
             endTurnButton = menuManager.Hud.rootVisualElement.Q("EndTurnButton") as Button;
             endTurnButton.RegisterCallback<ClickEvent>(ClickEndTurn);
