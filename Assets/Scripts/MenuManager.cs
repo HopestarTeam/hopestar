@@ -30,7 +30,7 @@ public class MenuManager
         VisualElement StatsContainer = InfoScreen.Query(name:"Stats");
 
         TextElement co2 = StatsContainer.Q<TextElement>(name:"CO2");
-        co2.text = $"CO<sup>2</sup>: {variables.CO2}";
+        co2.text = $"CO<sub>2</sub>: {variables.CO2}";
         TextElement happiness = StatsContainer.Q<TextElement>(name:"Happiness");
         happiness.text = $"Happiness: {variables.CitizenUnrest}";
         TextElement resources = StatsContainer.Q<TextElement>(name:"Resources");
