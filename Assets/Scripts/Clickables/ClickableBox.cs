@@ -22,4 +22,14 @@ public class ClickableBox : MonoBehaviour, IClickable
     public void OnHoverStay()
     {
     }
+
+    public void OnClickHold()
+    {
+
+    }
+
+    public void OnClickRelease()
+    {
+        
+    }
 }

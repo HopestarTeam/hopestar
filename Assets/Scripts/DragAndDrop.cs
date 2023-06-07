@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragAndDrop : MonoBehaviour
+public class DragAndDrop : MonoBehaviour, IClickable
 {   
     float pickUpHeight = 0.5f;
     Vector3 mouseOffset;    //the mouse position relative to the object when it is clicked
@@ -56,7 +56,7 @@ public class DragAndDrop : MonoBehaviour
         initialPosition = gameObject.transform.position;    //this will be removed once cards are stored in the card pool
     }
 
-    private void OnMouseDown() {
+    public void OnClick() {
         if(!moving){
             if (target != null) // = if card is in a slot
             {
@@ -79,7 +79,7 @@ public class DragAndDrop : MonoBehaviour
         
     }
 
-    private void OnMouseDrag() {
+    public void OnClickHold() {
         if(!moving){
             GetComponent<Rigidbody>().position = new Vector3(
                                                     GetMouseWorldPosition().x, 
@@ -91,7 +91,7 @@ public class DragAndDrop : MonoBehaviour
 
     }
 
-    private void OnMouseUp() {
+    public void OnClickRelease() {
         if(!moving){
             Cursor.visible = true;
             if (target == null){
@@ -118,6 +118,20 @@ public class DragAndDrop : MonoBehaviour
             gameObject.tag = "Card";
         }
         
+    }
+
+    public void OnHoverEnter()
+    {
+
+    }
+    public void OnHoverStay()
+    {
+
+    }
+
+    public void OnHoverExit()
+    {
+
     }
 
     private void Update() {
