@@ -27,8 +27,9 @@ MonoBehaviour:
   _resourceGains:
   - resourceType: 4
     amount: 2
-  _emsissionAmount: 0
+  _emsissionAmount: 1
   _hasFunction: 0
   _functionType: 0
   _cardTimer: 0
   placedOn: {fileID: 0}
+  flavorText: 
