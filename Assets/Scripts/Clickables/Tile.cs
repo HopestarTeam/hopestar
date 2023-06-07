@@ -12,7 +12,12 @@ public class Tile : MonoBehaviour, IClickable
     //returns true if the tile meets the conditions for the card used as an argument
     public bool IsCompatibleWith(CardSO card)
     {
-        return (HasProperties(card.requiredTileProperties) && !HasProperties(card.blockedTileProperties));
+        bool result = true;
+        if(card.blockedTileProperties != null)
+            result = !HasProperties(card.blockedTileProperties);
+        if(card.requiredTileProperties != null)
+            result = HasProperties(card.requiredTileProperties);
+        return result;
     }
 
     //Returns true if the tile has the property
@@ -22,7 +27,7 @@ public class Tile : MonoBehaviour, IClickable
     }
 
     //Returns true if the tile has all of the tile properties
-    bool HasProperties(TileProperty[] properties)
+    public bool HasProperties(TileProperty[] properties)
     {
         foreach(TileProperty property in properties)
         {

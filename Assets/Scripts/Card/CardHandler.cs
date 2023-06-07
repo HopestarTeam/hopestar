@@ -9,23 +9,30 @@ public class CardHandler : MonoBehaviour
 
     GlobalVariables variables;
     public DeckBehaviour deck;
+    public Tile placedOn;
     [SerializeField] TextMeshProUGUI cardName, costText, upkeepText, gainsText, emissionText, flavorText;
     MeshRenderer mesh;
     public ResourceTypeDefinition[] resourceCosts, resourceUpkeep, resourceGains;
-    public int emsissionAmount;
+    public int emsissionAmount, cardTimer;
 
     // Start is called before the first frame update
     void Start()
     {
         cardName.text = properties.cardName;
         flavorText.text = properties.flavorText;
+        if(properties.hasFunction && properties.flavorText == "")
+        {
+            flavorText.text = "There should be something here";
+        }
+
         resourceCosts = properties.resourceCosts;
         resourceUpkeep = properties.resourceUpkeep;
         resourceGains = properties.resourceGains;
         emsissionAmount = properties.emsissionAmount;
+
+        gameObject.name = properties.cardName;
         variables = GameManager.gm.variables;
         deck = transform.parent.GetComponent<DeckBehaviour>();
-        gameObject.name = properties.cardName;
 
         costText.text = "";
         upkeepText.text = "";
@@ -70,13 +77,37 @@ public class CardHandler : MonoBehaviour
                 mesh.material.color = Color.magenta;
                 break;
         }
-        //ResolveCard();
+        
+        if(properties.hasFunction)
+        {
+            switch (properties.functionType)
+            {
+                case CardSO.FunctionType.IF:
+                    IfTileCardSO iCard = (IfTileCardSO)properties;
+                    if(iCard.CheckCardIf(placedOn))
+                    {
+                        resourceGains = iCard.conditionalResourceGains;
+                    }
+                    else
+                    {
+                        resourceGains = iCard.resourceGains;
+                    }
+                    break;
+                case CardSO.FunctionType.TIMER:
+                    cardTimer = properties.cardTimer;
+                    break;
+                default:
+
+                    break;
+            }
+        }
     }
     
     public bool CheckCard()
     {
         bool result = true;
         GlobalVariables variables = GameManager.gm.variables;
+
         if(resourceGains != null)
         foreach(ResourceTypeDefinition definition in resourceCosts)
         {
@@ -102,9 +133,9 @@ public class CardHandler : MonoBehaviour
             }
             //Debug.Log("Enough " + definition.resourceType.ToString() + " = " + result);
             if(!result)
-                break;
+                return result;
         }
-        if(resourceUpkeep != null && result)
+        if(resourceUpkeep != null)
         foreach(ResourceTypeDefinition definition in resourceUpkeep)
         {
             switch(definition.resourceType)
@@ -129,7 +160,7 @@ public class CardHandler : MonoBehaviour
             }
             //Debug.Log("Enough " + definition.resourceType.ToString() + " Upkeep = " + result);
             if(!result)
-                break;
+                return result;
         }
         return result;
     }
@@ -195,7 +226,7 @@ public class CardHandler : MonoBehaviour
             {
                 case CardSO.FunctionType.IF:
                     IfTileCardSO iCard = (IfTileCardSO)properties;
-                    if(iCard.CheckCardIf())
+                    if(iCard.CheckCardIf(placedOn))
                     {
                         resourceGains = iCard.conditionalResourceGains;
                     }
@@ -210,6 +241,7 @@ public class CardHandler : MonoBehaviour
                         TimerCardSO tCard = (TimerCardSO)properties;
                         tCard.RunFunction();
                     }
+                    cardTimer--;
                     break;
                 default:
 

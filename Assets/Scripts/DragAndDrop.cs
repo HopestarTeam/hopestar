@@ -16,6 +16,7 @@ public class DragAndDrop : MonoBehaviour
  
     GameObject target;  //the card slot where it will be placed
     CardHandler handler;
+    Grid currentGrid;
     public void SetTarget(GameObject theTarget){target = theTarget;}    
     public void SetTargetToNull(){target = null;}
 
@@ -67,6 +68,8 @@ public class DragAndDrop : MonoBehaviour
                 Instantiate(gameObject, transform.position, transform.rotation, handler.deck.transform);
             }
 
+            
+
             mouseOffset = new Vector3(
                                 gameObject.transform.position.x - GetMouseWorldPosition().x,
                                 0f,
@@ -74,6 +77,7 @@ public class DragAndDrop : MonoBehaviour
         
             GetComponent<Rigidbody>().position += Vector3.up * pickUpHeight;
             Cursor.visible = false;
+
             gameObject.tag = "CurrentCard";
         }
         
@@ -101,7 +105,8 @@ public class DragAndDrop : MonoBehaviour
             }
             
             if (target != null){
-                if(handler.CheckCard()) // if enough resources to place the card
+                 // if enough resources to place the card and tile accepts
+                if(handler.CheckCard() && target.GetComponent<Tile>().IsCompatibleWith(handler.properties))
                 {
                     handler.RunCosts();
                     MoveCard(target.transform.position);
