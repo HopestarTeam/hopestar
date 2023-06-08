@@ -8,4 +8,6 @@ public interface IClickable
     public void OnHoverStay();
     public void OnHoverExit();
     public void OnClick();
+    public void OnClickHold();
+    public void OnClickRelease(); 
 }
