@@ -62,6 +62,16 @@ public class Clicker : MonoBehaviour
                 {
                     if (clickable != null) clickable.OnClick();
                 }
+
+                if(Input.GetMouseButton(0))
+                {
+                    if (clickable != null) clickable.OnClickHold();
+                }
+
+                if (Input.GetMouseButtonUp(0))
+                {
+                    if(clickable != null) clickable.OnClickRelease();
+                }
             }
 
 

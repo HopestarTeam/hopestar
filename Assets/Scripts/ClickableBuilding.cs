@@ -24,4 +24,14 @@ public class ClickableBuilding : MonoBehaviour, IClickable
 
     }
 
+    public void OnClickHold()
+    {
+
+    }
+
+    public void OnClickRelease()
+    {
+        
+    }
+
 }

@@ -57,6 +57,16 @@ public class Tile : MonoBehaviour, IClickable
     {
 
     }
+
+    public void OnClickHold()
+    {
+
+    }
+
+    public void OnClickRelease()
+    {
+        
+    }
 }
 
 [Serializable]
