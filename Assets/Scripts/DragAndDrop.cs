@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DragAndDrop : MonoBehaviour, IClickable
 {   
+    const string cardTag = "Card";
+    const string currentCardTag = "CurrentCard";
     float pickUpHeight = 0.5f;
     Vector3 mouseOffset;    //the mouse position relative to the object when it is clicked
     Vector3 initialPosition;    //this will be removed once cards are stored in the card pool
@@ -74,13 +76,13 @@ public class DragAndDrop : MonoBehaviour, IClickable
         
             GetComponent<Rigidbody>().position += Vector3.up * pickUpHeight;
             Cursor.visible = false;
-            gameObject.tag = "CurrentCard";
+            gameObject.tag = currentCardTag;
         }
         
     }
 
     public void OnClickHold() {
-        if(!moving){
+        if(!moving && tag == currentCardTag){
             GetComponent<Rigidbody>().position = new Vector3(
                                                     GetMouseWorldPosition().x, 
                                                     GetComponent<Rigidbody>().position.y, 
@@ -92,7 +94,8 @@ public class DragAndDrop : MonoBehaviour, IClickable
     }
 
     public void OnClickRelease() {
-        if(!moving){
+        if(!moving)
+        {
             Cursor.visible = true;
             if (target == null){
                 MoveCard(initialPosition);
@@ -115,7 +118,7 @@ public class DragAndDrop : MonoBehaviour, IClickable
                 }
             }
 
-            gameObject.tag = "Card";
+            gameObject.tag = cardTag;
         }
         
     }
