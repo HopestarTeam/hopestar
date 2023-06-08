@@ -108,7 +108,11 @@ public class DragAndDrop : MonoBehaviour
                  // if enough resources to place the card and tile accepts
                 if(handler.CheckCard() && target.GetComponent<Tile>().IsCompatibleWith(handler.properties))
                 {
-                    handler.RunCosts();
+                    if(handler.placedThisTurn)
+                    {
+                        handler.placedThisTurn = true;
+                        handler.RunCosts();
+                    }
                     MoveCard(target.transform.position);
                     target.GetComponent<CardSlot>().AddCard(gameObject);
                     GameManager.gm.menuManager.UpdateHud();

@@ -10,6 +10,7 @@ public class CardHandler : MonoBehaviour
     GlobalVariables variables;
     public DeckBehaviour deck;
     public Tile placedOn;
+    public bool placedThisTurn;
     [SerializeField] TextMeshProUGUI cardName, costText, upkeepText, gainsText, emissionText, flavorText;
     MeshRenderer mesh;
     public ResourceTypeDefinition[] resourceCosts, resourceUpkeep, resourceGains;
@@ -191,28 +192,31 @@ public class CardHandler : MonoBehaviour
                     break;
             }
         }
-        if(resourceUpkeep != null)
-        foreach(ResourceTypeDefinition definition in resourceUpkeep)
+        if(placedThisTurn)
         {
-            switch(definition.resourceType)
+            if(resourceUpkeep != null)
+            foreach(ResourceTypeDefinition definition in resourceUpkeep)
             {
-                case ResourceTypeDefinition.ResourceType.RAW:
-                    variables.RawResourcesUpkeep -= definition.amount;
-                    break;
-                case ResourceTypeDefinition.ResourceType.FOOD:
-                    variables.FoodUpkeep -= definition.amount;
-                    break;
-                case ResourceTypeDefinition.ResourceType.ENERGY:
-                    variables.EnergyUpkeep -= definition.amount;
-                    break;
-                case ResourceTypeDefinition.ResourceType.CONSUMER:
-                    variables.ConsumerGoodsUpkeep -= definition.amount;
-                    break;
-                case ResourceTypeDefinition.ResourceType.INDUSTRY:
-                    variables.IndustryGoodsUpkeep -= definition.amount;
-                    break;
-                default:
-                    break;
+                switch(definition.resourceType)
+                {
+                    case ResourceTypeDefinition.ResourceType.RAW:
+                        variables.RawResourcesUpkeep -= definition.amount;
+                        break;
+                    case ResourceTypeDefinition.ResourceType.FOOD:
+                        variables.FoodUpkeep -= definition.amount;
+                        break;
+                    case ResourceTypeDefinition.ResourceType.ENERGY:
+                        variables.EnergyUpkeep -= definition.amount;
+                        break;
+                    case ResourceTypeDefinition.ResourceType.CONSUMER:
+                        variables.ConsumerGoodsUpkeep -= definition.amount;
+                        break;
+                    case ResourceTypeDefinition.ResourceType.INDUSTRY:
+                        variables.IndustryGoodsUpkeep -= definition.amount;
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
@@ -248,6 +252,7 @@ public class CardHandler : MonoBehaviour
                     break;
             }
         }
+
         if(resourceGains != null)
         foreach(ResourceTypeDefinition definition in resourceGains)
         {
@@ -272,6 +277,7 @@ public class CardHandler : MonoBehaviour
                     break;
             }
         }
+        
         if(resourceUpkeep != null)
         foreach(ResourceTypeDefinition definition in resourceUpkeep)
         {
