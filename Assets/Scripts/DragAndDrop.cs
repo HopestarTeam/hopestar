@@ -21,11 +21,6 @@ public class DragAndDrop : MonoBehaviour, IClickable
     public void SetTarget(GameObject theTarget){target = theTarget;}    
     public void SetTargetToNull(){target = null;}
 
-    public void CheckAndPlaceCard(){
-        //this is where you call the card functions
-        Debug.Log("card functions were called");
-    }
-
     private void MoveCard(Vector3 targetPosition){   //this function should lerp in the final version
         endPosition = new Vector3(
                                 targetPosition.x, 
