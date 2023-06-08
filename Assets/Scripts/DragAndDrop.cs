@@ -1,26 +1,51 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragAndDrop : MonoBehaviour, IClickable
+public class DragAndDrop : MonoBehaviour
 {   
     const string cardTag = "Card";
     const string currentCardTag = "CurrentCard";
-    float pickUpHeight = 0.5f;
+    float pickUpHeight = 0.2f;
     Vector3 mouseOffset;    //the mouse position relative to the object when it is clicked
     Vector3 initialPosition;    //this will be removed once cards are stored in the card pool
 
+    //Components
+    Rigidbody rb;
+
+    //Variables related to lerping the position
     Vector3 startPosition;  //for lerping
     Vector3 endPosition;
     float lerpDuration = 0.2f;  //play around with this value until it feels fine
     float lerpElapsedTime = 0f;
     bool moving = false;
+    bool dragged = false;
  
     GameObject target;  //the card slot where it will be placed
     CardHandler handler;
     public void SetTarget(GameObject theTarget){target = theTarget;}    
     public void SetTargetToNull(){target = null;}
 
+    //A coroutine for lerping the cards(In the same manner as MoveCardWithLerp)
+    private IEnumerator MoveCardWithLerp(Vector3 EndPosition, float duration, Action EndAction)
+    {
+        Vector3 initialPosition = transform.position;
+        moving = true;
+        //x/y = x*(1/y) so we only need to do the division just once 
+        float OneDividedByDuration = 1/duration;
+
+        //Go through this each frame until the time's elapsed
+        for(float elapsed = 0; elapsed <= duration; elapsed += Time.deltaTime)
+        {
+            rb.position = Vector3.Lerp(initialPosition, EndPosition, elapsed * OneDividedByDuration);
+            yield return null;
+        }
+
+        EndAction();
+        Debug.Log("Stopped Moving");
+        moving = false;
+    }
     private void MoveCard(Vector3 targetPosition){   //this function should lerp in the final version
         endPosition = new Vector3(
                                 targetPosition.x, 
@@ -36,25 +61,26 @@ public class DragAndDrop : MonoBehaviour, IClickable
             lerpElapsedTime += Time.deltaTime;
             float percentComplete = Mathf.Min(lerpElapsedTime / lerpDuration, 1f);
 
-            GetComponent<Rigidbody>().position = Vector3.Lerp(startPosition, endPosition, percentComplete);
+            rb.position = Vector3.Lerp(startPosition, endPosition, percentComplete);
             if (percentComplete == 1f){moving = false;}
         }
     }
 
     private Vector3 GetMouseWorldPosition(){
-        float cameraDistance = Mathf.Abs(Camera.main.GetComponent<Transform>().position.y);
+        float cameraDistance = Mathf.Abs(Camera.main.transform.position.y);
         Vector3 mousePosition = new Vector3(Input.mousePosition.x,Input.mousePosition.y, cameraDistance);
         return Camera.main.ScreenToWorldPoint(mousePosition);
     }
 
     private void Awake() {
-        SetTargetToNull();
+        SetTargetToNull(); //Unnecessary to do this here, as uninitialized targets are null by default
         handler = GetComponent<CardHandler>();
+        rb = GetComponent<Rigidbody>();
         initialPosition = gameObject.transform.position;    //this will be removed once cards are stored in the card pool
     }
 
-    public void OnClick() {
-        if(!moving){
+    public void OnMouseDown() {
+        if(!moving && !GameManager.gm.menuManager.OnElement){
             if (target != null) // = if card is in a slot
             {
                 target.GetComponent<CardSlot>().RemoveCard();
@@ -72,15 +98,16 @@ public class DragAndDrop : MonoBehaviour, IClickable
             GetComponent<Rigidbody>().position += Vector3.up * pickUpHeight;
             Cursor.visible = false;
             gameObject.tag = currentCardTag;
+            dragged = true;
         }
         
     }
 
-    public void OnClickHold() {
-        if(!moving && tag == currentCardTag){
-            GetComponent<Rigidbody>().position = new Vector3(
+    public void OnMouseDrag() {
+        if(!moving && dragged){
+            rb.position = new Vector3(
                                                     GetMouseWorldPosition().x, 
-                                                    GetComponent<Rigidbody>().position.y, 
+                                                    rb.position.y, 
                                                     GetMouseWorldPosition().z) 
                                                 + mouseOffset;
         }
@@ -88,13 +115,14 @@ public class DragAndDrop : MonoBehaviour, IClickable
 
     }
 
-    public void OnClickRelease() {
-        if(!moving)
+    public void OnMouseUp() {
+        if(!moving && dragged)
         {
             Cursor.visible = true;
             if (target == null){
-                MoveCard(initialPosition);
-                Destroy(gameObject,lerpDuration*0.9f);
+                StartCoroutine(MoveCardWithLerp(initialPosition, lerpDuration, () => Destroy(gameObject)));
+                //MoveCard(initialPosition);
+                //Destroy(gameObject,lerpDuration*0.9f);
                 //the card goes back to the card pool
             }
             
@@ -102,18 +130,21 @@ public class DragAndDrop : MonoBehaviour, IClickable
                 if(handler.CheckCard()) // if enough resources to place the card
                 {
                     handler.RunCosts();
-                    MoveCard(target.transform.position);
+                    StartCoroutine(MoveCardWithLerp(initialPosition, lerpDuration, () => {}));
+                    //MoveCard(target.transform.position);
                     target.GetComponent<CardSlot>().AddCard(gameObject);
                     GameManager.gm.menuManager.UpdateHud();
                 }
                 else
                 {
-                    MoveCard(initialPosition);
-                    Destroy(gameObject,lerpDuration*0.9f);
+                    StartCoroutine(MoveCardWithLerp(initialPosition, lerpDuration, () => Destroy(gameObject)));
+                    //MoveCard(initialPosition);
+                    //Destroy(gameObject,lerpDuration*0.9f);
                 }
             }
 
             gameObject.tag = cardTag;
+            dragged = false;
         }
         
     }
@@ -132,7 +163,7 @@ public class DragAndDrop : MonoBehaviour, IClickable
 
     }
 
-    private void Update() {
-        MoveCardWithLerp();
-    }
+    //private void Update() {
+    //    MoveCardWithLerp();
+    //}
 }
