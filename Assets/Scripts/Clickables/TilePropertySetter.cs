@@ -9,7 +9,6 @@ public class TilePropertySetter : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(tileProperties.Count);
         int i = 0;
         foreach(GameObject current in targetGrid)
         {

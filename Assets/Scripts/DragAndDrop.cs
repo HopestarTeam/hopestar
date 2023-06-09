@@ -81,6 +81,7 @@ public class DragAndDrop : MonoBehaviour
 
     public void OnMouseDown() {
         if(!moving && !GameManager.gm.menuManager.OnElement){
+            GameManager.gm.tileMaterialSetter.GrayIncompatible(handler.properties);
             if (target != null) // = if card is in a slot
             {
                 target.GetComponent<CardSlot>().RemoveCard();
@@ -118,6 +119,7 @@ public class DragAndDrop : MonoBehaviour
     public void OnMouseUp() {
         if(!moving && dragged)
         {
+            GameManager.gm.tileMaterialSetter.ReturnColor();
             Cursor.visible = true;
             if (target == null){
                 StartCoroutine(MoveCardWithLerp(initialPosition, lerpDuration, () => Destroy(gameObject)));
