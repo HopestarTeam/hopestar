@@ -31,8 +31,9 @@ MonoBehaviour:
     amount: 2
   - resourceType: 4
     amount: 2
-  _emsissionAmount: 1
+  _emsissionAmount: 3
   _hasFunction: 0
   _functionType: 0
   _cardTimer: 0
   placedOn: {fileID: 0}
+  flavorText: 

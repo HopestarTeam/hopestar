@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(CardHandler))]
 public class Tile : MonoBehaviour, IClickable
@@ -56,4 +57,20 @@ public class Tile : MonoBehaviour, IClickable
     {
 
     }
+
+    public void OnClickHold()
+    {
+
+    }
+
+    public void OnClickRelease()
+    {
+        
+    }
+}
+
+[Serializable]
+public struct TilePropertyPreset
+{
+    public List<TileProperty> properties;
 }
