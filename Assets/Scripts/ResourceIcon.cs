@@ -41,6 +41,24 @@ public class ResourceIcon : MonoBehaviour
                 resourceSpentSprite = Resources.Load<Sprite>("Icons/food_spent");
                 resourceInUpkeepSprite = Resources.Load<Sprite>("Icons/food_locked");
             break;
+
+            case "IndustryDisplay":
+                resourceProductionSprite = Resources.Load<Sprite>("Icons/industrial");
+                resourceSpentSprite = Resources.Load<Sprite>("Icons/industrial_spent");
+                resourceInUpkeepSprite = Resources.Load<Sprite>("Icons/industrial_locked");
+            break;
+
+            case "ConsumerDisplay":
+                resourceProductionSprite = Resources.Load<Sprite>("Icons/consumer");
+                resourceSpentSprite = Resources.Load<Sprite>("Icons/consumer_spent");
+                resourceInUpkeepSprite = Resources.Load<Sprite>("Icons/consumer_locked");
+            break;
+
+            case "ScienceDisplay":
+                resourceProductionSprite = Resources.Load<Sprite>("Icons/science");
+                resourceSpentSprite = Resources.Load<Sprite>("Icons/science_spent");
+                resourceInUpkeepSprite = Resources.Load<Sprite>("Icons/science_locked");
+            break;
             
             default:
                 resourceProductionSprite = Resources.Load<Sprite>("Icons/energy");
