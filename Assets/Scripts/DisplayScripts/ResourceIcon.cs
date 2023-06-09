@@ -16,6 +16,14 @@ public class ResourceIcon : MonoBehaviour
     public void SetAsUpkeep(){myImage.overrideSprite = resourceInUpkeepSprite;}
     public void SetAsProduction(){myImage.overrideSprite = null;}
 
+    public void SetIcons(Sprite production, Sprite spent, Sprite inUpkeep){
+        resourceProductionSprite = production;
+        resourceSpentSprite = spent;
+        resourceInUpkeepSprite = inUpkeep;
+
+        myImage.sprite = resourceProductionSprite;
+    }
+
     void Awake(){
         myImage = GetComponent<Image>();
 
@@ -27,7 +35,7 @@ public class ResourceIcon : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start(){
+    /*void Start(){
         switch (transform.parent.name)
         {
             case "MaterialDisplay":
@@ -68,7 +76,7 @@ public class ResourceIcon : MonoBehaviour
         }
 
         myImage.sprite = resourceProductionSprite;
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
