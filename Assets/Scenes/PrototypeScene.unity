@@ -582,6 +582,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8333967867083660814, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
+      propertyPath: values.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333967867083660814, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
+      propertyPath: values.Array.data[0].variable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333967867083660814, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
+      propertyPath: values.Array.data[0].initialValue
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 9019645980576864443, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
       propertyPath: myGrid
       value: 
