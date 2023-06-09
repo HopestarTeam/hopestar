@@ -19,12 +19,12 @@ public class CardHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cardName.text = properties.cardName;
-        flavorText.text = properties.flavorText;
-        if(properties.hasFunction && properties.flavorText == "")
-        {
-            flavorText.text = "There should be something here";
-        }
+        //cardName.text = properties.cardName;
+        //flavorText.text = properties.flavorText;
+        //if(properties.hasFunction && properties.flavorText == "")
+        //{
+        //    flavorText.text = "There should be something here";
+        //}
 
         resourceCosts = properties.resourceCosts;
         resourceUpkeep = properties.resourceUpkeep;
@@ -35,29 +35,30 @@ public class CardHandler : MonoBehaviour
         variables = GameManager.gm.variables;
         deck = transform.parent.GetComponent<DeckBehaviour>();
 
-        costText.text = "";
-        upkeepText.text = "";
-        gainsText.text = "";
-        if(emsissionAmount > 0)
-            emissionText.text = emsissionAmount + "c";
-        else
-            emissionText.text = "";
-        
-        for (int i = 0; i < resourceCosts.Length; i++)
-        {
-            costText.text += resourceCosts[i].amount + resourceCosts[i].resourceType.ToString()[0].ToString() + "\n";
-        }
-        for (int i = 0; i < resourceUpkeep.Length; i++)
-        {
-            upkeepText.text += resourceUpkeep[i].amount + resourceUpkeep[i].resourceType.ToString()[0].ToString() + "\n";
-        }
-        for (int i = 0; i < resourceGains.Length; i++)
-        {
-            gainsText.text += resourceGains[i].amount + resourceGains[i].resourceType.ToString()[0].ToString() + " ";
-        }
+        //costText.text = "";
+        //upkeepText.text = "";
+        //gainsText.text = "";
+        //if(emsissionAmount > 0)
+        //    emissionText.text = emsissionAmount + "c";
+        //else
+        //    emissionText.text = "";
+        //
+        //for (int i = 0; i < resourceCosts.Length; i++)
+        //{
+        //    costText.text += resourceCosts[i].amount + resourceCosts[i].resourceType.ToString()[0].ToString() + "\n";
+        //}
+        //for (int i = 0; i < resourceUpkeep.Length; i++)
+        //{
+        //    upkeepText.text += resourceUpkeep[i].amount + resourceUpkeep[i].resourceType.ToString()[0].ToString() + "\n";
+        //}
+        //for (int i = 0; i < resourceGains.Length; i++)
+        //{
+        //    gainsText.text += resourceGains[i].amount + resourceGains[i].resourceType.ToString()[0].ToString() + " ";
+        //}
 
         mesh = transform.GetChild(0).GetComponent<MeshRenderer>();
-        switch (properties.cardType)
+        mesh.material.SetTexture("_MainTex",properties.cardImage.texture);
+        /*switch (properties.cardType)
         {
             case CardType.FOOD:
                 mesh.material.color = Color.green;
@@ -77,7 +78,7 @@ public class CardHandler : MonoBehaviour
             default:
                 mesh.material.color = Color.magenta;
                 break;
-        }
+        }*/
         
         if(properties.hasFunction)
         {
