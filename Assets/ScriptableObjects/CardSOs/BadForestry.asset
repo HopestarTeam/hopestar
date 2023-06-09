@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BadForestry
   m_EditorClassIdentifier: 
   _cardName: Bad Forestry
+  cardImage: {fileID: 21300000, guid: f6fd5d0136996be4698a5f38b397fde9, type: 3}
   _cardType: 1
   _requiredTileProperties: 
   _blockedTileProperties: 02000000
@@ -27,4 +28,4 @@ MonoBehaviour:
   _hasFunction: 1
   _functionType: 2
   _cardTimer: 3
-  placedOn: {fileID: 0}
+  flavorText: 

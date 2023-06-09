@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SteelMill
   m_EditorClassIdentifier: 
   _cardName: Steel Mill
+  cardImage: {fileID: 21300000, guid: d9bb9a23bf0240f4382473263fee4f43, type: 3}
   _cardType: 3
   _requiredTileProperties: 05000000
   _blockedTileProperties: 
@@ -31,5 +32,4 @@ MonoBehaviour:
   _hasFunction: 0
   _functionType: 0
   _cardTimer: 0
-  placedOn: {fileID: 0}
   flavorText: 

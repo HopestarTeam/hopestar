@@ -490,50 +490,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-      propertyPath: variables.Food
-      value: 9999
-      objectReference: {fileID: 0}
-    - target: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-      propertyPath: variables.Energy
-      value: 999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-      propertyPath: variables.FoodUpkeep
-      value: 9999
-      objectReference: {fileID: 0}
-    - target: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-      propertyPath: variables.EnergyUpkeep
-      value: 999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-      propertyPath: variables.RawResources
-      value: 9999
-      objectReference: {fileID: 0}
-    - target: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-      propertyPath: variables.CitizenUnrest
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-      propertyPath: variables.ConsumerGoods
-      value: 100000000
-      objectReference: {fileID: 0}
-    - target: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-      propertyPath: variables.IndustryGoods
-      value: 99999
-      objectReference: {fileID: 0}
-    - target: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-      propertyPath: variables.RawResourcesUpkeep
-      value: 99999
-      objectReference: {fileID: 0}
-    - target: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-      propertyPath: variables.ConsumerGoodsUpkeep
-      value: 9999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-      propertyPath: variables.IndustryGoodsUpkeep
-      value: 999999
-      objectReference: {fileID: 0}
     - target: {fileID: 496768691838329689, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
       propertyPath: m_RootOrder
       value: 5

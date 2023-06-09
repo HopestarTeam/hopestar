@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SolarFarm
   m_EditorClassIdentifier: 
   _cardName: Solar Farm
+  cardImage: {fileID: 21300000, guid: 4be2d6dd4b1e2b141beab38f109014ff, type: 3}
   _cardType: 0
   _requiredTileProperties: 
   _blockedTileProperties: 
@@ -27,7 +28,6 @@ MonoBehaviour:
   _hasFunction: 0
   _functionType: 1
   _cardTimer: 0
-  placedOn: {fileID: 0}
   flavorText: If placed on Hot, Gain 2E instead
   _conditionalTileProperties: 00000000
   _conditionalResourceGains:
