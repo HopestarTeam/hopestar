@@ -130,7 +130,7 @@ public class DragAndDrop : MonoBehaviour
                 if(handler.CheckCard()) // if enough resources to place the card
                 {
                     handler.RunCosts();
-                    StartCoroutine(MoveCardWithLerp(initialPosition, lerpDuration, () => {}));
+                    StartCoroutine(MoveCardWithLerp(target.transform.position, lerpDuration, () => {}));
                     //MoveCard(target.transform.position);
                     target.GetComponent<CardSlot>().AddCard(gameObject);
                     GameManager.gm.menuManager.UpdateHud();
