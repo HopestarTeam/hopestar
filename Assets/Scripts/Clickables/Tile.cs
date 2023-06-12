@@ -14,9 +14,9 @@ public class Tile : MonoBehaviour
     public bool IsCompatibleWith(CardSO card)
     {
         bool result = true;
-        if(card.blockedTileProperties != null)
+        if(card.blockedTileProperties.Length != 0)
             result = !HasProperties(card.blockedTileProperties);
-        if(card.requiredTileProperties != null)
+        if(card.requiredTileProperties.Length != 0 && result)
             result = HasProperties(card.requiredTileProperties);
         return result;
     }
