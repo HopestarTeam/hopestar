@@ -52,7 +52,7 @@ public struct TileMaterialColorSettings
 [Serializable]
 public class RuleMaterial
 {
-    public Material material;
+    [HideInInspector]public Material material;
     public Color InitialColor;
     public List<TileProperty> associatedProperties;
 

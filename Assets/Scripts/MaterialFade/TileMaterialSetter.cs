@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NativeClassExtensions;
 
 [RequireComponent(typeof(Grid))]
 public class TileMaterialSetter : MonoBehaviour
@@ -49,14 +50,14 @@ public class TileMaterialSetter : MonoBehaviour
             }
             if(!compatible)
             {
-                current.material.color = runTimeSettings.InCompatibleColor;
+                current.material.color = current.InitialColor.Subtractive(runTimeSettings.InCompatibleColor)/*(current.InitialColor + runTimeSettings.InCompatibleColor)/2*/;
                 continue;
             }
             foreach(TileProperty forbiddenProperty in card.blockedTileProperties)
             {
                 if(current.associatedProperties.Contains(forbiddenProperty))compatible = false;
             }
-            if(!compatible)current.material.color = runTimeSettings.InCompatibleColor;
+            if(!compatible)current.material.color = current.InitialColor.Subtractive(runTimeSettings.InCompatibleColor)/*(current.InitialColor + runTimeSettings.InCompatibleColor)/2*/;
         }
     }
 
