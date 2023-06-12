@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardName: University
   _cardType: 4
-  _requiredTileProperties: 04000000
+  _requiredTileProperties: 04
   _blockedTileProperties: 
   _resourceCosts:
   - resourceType: 1
@@ -32,3 +32,4 @@ MonoBehaviour:
   _functionType: 0
   _cardTimer: 0
   placedOn: {fileID: 0}
+  flavorText: 

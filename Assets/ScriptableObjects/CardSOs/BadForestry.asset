@@ -15,7 +15,7 @@ MonoBehaviour:
   _cardName: Bad Forestry
   _cardType: 1
   _requiredTileProperties: 
-  _blockedTileProperties: 02000000
+  _blockedTileProperties: 02
   _resourceCosts: []
   _resourceUpkeep:
   - resourceType: 0
@@ -28,3 +28,4 @@ MonoBehaviour:
   _functionType: 2
   _cardTimer: 3
   placedOn: {fileID: 0}
+  flavorText: 

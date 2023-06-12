@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardName: Steel Mill
   _cardType: 3
-  _requiredTileProperties: 05000000
+  _requiredTileProperties: 05
   _blockedTileProperties: 
   _resourceCosts:
   - resourceType: 1

@@ -15,7 +15,7 @@ MonoBehaviour:
   _cardName: Wheat
   _cardType: 2
   _requiredTileProperties: 
-  _blockedTileProperties: 04000000
+  _blockedTileProperties: 04
   _resourceCosts: []
   _resourceUpkeep:
   - resourceType: 0
@@ -28,3 +28,4 @@ MonoBehaviour:
   _functionType: 0
   _cardTimer: 0
   placedOn: {fileID: 0}
+  flavorText: 

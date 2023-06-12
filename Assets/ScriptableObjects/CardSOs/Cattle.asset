@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardName: Cattle
   _cardType: 2
-  _requiredTileProperties: 03000000
-  _blockedTileProperties: 04000000
+  _requiredTileProperties: 03
+  _blockedTileProperties: 04
   _resourceCosts:
   - resourceType: 1
     amount: 1
@@ -28,3 +28,4 @@ MonoBehaviour:
   _functionType: 0
   _cardTimer: 0
   placedOn: {fileID: 0}
+  flavorText: 

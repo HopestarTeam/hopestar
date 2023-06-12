@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardName: Coal Mine
   _cardType: 1
-  _requiredTileProperties: 06000000
+  _requiredTileProperties: 06
   _blockedTileProperties: 
   _resourceCosts: []
   _resourceUpkeep:
@@ -28,3 +28,4 @@ MonoBehaviour:
   _functionType: 0
   _cardTimer: 0
   placedOn: {fileID: 0}
+  flavorText: 

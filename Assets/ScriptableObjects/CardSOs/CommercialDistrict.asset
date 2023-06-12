@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardName: Commercial District
   _cardType: 4
-  _requiredTileProperties: 04000000
+  _requiredTileProperties: 04
   _blockedTileProperties: 
   _resourceCosts:
   - resourceType: 1
