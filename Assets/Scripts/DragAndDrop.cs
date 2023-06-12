@@ -44,7 +44,7 @@ public class DragAndDrop : MonoBehaviour
         }
 
         EndAction();
-        Debug.Log("Stopped Moving");
+        //Debug.Log("Stopped Moving");
         moving = false;
     }
     private void MoveCard(Vector3 targetPosition){   //this function should lerp in the final version
@@ -124,6 +124,11 @@ public class DragAndDrop : MonoBehaviour
             Cursor.visible = true;
             if (target == null){
                 StartCoroutine(MoveCardWithLerp(initialPosition, lerpDuration, () => Destroy(gameObject)));
+                if(handler.placedThisTurn)
+                {
+                    handler.RunCosts(false);
+                    GameManager.gm.menuManager.UpdateHud();
+                }
                 //MoveCard(initialPosition);
                 //Destroy(gameObject,lerpDuration*0.9f);
                 //the card goes back to the card pool
@@ -134,6 +139,7 @@ public class DragAndDrop : MonoBehaviour
                 if(handler.CheckCard() && target.GetComponent<Tile>().IsCompatibleWith(handler.properties))
                 {
                     handler.RunCosts();
+                    handler.placedThisTurn = true;
                     StartCoroutine(MoveCardWithLerp(target.transform.position, lerpDuration, () => {}));
                     //MoveCard(target.transform.position);
                     target.GetComponent<CardSlot>().AddCard(gameObject);
