@@ -6,18 +6,191 @@ using System;
 [Serializable]
 public class GlobalVariables
 {
-    public float CO2;
-    public float RawResources;
-    public float Food;
-    public float Energy;
-    public float ConsumerGoods;
-    public float IndustryGoods;
-    public float RawResourcesUpkeep;
-    public float FoodUpkeep;
-    public float EnergyUpkeep;
-    public float ConsumerGoodsUpkeep;
-    public float IndustryGoodsUpkeep;
-    public float CitizenUnrest;
-    public float CO2Upkeep;
-    public float CitizenUnrestUpkeep;
+    public Dictionary<GlobalVariableEnum,float> variables;
+    public void Initialize()
+    {
+        //Get an array of the enums
+        GlobalVariableEnum[] enums = (GlobalVariableEnum[])Enum.GetValues(typeof(GlobalVariableEnum));
+        
+        variables = new Dictionary<GlobalVariableEnum, float>(enums.Length);
+        foreach(GlobalVariableEnum current in enums)
+        {
+            variables.Add(current, 0);
+            Debug.Log($"{current}: {variables[current]}");
+        }
+    }
+
+    public float CO2
+    {
+        get
+        {
+            return variables[GlobalVariableEnum.CO2];
+        }
+        set
+        {
+            variables[GlobalVariableEnum.CO2] = value;
+        }
+    }
+    public float RawResources
+    {
+        get
+        {
+            return variables[GlobalVariableEnum.RawResources];
+        }
+        set
+        {
+            variables[GlobalVariableEnum.RawResources] = value;
+        }
+    }
+    public float Food
+    {
+        get
+        {
+            return variables[GlobalVariableEnum.Food];
+        }
+        set
+        {
+            variables[GlobalVariableEnum.Food] = value;
+        }
+    }
+    public float Energy
+    {
+        get
+        {
+            return variables[GlobalVariableEnum.Energy];
+        }
+        set
+        {
+            variables[GlobalVariableEnum.Energy] = value;
+        }
+    }
+    public float ConsumerGoods
+    {
+        get
+        {
+            return variables[GlobalVariableEnum.ConsumerGoods];
+        }
+        set
+        {
+            variables[GlobalVariableEnum.ConsumerGoods] = value;
+        }
+    }
+    public float IndustryGoods
+    {
+        get
+        {
+            return variables[GlobalVariableEnum.IndustryGoods];
+        }
+        set
+        {
+            variables[GlobalVariableEnum.IndustryGoods] = value;
+        }
+    }
+    public float RawResourcesUpkeep
+    {
+        get
+        {
+            return variables[GlobalVariableEnum.RawResourcesUpkeep];
+        }
+        set
+        {
+            variables[GlobalVariableEnum.RawResourcesUpkeep] = value;
+        }
+    }
+    public float FoodUpkeep
+    {
+        get
+        {
+            return variables[GlobalVariableEnum.FoodUpkeep];
+        }
+        set
+        {
+            variables[GlobalVariableEnum.FoodUpkeep] = value;
+        }
+    }
+    public float EnergyUpkeep
+    {
+        get
+        {
+            return variables[GlobalVariableEnum.EnergyUpkeep];
+        }
+        set
+        {
+            variables[GlobalVariableEnum.EnergyUpkeep] = value;
+        }
+    }
+    public float ConsumerGoodsUpkeep
+    {
+        get
+        {
+            return variables[GlobalVariableEnum.ConsumerGoodsUpkeep];
+        }
+        set
+        {
+            variables[GlobalVariableEnum.ConsumerGoodsUpkeep] = value;
+        }
+    }
+    public float IndustryGoodsUpkeep
+    {
+        get
+        {
+            return variables[GlobalVariableEnum.IndustryGoodsUpkeep];
+        }
+        set
+        {
+            variables[GlobalVariableEnum.IndustryGoodsUpkeep] = value;
+        }
+    }
+
+    public float CitizenUnrest
+    {
+        get
+        {
+            return variables[GlobalVariableEnum.CitizenUnrest];
+        }
+        set
+        {
+            variables[GlobalVariableEnum.CitizenUnrest] = value;
+        }
+    }
+    public float CO2Upkeep
+    {
+        get
+        {
+            return variables[GlobalVariableEnum.CO2Upkeep];
+        }
+        set
+        {
+            variables[GlobalVariableEnum.CO2Upkeep] = value;
+        }
+    }
+    public float CitizenUnrestUpkeep
+    {
+        get
+        {
+            return variables[GlobalVariableEnum.CitizenUnrestUpkeep];
+        }
+        set
+        {
+            variables[GlobalVariableEnum.CitizenUnrestUpkeep] = value;
+        }
+    }
+}
+
+public enum GlobalVariableEnum
+{
+    CO2,
+    RawResources,
+    Food,
+    Energy,
+    ConsumerGoods,
+    IndustryGoods,
+    RawResourcesUpkeep,
+    FoodUpkeep,
+    EnergyUpkeep,
+    ConsumerGoodsUpkeep,
+    IndustryGoodsUpkeep,
+    CitizenUnrest,
+    CO2Upkeep,
+    CitizenUnrestUpkeep
 }
