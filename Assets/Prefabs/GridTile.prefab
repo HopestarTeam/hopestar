@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardHandler: {fileID: 0}
-  tileProperties: 0000000002000000
+  tileProperties: 
 --- !u!65 &-3766054525554708344
 BoxCollider:
   m_ObjectHideFlags: 0

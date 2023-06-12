@@ -15,7 +15,7 @@ MonoBehaviour:
   _cardName: Chip Fundry
   cardImage: {fileID: 21300000, guid: 25354f09e163b2242841aabb66afd065, type: 3}
   _cardType: 3
-  _requiredTileProperties: 05000000
+  _requiredTileProperties: 05
   _blockedTileProperties: 
   _resourceCosts:
   - resourceType: 1

@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 [RequireComponent(typeof(CardHandler))]
-public class Tile : MonoBehaviour, IClickable
+public class Tile : MonoBehaviour
 {
     public CardHandler cardHandler;
 
@@ -37,40 +37,31 @@ public class Tile : MonoBehaviour, IClickable
         return true;
     }
 
-    public void OnClick()
+    public void OnMouseEnter()
     {
-
-    }
-
-    public void OnHoverEnter()
-    {
-        GameManager.gm.menuManager.toolTip.visible = true;
-        string tilePropetyToolTip = "";
-        foreach(TileProperty property in tileProperties)
+        if(!GameManager.gm.menuManager.OnElement)
         {
-            tilePropetyToolTip += $"{property} \n";
+            GameManager.gm.menuManager.toolTip.visible = true;
+            string tilePropetyToolTip = "";
+            foreach(TileProperty property in tileProperties)
+            {
+                tilePropetyToolTip += $"{property} \n";
+            }
+            GameManager.gm.menuManager.toolTip.text = tilePropetyToolTip;
         }
-        GameManager.gm.menuManager.toolTip.text = tilePropetyToolTip;
     }
 
-    public void OnHoverExit()
+    public void OnMouseStay()
+    {
+        if(GameManager.gm.menuManager.OnElement)
+        {
+            OnMouseExit();
+        }
+    }
+
+    public void OnMouseExit()
     {
         GameManager.gm.menuManager.toolTip.visible = false;
-    }
-    
-    public void OnHoverStay()
-    {
-
-    }
-
-    public void OnClickHold()
-    {
-
-    }
-
-    public void OnClickRelease()
-    {
-        
     }
 }
 

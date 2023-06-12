@@ -16,7 +16,7 @@ MonoBehaviour:
   cardImage: {fileID: 21300000, guid: 72e6c6ab5e8ef714bb54e1276b9e2194, type: 3}
   _cardType: 2
   _requiredTileProperties: 
-  _blockedTileProperties: 02000000
+  _blockedTileProperties: 02
   _resourceCosts: []
   _resourceUpkeep:
   - resourceType: 0
@@ -28,4 +28,5 @@ MonoBehaviour:
   _hasFunction: 0
   _functionType: 0
   _cardTimer: 0
+  placedOn: {fileID: 0}
   flavorText: 
