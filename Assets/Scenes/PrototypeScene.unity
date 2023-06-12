@@ -542,8 +542,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 9019645980576864443, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
+      propertyPath: myGrid
+      value: 
+      objectReference: {fileID: 2065526794}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
+--- !u!114 &2065526794 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3731978450528056215, guid: ae7b7a797236b0c46875495b2204641d, type: 3}
+  m_PrefabInstance: {fileID: 3731978450680824733}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eaab2cb2065e904a8de7021f04bfbac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2065526798 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3731978450528056211, guid: ae7b7a797236b0c46875495b2204641d, type: 3}
