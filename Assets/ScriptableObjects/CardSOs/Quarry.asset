@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Quarry
   m_EditorClassIdentifier: 
   _cardName: Quarry
+  cardImage: {fileID: 21300000, guid: eed8e197b400ea249a3b9e08b8785f4a, type: 3}
   _cardType: 1
   _requiredTileProperties: 
   _blockedTileProperties: 03000000
@@ -27,5 +28,4 @@ MonoBehaviour:
   _hasFunction: 0
   _functionType: 0
   _cardTimer: 0
-  placedOn: {fileID: 0}
   flavorText: 

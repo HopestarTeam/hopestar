@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Wheat
   m_EditorClassIdentifier: 
   _cardName: Wheat
+  cardImage: {fileID: 21300000, guid: 59b8b37a3ad6acc41a0de0508d28726e, type: 3}
   _cardType: 2
   _requiredTileProperties: 
   _blockedTileProperties: 04000000
@@ -27,4 +28,4 @@ MonoBehaviour:
   _hasFunction: 0
   _functionType: 0
   _cardTimer: 0
-  placedOn: {fileID: 0}
+  flavorText: 

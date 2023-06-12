@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Rice
   m_EditorClassIdentifier: 
   _cardName: Rice
+  cardImage: {fileID: 21300000, guid: e50562976b691b54b9e0030b8ed7a643, type: 3}
   _cardType: 2
   _requiredTileProperties: 03000000
   _blockedTileProperties: 04000000
@@ -27,4 +28,4 @@ MonoBehaviour:
   _hasFunction: 0
   _functionType: 0
   _cardTimer: 0
-  placedOn: {fileID: 0}
+  flavorText: 
