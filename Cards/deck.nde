@@ -7,20 +7,27 @@ PAGE = 210, 297, PORTRAIT
 BORDER = RECTANGLE, #000000, 3
 
 ;Icons
-ICON = , F, FoodIcon.png
-ICON = , E, EnergyIcon.png
-ICON = , M, RawMaterialIcon.png
-ICON = , I, IndustrialGoodsIcon.png
-ICON = , C, ConsumerGoodsIcon.png
-ICON = , S, ScienceIcon.png
+ICON = , F, food.png
+ICON = , E, energy.png
+ICON = , M, material.png
+ICON = , I, industrial.png
+ICON = , C, consumer.png
+ICON = , S, science.png
 ICON = , X, CO2Icon.png
 
-HTMLIMAGE = , (food), FoodIcon.png, 8, 8
-HTMLIMAGE = , (energy), EnergyIcon.png, 8, 8
-HTMLIMAGE = , (material), RawMaterialIcon.png, 8, 8
-HTMLIMAGE = , (industry), IndustrialGoodsIcon.png, 8, 8
-HTMLIMAGE = , (consumer), ConsumerGoodsIcon.png, 8, 8
-HTMLIMAGE = , (science), ScienceIcon.png, 8, 8
+ICON = , W, food_locked.png
+ICON = , Q, energy_locked.png
+ICON = , R, material_locked.png
+ICON = , Y, industrial_locked.png
+ICON = , T, consumer_locked.png
+ICON = , U, science_locked.png
+
+HTMLIMAGE = , (food), food.png, 8, 8
+HTMLIMAGE = , (energy), energy.png, 8, 8
+HTMLIMAGE = , (material), material.png, 8, 8
+HTMLIMAGE = , (industry), industrial.png, 8, 8
+HTMLIMAGE = , (consumer), consumer.png, 8, 8
+HTMLIMAGE = , (science), science.png, 8, 8
 HTMLIMAGE = , (co2), CO2Icon.png, 8, 8
 
 
