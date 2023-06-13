@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8602033905733293058}
   - component: {fileID: -3766054525554708344}
   - component: {fileID: -4646226233387701034}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GridTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
