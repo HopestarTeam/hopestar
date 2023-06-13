@@ -162,8 +162,12 @@ public class DragAndDrop : MonoBehaviour
         {
             if(hit.collider != null)
             {
-                Debug.Log("Slot found!");
-                return hit.collider.gameObject;
+                Tile targetTile = hit.collider.GetComponent<Tile>();
+                if(targetTile != null && targetTile.cardHandler == null)
+                {
+                    Debug.Log("Slot found!");
+                    return hit.collider.gameObject;
+                }
             }
         }
         Debug.Log("Slot Not Found");
