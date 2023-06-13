@@ -54,20 +54,20 @@ public class CardSlot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if(true)
-        {
-            if(currentCard == null)
-                currentCard = GameObject.FindGameObjectWithTag("CurrentCard");
-            
-            if (CardIsAbove()){
-                oldValue = true;
-                currentCard.GetComponent<DragAndDrop>().SetTarget(gameObject);
-            }
-            else if (oldValue && currentCard != null){
-                oldValue = false;
-                currentCard.GetComponent<DragAndDrop>().SetTargetToNull();
-            }
-        }
+        //if(true)
+        //{
+        //    if(currentCard == null)
+        //        currentCard = GameObject.FindGameObjectWithTag("CurrentCard");
+        //    
+        //    if (CardIsAbove()){
+        //        oldValue = true;
+        //        currentCard.GetComponent<DragAndDrop>().SetTarget(gameObject);
+        //    }
+        //    else if (oldValue && currentCard != null){
+        //        oldValue = false;
+        //        currentCard.GetComponent<DragAndDrop>().SetTargetToNull();
+        //    }
+        //}
 
         //this is for testing, comment out if not needed
         //if (CardIsAbove()){GetComponent<Renderer>().material.SetColor("_Color", Color.red);}
