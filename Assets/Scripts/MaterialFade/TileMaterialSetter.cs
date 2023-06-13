@@ -37,8 +37,11 @@ public class TileMaterialSetter : MonoBehaviour
         }
     }
 
-    
-
+    public void UpdateMaterial(Tile tile)
+    {
+        Material output = runTimeSettings.GetMatchingMaterial(tile);
+        tile.GetComponent<Renderer>().material = output;
+    }
     public void GrayIncompatible(CardSO card)
     {
         foreach(RuleMaterial current in runTimeSettings.ruleMaterials)
