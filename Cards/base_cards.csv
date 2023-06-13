@@ -1,6 +1,6 @@
 Name,Cost,Upkeep,TotalCost,Restriction1,Restriction2,Restriction3,Effect1,Effect2,Effect3,BorderColor,Count
 This Is A Test Card,M,Q,QM,Restriction 1,Restriction 2,Restriction 3,<center>(food),<center>(material),<center>(co2),food,
-Wheat,,Q,Q,Non-Urban,,,<center>(food)(food),<center>(co2),,food,6
+Wheat,,Q,Q,Non-Cold,Non-Urban,,<center>(food)(food),<center>(co2),,food,6
 Rice,,Q,Q,Wet,Non-Urban,,<center>(food)(food)(food),<center>(co2),,food,6
 Potatoes,,Q,Q,Non-(Dry & Hot),Non-Urban,,<center>(food),,,food,6
 Cattle,M,,M,Wet,Non-Urban,,<center>(food),<center>(co2)(co2),,food,6
@@ -10,8 +10,8 @@ Forestry,,Q,Q,Non-Dry,Non-Urban,,<center>(material)(material),<center>(co2),,mat
 Bad Forestry,,Q,Q,Non-Dry,Non-Urban,,<center>3T: slot -> Dry,<center>(material)(material)(material),<center>(co2),material,6
 Coal Plant,MM,,MM,,,,<center>(energy)(energy)(energy),<center>(co2)(co2)(co2)(co2),,energy,6
 Solar Farm,MM,,MM,,,,<center>(energy),<center>if Hot: (energy),,energy,6
-Nuclear Plant,MMMMI,R,RMMMMI,,,,<center>(energy)(energy)(energy)(energy),,,energy,3
+Nuclear Plant,MMMMI,Y,YMMMMI,,,,<center>(energy)(energy)(energy)(energy),,,energy,3
 Commercial D.,M,QW,QWM,Urban,,,<center>(consumer)(consumer),,,consumer,3
-Steel Mill,MM,QR,QRMM,Industrial,,,<center>(industry),<center>(co2),,industry,6
+Steel Mill,MM,QR,QRMM,Industrial,,,<center>(industry)(industry),<center>(co2)(co2),,industry,6
 Chip Foundry,MMI,QQR,QQRMMI,Industrial,,,<center>(industry)(industry),<center>(consumer)(consumer),<center>(co2),industry-consumer,3
 University,MMC,Q,QMMC,Urban,,,<center>(science)(science)(science),,,science,3
