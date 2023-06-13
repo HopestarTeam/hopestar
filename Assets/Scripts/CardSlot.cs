@@ -68,9 +68,5 @@ public class CardSlot : MonoBehaviour
         //        currentCard.GetComponent<DragAndDrop>().SetTargetToNull();
         //    }
         //}
-
-        //this is for testing, comment out if not needed
-        //if (CardIsAbove()){GetComponent<Renderer>().material.SetColor("_Color", Color.red);}
-        //if (!CardIsAbove()){GetComponent<Renderer>().material.SetColor("_Color", Color.white);}
     }
 }

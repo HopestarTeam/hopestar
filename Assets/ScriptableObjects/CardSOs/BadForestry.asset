@@ -28,5 +28,7 @@ MonoBehaviour:
   _hasFunction: 1
   _functionType: 2
   _cardTimer: 3
-  placedOn: {fileID: 0}
   flavorText: 
+  fromProperty: 3
+  toProperty: 2
+  destroyedOnFinish: 1

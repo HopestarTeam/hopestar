@@ -23,6 +23,7 @@ public class DragAndDrop : MonoBehaviour
     bool dragged = false;
  
     GameObject target;  //the card slot where it will be placed
+    GameObject currentSlot;
     CardHandler handler;
     Grid currentGrid;
     public void SetTarget(GameObject theTarget){target = theTarget;}    
@@ -134,18 +135,27 @@ public class DragAndDrop : MonoBehaviour
                 if(handler.CheckCard() && target.GetComponent<Tile>().IsCompatibleWith(handler.properties))
                 {
                     handler.RunCosts();
+                    handler.placedThisTurn = true;
+                    currentSlot = target.gameObject;
+                    handler.placedOn = target.GetComponent<Tile>();
                     StartCoroutine(MoveCardWithLerp(target.transform.position, lerpDuration, () => {}));
                     //MoveCard(target.transform.position);
                     target.GetComponent<CardSlot>().AddCard(gameObject);
-                    GameManager.gm.menuManager.UpdateHud();
                 }
                 else
                 {
-                    StartCoroutine(MoveCardWithLerp(initialPosition, lerpDuration, () => Destroy(gameObject)));
+                    if(currentSlot != null)
+                    {
+                        StartCoroutine(MoveCardWithLerp(currentSlot.transform.position, lerpDuration, () => {}));
+                        currentSlot.GetComponent<CardSlot>().AddCard(gameObject);
+                    }
+                    else
+                        StartCoroutine(MoveCardWithLerp(initialPosition, lerpDuration, () => Destroy(gameObject)));
                     //MoveCard(initialPosition);
                     //Destroy(gameObject,lerpDuration*0.9f);
                 }
             }
+            GameManager.gm.menuManager.UpdateHud();
 
             gameObject.tag = cardTag;
             dragged = false;

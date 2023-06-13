@@ -86,13 +86,16 @@ public class CardHandler : MonoBehaviour
             {
                 case CardSO.FunctionType.IF:
                     IfTileCardSO iCard = (IfTileCardSO)properties;
-                    if(iCard.CheckCardIf(placedOn))
+                    if(placedOn != null)
                     {
-                        resourceGains = iCard.conditionalResourceGains;
-                    }
-                    else
-                    {
-                        resourceGains = iCard.resourceGains;
+                        if(iCard.CheckCardIf(placedOn))
+                        {
+                            resourceGains = iCard.conditionalResourceGains;
+                        }
+                        else
+                        {
+                            resourceGains = iCard.resourceGains;
+                        }
                     }
                     break;
                 case CardSO.FunctionType.TIMER:
@@ -108,7 +111,7 @@ public class CardHandler : MonoBehaviour
     {
         bool result = true;
 
-        float rawCosts = 0,foodCosts = 0,energyCosts = 0;
+        float  rawCosts = 0, foodCosts = 0, energyCosts = 0, consumerCosts = 0, industryCosts = 0;
         if(!placedThisTurn)
         {
             if(resourceCosts != null)
@@ -126,10 +129,10 @@ public class CardHandler : MonoBehaviour
                         energyCosts += definition.amount;
                         break;
                     case ResourceTypeDefinition.ResourceType.CONSUMER:
-                        variables.ConsumerGoods -= definition.amount;
+                        consumerCosts += definition.amount;
                         break;
                     case ResourceTypeDefinition.ResourceType.INDUSTRY:
-                        variables.IndustryGoods -= definition.amount;
+                        industryCosts += definition.amount;
                         break;
                     default:
                         break;
@@ -243,7 +246,7 @@ public class CardHandler : MonoBehaviour
 
     public void RunCosts(bool runCosts = true)
     {
-        float flipper = 1, rawCosts = 0, foodCosts = 0, energyCosts = 0, consumerCosts = 0, IndustryCosts = 0;
+        float flipper = 1, rawCosts = 0, foodCosts = 0, energyCosts = 0, consumerCosts = 0, industryCosts = 0;
         if(!runCosts)
         {
             flipper = -1;
@@ -269,7 +272,7 @@ public class CardHandler : MonoBehaviour
                         consumerCosts += definition.amount;
                         break;
                     case ResourceTypeDefinition.ResourceType.INDUSTRY:
-                        IndustryCosts += definition.amount;
+                        industryCosts += definition.amount;
                         break;
                     default:
                         break;
@@ -293,7 +296,7 @@ public class CardHandler : MonoBehaviour
                         consumerCosts += definition.amount;
                         break;
                     case ResourceTypeDefinition.ResourceType.INDUSTRY:
-                        IndustryCosts += definition.amount;
+                        industryCosts += definition.amount;
                         break;
                     default:
                         break;
@@ -317,7 +320,7 @@ public class CardHandler : MonoBehaviour
                         tmp.Add(kvp.Key,kvp.Value - consumerCosts * flipper);
                         break;
                     case GlobalVariableEnum.IndustryGoods:
-                        tmp.Add(kvp.Key,kvp.Value - IndustryCosts * flipper);
+                        tmp.Add(kvp.Key,kvp.Value - industryCosts * flipper);
                         break;
                     default:
                         tmp.Add(kvp.Key,kvp.Value);
@@ -400,10 +403,18 @@ public class CardHandler : MonoBehaviour
                     }
                     break;
                 case CardSO.FunctionType.TIMER:
-                    if(properties.cardTimer == 0)
+                    if(cardTimer == 0)
                     {
                         TimerCardSO tCard = (TimerCardSO)properties;
-                        tCard.RunFunction();
+                        if(placedOn.HasProperty(tCard.fromProperty) && tCard.fromProperty != TileProperty.NULL)
+                            placedOn.tileProperties.Remove(tCard.fromProperty);
+                        if(!placedOn.HasProperty(tCard.toProperty) && tCard.toProperty != TileProperty.NULL)
+                            placedOn.tileProperties.Add(tCard.toProperty);
+                        if(tCard.destroyedOnFinish)
+                        {
+                            //ToDo: Should update upkeep on ui
+                            Destroy(gameObject);
+                        }
                     }
                     cardTimer--;
                     break;
