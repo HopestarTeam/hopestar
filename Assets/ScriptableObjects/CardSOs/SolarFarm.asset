@@ -25,7 +25,7 @@ MonoBehaviour:
   - resourceType: 0
     amount: 1
   _emsissionAmount: 0
-  _hasFunction: 0
+  _hasFunction: 1
   _functionType: 1
   _cardTimer: 0
   flavorText: If placed on Hot, Gain 2E instead

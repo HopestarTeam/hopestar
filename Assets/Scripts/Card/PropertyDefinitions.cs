@@ -11,7 +11,8 @@ public enum TileProperty : byte
     WET,
     URBAN,
     INDUSTRY,
-    RESOURCERICH
+    RESOURCERICH,
+    NULL
 }
 
 /*[Serializable]

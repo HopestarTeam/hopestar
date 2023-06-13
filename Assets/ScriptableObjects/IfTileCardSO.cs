@@ -14,9 +14,4 @@ public class IfTileCardSO : CardSO
     {
         return placedOn.HasProperties(conditionalTileProperties);
     }
-
-    public void RunFunction()
-    {
-
-    }
 }

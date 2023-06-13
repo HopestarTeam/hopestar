@@ -27,7 +27,7 @@ public class TileMaterialSetter : MonoBehaviour
             for(int i = 0; i < grid.count; i++)
             {
                 rend[i] = grid[i].GetComponentInChildren<Renderer>();
-                Debug.Log(rend[i]);
+                //Debug.Log(rend[i]);
             }
         for(int i = 0; i < grid.count; i++)
         {
