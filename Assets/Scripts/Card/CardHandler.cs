@@ -99,7 +99,6 @@ public class CardHandler : MonoBehaviour
                     cardTimer = properties.cardTimer;
                     break;
                 default:
-
                     break;
             }
         }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
     defaultMaterial: {fileID: 2100000, guid: a28e80ee8d6731c44bbe82b80de72ffa, type: 2}
-    InCompatibleColor: {r: 1, g: 0, b: 0, a: 1}
+    InCompatibleColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
     ruleMaterials:
     - material: {fileID: 0}
       InitialColor: {r: 1, g: 0.53792745, b: 0, a: 1}
