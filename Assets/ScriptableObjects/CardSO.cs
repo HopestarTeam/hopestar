@@ -7,6 +7,7 @@ public class CardSO : ScriptableObject
 {
     public string cardName {get {return _cardName;}}
     [SerializeField] private string _cardName;
+    public Sprite cardImage;
     public CardType cardType {get {return _cardType;}}
     [SerializeField] CardType _cardType;
     public TileProperty[] requiredTileProperties {get {return _requiredTileProperties;}}

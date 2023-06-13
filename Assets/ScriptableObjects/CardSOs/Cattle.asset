@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Cattle
   m_EditorClassIdentifier: 
   _cardName: Cattle
+  cardImage: {fileID: 21300000, guid: 4246d105adbefdc47bd481cc8df1a785, type: 3}
   _cardType: 2
-  _requiredTileProperties: 03000000
-  _blockedTileProperties: 04000000
+  _requiredTileProperties: 03
+  _blockedTileProperties: 04
   _resourceCosts:
   - resourceType: 1
     amount: 1
@@ -28,3 +29,4 @@ MonoBehaviour:
   _functionType: 0
   _cardTimer: 0
   placedOn: {fileID: 0}
+  flavorText: 

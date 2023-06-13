@@ -5,7 +5,7 @@ using UnityEngine;
 public class EndTurn : MonoBehaviour
 {
     [SerializeField] Grid myGrid;
-    [SerializeField] CardHandler myCardHandler;
+
 
     GlobalVariables variables;
 
@@ -24,8 +24,20 @@ public class EndTurn : MonoBehaviour
        // On mouseclick, call the EndTurnFunction() 
     }
 
+    bool CheckUpkeep()
+    {
+        //check all variables on global variables and return false if got negative incomes
+        //foreach()
+        return true;
+    }
     public void EndTurnFunction()
     {
+        if(!CheckUpkeep())
+        {
+            Debug.Log("Upkeep fugd, no turn end for you :)");
+            return;
+        }
+
         variables.ConsumerGoodsUpkeep = 0f;
         variables.EnergyUpkeep = 0f;
         variables.FoodUpkeep = 0f;
@@ -34,8 +46,6 @@ public class EndTurn : MonoBehaviour
 
         for (int i = 0; i < listSize; i++)
         {
-            //int currentItem = i;  //this should be the current item in the list ; you can just use i instead
-            // Debug.Log(currentItem);
 
             Tile current = myGrid[i].GetComponent<Tile>();
             if(current == null)
@@ -46,23 +56,12 @@ public class EndTurn : MonoBehaviour
 
             if (current.cardHandler != null)
             {
-                 // Fetch card from current, activate this later.
-                 myCardHandler = current.cardHandler;
-                 myCardHandler.ResolveCard();
+                // Fetch card from current, activate this later.
+                current.cardHandler.ResolveCard();
+                current.cardHandler.placedThisTurn = false;
             }
 
         }
-     
-     /*
-        Debug.Log(GameManager.gm.variables.CO2);
-        Debug.Log(GameManager.gm.variables.CitizenUnrest);
-        Debug.Log(GameManager.gm.variables.RawResources);
-        Debug.Log(GameManager.gm.variables.Food);
-        Debug.Log(GameManager.gm.variables.Energy);
-        Debug.Log(GameManager.gm.variables.ConsumerGoods);
-        Debug.Log(GameManager.gm.variables.IndustryGoods);
-     */   
-
 
         // Here the script should set Raw Resources, Food, Energy, ConsumerGoods and IndustryGoods to upkeep.
         variables.RawResources = variables.RawResourcesUpkeep;

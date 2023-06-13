@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e11abfa8f3bc8640be2032d4e562cb7, type: 3}
+  m_Name: Tile Material Color Settings
+  m_EditorClassIdentifier: 
+  settings:
+    defaultMaterial: {fileID: 2100000, guid: a28e80ee8d6731c44bbe82b80de72ffa, type: 2}
+    InCompatibleColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
+    ruleMaterials:
+    - material: {fileID: 0}
+      InitialColor: {r: 1, g: 0.53792745, b: 0, a: 1}
+      associatedProperties: 0002
+    - material: {fileID: 0}
+      InitialColor: {r: 0.745728, g: 0.9245283, b: 0.92122906, a: 1}
+      associatedProperties: 0102
+    - material: {fileID: 0}
+      InitialColor: {r: 0, g: 1, b: 0.40715814, a: 1}
+      associatedProperties: 0103
+    - material: {fileID: 0}
+      InitialColor: {r: 0.09784131, g: 0.6509434, b: 0, a: 1}
+      associatedProperties: 0003
+    - material: {fileID: 0}
+      InitialColor: {r: 0.41509432, g: 0.37789246, b: 0.37789246, a: 1}
+      associatedProperties: 0004

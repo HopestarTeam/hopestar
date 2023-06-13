@@ -82,6 +82,7 @@ public class DragAndDrop : MonoBehaviour
 
     public void OnMouseDown() {
         if(!moving && !GameManager.gm.menuManager.OnElement){
+            GameManager.gm.tileMaterialSetter.GrayIncompatible(handler.properties);
             if (target != null) // = if card is in a slot
             {
                 target.GetComponent<CardSlot>().RemoveCard();
@@ -108,19 +109,19 @@ public class DragAndDrop : MonoBehaviour
 
     public void OnMouseDrag() {
         if(!moving && dragged){
+            target = TryGetSlotBelow();
             rb.position = new Vector3(
-                                                    GetMouseWorldPosition().x, 
-                                                    rb.position.y, 
-                                                    GetMouseWorldPosition().z) 
-                                                + mouseOffset;
+                                        GetMouseWorldPosition().x, 
+                                        rb.position.y, 
+                                        GetMouseWorldPosition().z) 
+                                        + mouseOffset;
         }
-        
-
     }
 
     public void OnMouseUp() {
         if(!moving && dragged)
         {
+            GameManager.gm.tileMaterialSetter.ReturnColor();
             Cursor.visible = true;
             if (target == null){
                 StartCoroutine(MoveCardWithLerp(initialPosition, lerpDuration, () => Destroy(gameObject)));
@@ -128,8 +129,7 @@ public class DragAndDrop : MonoBehaviour
                 //Destroy(gameObject,lerpDuration*0.9f);
                 //the card goes back to the card pool
             }
-            
-            if (target != null){
+            else{
                  // if enough resources to place the card and tile accepts
                 if(handler.CheckCard() && target.GetComponent<Tile>().IsCompatibleWith(handler.properties))
                 {
@@ -153,18 +153,21 @@ public class DragAndDrop : MonoBehaviour
         
     }
 
-    public void OnHoverEnter()
+    GameObject TryGetSlotBelow()
     {
+        Ray ray = new Ray(transform.position,Vector3.down);
+        RaycastHit hit;
 
-    }
-    public void OnHoverStay()
-    {
-
-    }
-
-    public void OnHoverExit()
-    {
-
+        if(Physics.Raycast(ray, out hit, 10f,LayerMask.GetMask("CardSlot")))
+        {
+            if(hit.collider != null)
+            {
+                Debug.Log("Slot found!");
+                return hit.collider.gameObject;
+            }
+        }
+        Debug.Log("Slot Not Found");
+        return null;
     }
 
     //private void Update() {
