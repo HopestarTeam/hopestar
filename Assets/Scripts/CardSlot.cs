@@ -10,7 +10,7 @@ public class CardSlot : MonoBehaviour
     float currentCardCenterZ;
     Tile thisTile;
     GameObject currentCard;
-    bool oldValue = false;  //we use this to check when the CardIsAbove valuse changes
+    //bool oldValue = false;  //we use this to check when the CardIsAbove valuse changes : not needed anymore maybe
 
     GameObject slottedCard;
     public bool IsFree(){return slottedCard == null;}
