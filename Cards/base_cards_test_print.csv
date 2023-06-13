@@ -1,0 +1,8 @@
+Name,Cost,Upkeep,TotalCost,Restriction1,Restriction2,Restriction3,Effect1,Effect2,Effect3,BorderColor,Count
+Wheat Field,,Q,Q,Non-Cold,Non-Urban,,<center>(food)(food),<center>(co2),,food,4
+Cattle Ranch,M,,M,Wet,Non-Urban,,<center>(food),<center>(co2)(co2),,food,4
+Forestry,,Q,Q,Non-Dry,Non-Urban,,<center>(material)(material),<center>(co2),,material,4
+Fossil Fuel Power Station,MM,,MM,,,,<center>(energy)(energy)(energy),<center>(co2)(co2)(co2)(co2),,energy,4
+Solar Farm,MM,,MM,,,,<center>(energy),<center>if Hot: (energy),,energy,4
+Commercial District,M,QW,QWM,Urban,,,<center>(consumer)(consumer),,,consumer,2
+Steel Mill,MM,QR,QRMM,Industrial,,,<center>(industry)(industry),<center>(co2)(co2),,industry,2
