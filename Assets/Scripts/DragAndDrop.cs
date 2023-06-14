@@ -90,7 +90,7 @@ public class DragAndDrop : MonoBehaviour
             }
             else
             {
-                Instantiate(gameObject, transform.position, transform.rotation, handler.deck.transform);
+                Instantiate(gameObject, handler.deck.transform);
             }
 
             
@@ -141,6 +141,7 @@ public class DragAndDrop : MonoBehaviour
                     StartCoroutine(MoveCardWithLerp(target.transform.position, lerpDuration, () => {}));
                     //MoveCard(target.transform.position);
                     target.GetComponent<CardSlot>().AddCard(gameObject);
+                    transform.SetParent(target.transform);
                 }
                 else
                 {

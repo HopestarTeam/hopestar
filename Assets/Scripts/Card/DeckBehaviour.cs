@@ -6,6 +6,9 @@ public class DeckBehaviour : MonoBehaviour
 {
     [SerializeField] GameObject cardPrefab;
     [SerializeField] CardSO[] cardSOs;
+    public List<GameObject> cardObjects;
+
+    DeckScroll scrollScript;
     
     //Deck Display stuff, feel free to delete when doing proper deck view
     [SerializeField] float deckMatrixMaxWidth = 2, widthSpace = 5, depthSpace = 10;
@@ -14,17 +17,19 @@ public class DeckBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        row = -1;
+        scrollScript = GetComponent<DeckScroll>();
         for(int i = 0; i < cardSOs.Length; i++)
         {
-            if(i%deckMatrixMaxWidth == 0)
-                row++;
-            GameObject newCard = Instantiate(cardPrefab,
-                        transform.position + new Vector3(widthSpace*(i%deckMatrixMaxWidth),0,-depthSpace*row),
-                        transform.rotation,
-                        transform);
-            newCard.GetComponent<CardHandler>().properties = cardSOs[i];
+            InstantiateCard(cardSOs[i]);
         }
+        scrollScript.ArrangeCards();
+    }
+
+    void InstantiateCard(CardSO newCardProperties)
+    {
+        GameObject newCard = Instantiate(cardPrefab, transform);
+        newCard.GetComponent<CardHandler>().properties = newCardProperties;
+        cardObjects.Add(newCard);
     }
 
     public void AddCards(CardSO[] addedCards)
@@ -36,10 +41,14 @@ public class DeckBehaviour : MonoBehaviour
             foreach(CardSO add in addedCards)
             {
                 if(add != cardSO)
+                {
                     tmpList.Add(add);
+                    InstantiateCard(add);
+                }
             }
         }
         cardSOs = tmpList.ToArray();
+        scrollScript.ArrangeCards();
     }
 
     public void RemoveCards(CardSO[] removedCards)
@@ -53,10 +62,12 @@ public class DeckBehaviour : MonoBehaviour
                 if(rmv == cardSO)
                 {
                     tmpList.Remove(cardSO);
+                    //Destroy the card object
                     break;
                 }
             }
         }
         cardSOs = tmpList.ToArray();
+        scrollScript.ArrangeCards();
     }
 }
