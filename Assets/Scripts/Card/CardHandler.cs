@@ -153,10 +153,10 @@ public class CardHandler : MonoBehaviour
                         energyCosts += definition.amount;
                         break;
                     case ResourceTypeDefinition.ResourceType.CONSUMER:
-                        variables.ConsumerGoodsUpkeep -= definition.amount;
+                        consumerCosts += definition.amount;
                         break;
                     case ResourceTypeDefinition.ResourceType.INDUSTRY:
-                        variables.IndustryGoodsUpkeep -= definition.amount;
+                        industryCosts += definition.amount;
                         break;
                     default:
                         break;
@@ -174,6 +174,12 @@ public class CardHandler : MonoBehaviour
                         break;
                     case GlobalVariableEnum.Energy:
                         result = variables.variables[kvp.Key] >= energyCosts;
+                        break;
+                    case GlobalVariableEnum.ConsumerGoods:
+                        result = variables.variables[kvp.Key] >= consumerCosts;
+                        break;
+                    case GlobalVariableEnum.IndustryGoods:
+                        result = variables.variables[kvp.Key] >= industryCosts;
                         break;
                     default:
                         break;
