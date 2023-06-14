@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,19 +18,19 @@ public class Objectives : MonoBehaviour
     //int emissionsTarget = 0;
     List<ResourceObjective> listOfObjectives;
 
-    public static Dictionary<string, List<int>> resourceProduction = new Dictionary<string, List<int>>(){};
+    /*public static Dictionary<string, List<int>> resourceProduction = new Dictionary<string, List<int>>(){};
 
     private void UpdateResourceProduction(){
-        /*the list has 4 values:
-        the first three {production, spent, in_upkeep} are taken from the game manager (resource authority)
-        the fourth value is surplus calculated as: surplus = production - spent - in_upkeep*/
+        //the list has 4 values:
+        //the first three {production, spent, in_upkeep} are taken from the game manager (resource authority)
+        //the fourth value is surplus calculated as: surplus = production - spent - in_upkeep
         resourceProduction["Energy"] = new List<int>(){0, 0, 0, 0};
         resourceProduction["Food"] = new List<int>(){0, 0, 0, 0};
         resourceProduction["Material"] = new List<int>(){0, 0, 0, 0};
         resourceProduction["Industry"] = new List<int>(){0, 0, 0, 0};
         resourceProduction["Consumer"] = new List<int>(){0, 0, 0, 0};
         resourceProduction["Science"] = new List<int>(){0, 0, 0, 0};
-    }
+    }*/
 
     class ResourceObjective{
         //a class that collects the name of a resource, the target objective and the two sprites (unfulfilled and fulfilled) for display
@@ -46,7 +47,8 @@ public class Objectives : MonoBehaviour
         }
 
         public bool IsFulfilled(){
-            return  resourceProduction[name][3] >= target;
+            int surplus = GameManager.gm.variables.variables[(GlobalVariableEnum)Enum.Parse(typeof(GlobalVariableEnum), name)].GetSurplus();
+            return  surplus >= target;
         }
     }
 
@@ -108,12 +110,12 @@ public class Objectives : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
-        UpdateResourceProduction();
+
     }
 
     // Update is called once per frame
     void Update(){
-        UpdateResourceProduction();
+
         CheckObjectiveComplete();        
     }
 }
