@@ -730,6 +730,10 @@ PrefabInstance:
       value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 270563472414309620, guid: f4ce1d8b5db7f9f439bd826c2fbba1f4, type: 3}
+      propertyPath: forwardCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 270563472414309620, guid: f4ce1d8b5db7f9f439bd826c2fbba1f4, type: 3}
       propertyPath: forwardCurve.m_Curve.Array.data[1].value
       value: 1
       objectReference: {fileID: 0}
