@@ -26,4 +26,37 @@ public class DeckBehaviour : MonoBehaviour
             newCard.GetComponent<CardHandler>().properties = cardSOs[i];
         }
     }
+
+    public void AddCards(CardSO[] addedCards)
+    {
+        List<CardSO> tmpList = new List<CardSO>();
+        foreach(CardSO cardSO in cardSOs)
+        {
+            tmpList.Add(cardSO);
+            foreach(CardSO add in addedCards)
+            {
+                if(add != cardSO)
+                    tmpList.Add(add);
+            }
+        }
+        cardSOs = tmpList.ToArray();
+    }
+
+    public void RemoveCards(CardSO[] removedCards)
+    {
+        List<CardSO> tmpList = new List<CardSO>();
+        foreach(CardSO cardSO in cardSOs)
+        {
+            tmpList.Add(cardSO);
+            foreach(CardSO rmv in removedCards)
+            {
+                if(rmv == cardSO)
+                {
+                    tmpList.Remove(cardSO);
+                    break;
+                }
+            }
+        }
+        cardSOs = tmpList.ToArray();
+    }
 }
