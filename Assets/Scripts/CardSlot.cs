@@ -10,7 +10,7 @@ public class CardSlot : MonoBehaviour
     float currentCardCenterZ;
     Tile thisTile;
     GameObject currentCard;
-    bool oldValue = false;  //we use this to check when the CardIsAbove valuse changes
+    //bool oldValue = false;  //we use this to check when the CardIsAbove valuse changes : not needed anymore maybe
 
     GameObject slottedCard;
     public bool IsFree(){return slottedCard == null;}
@@ -28,8 +28,7 @@ public class CardSlot : MonoBehaviour
     
 
     private bool CardIsAbove(){
-        if (GameObject.FindGameObjectWithTag("CurrentCard") != null && IsFree()){
-            currentCard = GameObject.FindGameObjectWithTag("CurrentCard");
+        if (currentCard != null && IsFree()){
             currentCardCenterX = currentCard.transform.position.x;
             currentCardCenterZ = currentCard.transform.position.z;
             return (
@@ -55,18 +54,19 @@ public class CardSlot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if (CardIsAbove()){
-            oldValue = true;
-            GameObject.FindGameObjectWithTag("CurrentCard").GetComponent<DragAndDrop>().SetTarget(gameObject);
-        }
-
-        if (!CardIsAbove() && oldValue && GameObject.FindGameObjectWithTag("CurrentCard") != null){
-            oldValue = false;
-            GameObject.FindGameObjectWithTag("CurrentCard").GetComponent<DragAndDrop>().SetTargetToNull();
-        }
-
-        //this is for testing, comment out if not needed
-        //if (CardIsAbove()){GetComponent<Renderer>().material.SetColor("_Color", Color.red);}
-        //if (!CardIsAbove()){GetComponent<Renderer>().material.SetColor("_Color", Color.white);}
+        //if(true)
+        //{
+        //    if(currentCard == null)
+        //        currentCard = GameObject.FindGameObjectWithTag("CurrentCard");
+        //    
+        //    if (CardIsAbove()){
+        //        oldValue = true;
+        //        currentCard.GetComponent<DragAndDrop>().SetTarget(gameObject);
+        //    }
+        //    else if (oldValue && currentCard != null){
+        //        oldValue = false;
+        //        currentCard.GetComponent<DragAndDrop>().SetTargetToNull();
+        //    }
+        //}
     }
 }

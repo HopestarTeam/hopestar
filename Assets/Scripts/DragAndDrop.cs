@@ -23,7 +23,9 @@ public class DragAndDrop : MonoBehaviour
     bool dragged = false;
  
     GameObject target;  //the card slot where it will be placed
+    GameObject currentSlot;
     CardHandler handler;
+    Grid currentGrid;
     public void SetTarget(GameObject theTarget){target = theTarget;}    
     public void SetTargetToNull(){target = null;}
 
@@ -81,6 +83,7 @@ public class DragAndDrop : MonoBehaviour
 
     public void OnMouseDown() {
         if(!moving && !GameManager.gm.menuManager.OnElement){
+            GameManager.gm.tileMaterialSetter.GrayIncompatible(handler.properties);
             if (target != null) // = if card is in a slot
             {
                 target.GetComponent<CardSlot>().RemoveCard();
@@ -89,6 +92,8 @@ public class DragAndDrop : MonoBehaviour
             {
                 Instantiate(gameObject, transform.position, transform.rotation, handler.deck.transform);
             }
+
+            
 
             mouseOffset = new Vector3(
                                 gameObject.transform.position.x - GetMouseWorldPosition().x,
@@ -105,19 +110,19 @@ public class DragAndDrop : MonoBehaviour
 
     public void OnMouseDrag() {
         if(!moving && dragged){
+            target = TryGetSlotBelow();
             rb.position = new Vector3(
-                                                    GetMouseWorldPosition().x, 
-                                                    rb.position.y, 
-                                                    GetMouseWorldPosition().z) 
-                                                + mouseOffset;
+                                        GetMouseWorldPosition().x, 
+                                        rb.position.y, 
+                                        GetMouseWorldPosition().z) 
+                                        + mouseOffset;
         }
-        
-
     }
 
     public void OnMouseUp() {
         if(!moving && dragged)
         {
+            GameManager.gm.tileMaterialSetter.ReturnColor();
             Cursor.visible = true;
             if (target == null){
                 StartCoroutine(MoveCardWithLerp(initialPosition, lerpDuration, () => Destroy(gameObject)));
@@ -125,23 +130,32 @@ public class DragAndDrop : MonoBehaviour
                 //Destroy(gameObject,lerpDuration*0.9f);
                 //the card goes back to the card pool
             }
-            
-            if (target != null){
-                if(handler.CheckCard()) // if enough resources to place the card
+            else{
+                 // if enough resources to place the card and tile accepts
+                if(handler.CheckCard() && target.GetComponent<Tile>().IsCompatibleWith(handler.properties))
                 {
                     handler.RunCosts();
+                    handler.placedThisTurn = true;
+                    currentSlot = target.gameObject;
+                    handler.placedOn = target.GetComponent<Tile>();
                     StartCoroutine(MoveCardWithLerp(target.transform.position, lerpDuration, () => {}));
                     //MoveCard(target.transform.position);
                     target.GetComponent<CardSlot>().AddCard(gameObject);
-                    GameManager.gm.menuManager.UpdateHud();
                 }
                 else
                 {
-                    StartCoroutine(MoveCardWithLerp(initialPosition, lerpDuration, () => Destroy(gameObject)));
+                    if(currentSlot != null)
+                    {
+                        StartCoroutine(MoveCardWithLerp(currentSlot.transform.position, lerpDuration, () => {}));
+                        currentSlot.GetComponent<CardSlot>().AddCard(gameObject);
+                    }
+                    else
+                        StartCoroutine(MoveCardWithLerp(initialPosition, lerpDuration, () => Destroy(gameObject)));
                     //MoveCard(initialPosition);
                     //Destroy(gameObject,lerpDuration*0.9f);
                 }
             }
+            GameManager.gm.menuManager.UpdateHud();
 
             gameObject.tag = cardTag;
             dragged = false;
@@ -149,18 +163,25 @@ public class DragAndDrop : MonoBehaviour
         
     }
 
-    public void OnHoverEnter()
+    GameObject TryGetSlotBelow()
     {
+        Ray ray = new Ray(transform.position,Vector3.down);
+        RaycastHit hit;
 
-    }
-    public void OnHoverStay()
-    {
-
-    }
-
-    public void OnHoverExit()
-    {
-
+        if(Physics.Raycast(ray, out hit, 10f,LayerMask.GetMask("CardSlot")))
+        {
+            if(hit.collider != null)
+            {
+                Tile targetTile = hit.collider.GetComponent<Tile>();
+                if(targetTile != null && targetTile.cardHandler == null)
+                {
+                    Debug.Log("Slot found!");
+                    return hit.collider.gameObject;
+                }
+            }
+        }
+        Debug.Log("Slot Not Found");
+        return null;
     }
 
     //private void Update() {

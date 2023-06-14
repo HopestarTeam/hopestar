@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: NuclearPlant
   m_EditorClassIdentifier: 
   _cardName: Nuclear Plant
+  cardImage: {fileID: 21300000, guid: f48856c77ceef414dbcb9eec8df38210, type: 3}
   _cardType: 0
   _requiredTileProperties: 
   _blockedTileProperties: 
@@ -31,4 +32,4 @@ MonoBehaviour:
   _hasFunction: 0
   _functionType: 0
   _cardTimer: 0
-  placedOn: {fileID: 0}
+  flavorText: 

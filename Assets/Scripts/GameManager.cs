@@ -12,8 +12,10 @@ public class GameManager : MonoBehaviour
     public MenuManager menuManager;
     EndTurn end;
     Button endTurnButton;
+    
+    [SerializeField]public TileMaterialSetter tileMaterialSetter;
 
-    void Awake()
+    void Start()
     {
         if(gm)
         {
@@ -28,10 +30,10 @@ public class GameManager : MonoBehaviour
             if(TryGetComponent<GlobalVariableAuthoringScript>(out authorer))
             {
                 authorer.Author();
-                foreach(KeyValuePair<GlobalVariableEnum,float> current in variables.variables)
-                {
-                    Debug.Log($"{current.Key}: {current.Value}");
-                }
+                //foreach(KeyValuePair<GlobalVariableEnum,float> current in variables.variables)
+                //{
+                //    Debug.Log($"{current.Key}: {current.Value}");
+                //}
             }
             end = GetComponent<EndTurn>();
             endTurnButton = menuManager.Hud.rootVisualElement.Q("EndTurnButton") as Button;
