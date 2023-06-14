@@ -5,22 +5,37 @@ using System;
 
 [Serializable]
 public class GlobalVariables
-{
-    public Dictionary<GlobalVariableEnum,float> variables;
+{   
+    public struct ResourceVariable{
+        //structure that collects the production, upkeep and spent values of a single resource type
+        public int production;
+        public int upkeep;
+        public int spent;
+
+        public ResourceVariable(int production, int upkeep, int spent){
+            this.production = production;
+            this.upkeep = upkeep;
+            this.spent = spent;
+        }
+    }
+
+    public Dictionary<GlobalVariableEnum, ResourceVariable> variables;
     public void Initialize()
     {
         //Get an array of the enums
         GlobalVariableEnum[] enums = (GlobalVariableEnum[])Enum.GetValues(typeof(GlobalVariableEnum));
         
-        variables = new Dictionary<GlobalVariableEnum, float>(enums.Length);
+        variables = new Dictionary<GlobalVariableEnum, ResourceVariable>(enums.Length);
         foreach(GlobalVariableEnum current in enums)
         {
-            variables.Add(current, 0);
+            variables.Add(current, new ResourceVariable(0, 0, 0));
             //Debug.Log($"{current}: {variables[current]}");
         }
     }
 
-    public float CO2
+    
+
+    /*public float CO2
     {
         get
         {
@@ -174,23 +189,16 @@ public class GlobalVariables
         {
             variables[GlobalVariableEnum.CitizenUnrestUpkeep] = value;
         }
-    }
+    }*/
 }
 
 public enum GlobalVariableEnum
 {
     CO2,
-    RawResources,
     Food,
     Energy,
-    ConsumerGoods,
-    IndustryGoods,
-    RawResourcesUpkeep,
-    FoodUpkeep,
-    EnergyUpkeep,
-    ConsumerGoodsUpkeep,
-    IndustryGoodsUpkeep,
-    CitizenUnrest,
-    CO2Upkeep,
-    CitizenUnrestUpkeep
+    Material,
+    Industry,
+    Consumer,
+    Science
 }
