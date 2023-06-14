@@ -426,6 +426,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78cfc9c2a7418e14ea4f6e7224e8fbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1260400035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 496768691838329691, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
+  m_PrefabInstance: {fileID: 2049469230}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1260400039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260400035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c5aebbbcebe9b4ba1bef965848d4a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  values:
+  - variable: 1
+    initialValue: 20
+  - variable: 3
+    initialValue: 3
 --- !u!1001 &1275375775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -490,6 +512,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
+      propertyPath: tileMaterialSetter
+      value: 
+      objectReference: {fileID: 2065526797}
     - target: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
       propertyPath: variables.RawResources
       value: 4
@@ -558,7 +584,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2065526795}
   - component: {fileID: 2065526794}
-  - component: {fileID: 2065526796}
+  - component: {fileID: 2065526797}
+  - component: {fileID: 2065526798}
   m_Layer: 0
   m_Name: GridRoot
   m_TagString: Untagged
@@ -597,7 +624,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2065526796
+--- !u!114 &2065526797
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -606,7 +633,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 2065526793}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53162223be5c04348a2063fff957d6db, type: 3}
+  m_Script: {fileID: 11500000, guid: f3280a47341be774c8df5b5db79484b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grid: {fileID: 2065526794}
+  settings: {fileID: 11400000, guid: 5a882155e81810146ac761409393af17, type: 2}
+  runTimeSettings:
+    defaultMaterial: {fileID: 2100000, guid: a28e80ee8d6731c44bbe82b80de72ffa, type: 2}
+    InCompatibleColor: {r: 0, g: 0, b: 0, a: 0}
+    ruleMaterials: []
+--- !u!114 &2065526798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065526793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82bd546d342a44e44be810bd57576e5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetGrid: {fileID: 2065526794}
+  tileProperties:
+  - properties: 0002
+  - properties: 0003
+  - properties: 0102
+  - properties: 0004
+  - properties: 0103

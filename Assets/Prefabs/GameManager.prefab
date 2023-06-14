@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 496768691838329689}
   - component: {fileID: 496768691838329688}
   - component: {fileID: 9019645980576864443}
+  - component: {fileID: 8333967867083660814}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -94,19 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8621c2caa898b4543857dd34c2a11b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  variables:
-    CO2: 0
-    RawResources: 0
-    Food: 0
-    Energy: 0
-    ConsumerGoods: 0
-    IndustryGoods: 0
-    RawResourcesUpkeep: 0
-    FoodUpkeep: 0
-    EnergyUpkeep: 0
-    ConsumerGoodsUpkeep: 0
-    IndustryGoodsUpkeep: 0
-    CitizenUnrest: 0
   menuManager:
     Hud: {fileID: 496768690896938883}
     OnElement: 0
@@ -123,4 +111,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myGrid: {fileID: 0}
-  myCardHandler: {fileID: 0}
+--- !u!114 &8333967867083660814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496768691838329691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c5aebbbcebe9b4ba1bef965848d4a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  values: []
