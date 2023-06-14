@@ -17,7 +17,7 @@ public class Objectives : MonoBehaviour
     //int emissionsTarget = 0;
     List<ResourceObjective> listOfObjectives;
 
-    public Dictionary<string, List<int>> resourceProduction = new Dictionary<string, List<int>>(){};
+    public static Dictionary<string, List<int>> resourceProduction = new Dictionary<string, List<int>>(){};
 
     private void UpdateResourceProduction(){
         /*the list has 4 values:
@@ -45,15 +45,15 @@ public class Objectives : MonoBehaviour
             fulfilledSprite = produced;
         }
 
-        public bool IsFulfilled(Dictionary<string, List<int>> resources){
-            return  resources[name][3] >= target;
+        public bool IsFulfilled(){
+            return  resourceProduction[name][3] >= target;
         }
     }
 
     private void CheckObjectiveComplete(){
         int numberOfObjectivesSatisfied = 0;
         foreach (ResourceObjective objective in listOfObjectives){
-            if (objective.IsFulfilled(resourceProduction)){ numberOfObjectivesSatisfied++;}
+            if (objective.IsFulfilled()){ numberOfObjectivesSatisfied++;}
         }
 
         if (numberOfObjectivesSatisfied == listOfObjectives.Count){objectiveComplete = true;}
