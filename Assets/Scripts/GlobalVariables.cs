@@ -16,7 +16,7 @@ public class GlobalVariables
         foreach(GlobalVariableEnum current in enums)
         {
             variables.Add(current, 0);
-            Debug.Log($"{current}: {variables[current]}");
+            //Debug.Log($"{current}: {variables[current]}");
         }
     }
 

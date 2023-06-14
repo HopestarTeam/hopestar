@@ -7,6 +7,7 @@ public class CardSO : ScriptableObject
 {
     public string cardName {get {return _cardName;}}
     [SerializeField] private string _cardName;
+    public Sprite cardImage;
     public CardType cardType {get {return _cardType;}}
     [SerializeField] CardType _cardType;
     public TileProperty[] requiredTileProperties {get {return _requiredTileProperties;}}
@@ -30,7 +31,6 @@ public class CardSO : ScriptableObject
     [SerializeField] FunctionType _functionType;
     public int cardTimer {get {return _cardTimer;}}
     [SerializeField] int _cardTimer;
-    public Tile placedOn;
     public string flavorText;
     
 }

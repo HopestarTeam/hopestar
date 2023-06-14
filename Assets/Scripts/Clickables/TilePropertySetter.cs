@@ -1,24 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TilePropertySetter : MonoBehaviour
 {
     public Grid targetGrid;
-    public List<TilePropertyPreset> tileProperties;
+    public List<TilePropertyArea> tileProperties;
 
     void Start()
     {
-        Debug.Log(tileProperties.Count);
-        int i = 0;
-        foreach(GameObject current in targetGrid)
+        foreach(TilePropertyArea current in tileProperties)
         {
-            Tile CurrentTile = current.GetComponent<Tile>();
-            if(CurrentTile != null)
+            for(int x = current.area.x; x < current.area.width + current.area.x && x < targetGrid.size.x; x++)
+            for(int y = current.area.y; y < current.area.height + current.area.y && y < targetGrid.size.y; y++)
             {
-                CurrentTile.tileProperties = tileProperties[i%tileProperties.Count].properties;
+                targetGrid[x,y].GetComponent<Tile>().tileProperties =  new List<TileProperty>(current.properties);
             }
-            i++;
         }
     }
 
@@ -26,4 +24,12 @@ public class TilePropertySetter : MonoBehaviour
     {
         if(targetGrid)tileProperties.Capacity = targetGrid.size.x * targetGrid.size.y;
     }
+}
+
+[Serializable]
+public struct TilePropertyArea
+{
+    public RectInt area;
+
+    public List<TileProperty> properties;
 }

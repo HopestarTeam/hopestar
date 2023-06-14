@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TileProperty
+public enum TileProperty : byte
 {
     HOT,
     COLD,
@@ -11,7 +11,8 @@ public enum TileProperty
     WET,
     URBAN,
     INDUSTRY,
-    RESOURCERICH
+    RESOURCERICH,
+    NULL
 }
 
 /*[Serializable]
