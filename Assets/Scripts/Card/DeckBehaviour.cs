@@ -11,7 +11,6 @@ public class DeckBehaviour : MonoBehaviour
     DeckScroll scrollScript;
     
     //Deck Display stuff, feel free to delete when doing proper deck view
-    [SerializeField] float deckMatrixMaxWidth = 2, widthSpace = 5, depthSpace = 10;
     int row;
 
     // Start is called before the first frame update
