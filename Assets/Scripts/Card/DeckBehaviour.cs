@@ -33,12 +33,14 @@ public class DeckBehaviour : MonoBehaviour
     }
     public void InstantiateCard(GameObject newCardObject)
     {
+        int index = cardObjects.Count;
         if(cardObjects.Contains(newCardObject))
         {
+            index = cardObjects.IndexOf(newCardObject);
             cardObjects.Remove(newCardObject);
         }
         GameObject newCard = Instantiate(newCardObject, transform);
-        cardObjects.Add(newCard);
+        cardObjects.Insert(index, newCard);
     }
 
     public void AddCards(CardSO[] addedCards)
