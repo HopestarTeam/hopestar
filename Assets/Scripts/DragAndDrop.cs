@@ -25,7 +25,7 @@ public class DragAndDrop : MonoBehaviour
     GameObject target;  //the card slot where it will be placed
     GameObject currentSlot;
     CardHandler handler;
-    Grid currentGrid;
+    DeckBehaviour deck;
     public void SetTarget(GameObject theTarget){target = theTarget;}    
     public void SetTargetToNull(){target = null;}
 
@@ -78,6 +78,7 @@ public class DragAndDrop : MonoBehaviour
         SetTargetToNull(); //Unnecessary to do this here, as uninitialized targets are null by default
         handler = GetComponent<CardHandler>();
         rb = GetComponent<Rigidbody>();
+        deck = FindObjectOfType<DeckBehaviour>();
         initialPosition = gameObject.transform.position;    //this will be removed once cards are stored in the card pool
     }
 
@@ -90,7 +91,8 @@ public class DragAndDrop : MonoBehaviour
             }
             else
             {
-                Instantiate(gameObject, handler.deck.transform);
+                deck.InstantiateCard(gameObject);
+                //Instantiate(gameObject, handler.deck.transform);
             }
 
             

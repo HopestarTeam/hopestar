@@ -25,10 +25,19 @@ public class DeckBehaviour : MonoBehaviour
         scrollScript.ArrangeCards();
     }
 
-    void InstantiateCard(CardSO newCardProperties)
+    public void InstantiateCard(CardSO newCardProperties)
     {
         GameObject newCard = Instantiate(cardPrefab, transform);
         newCard.GetComponent<CardHandler>().properties = newCardProperties;
+        cardObjects.Add(newCard);
+    }
+    public void InstantiateCard(GameObject newCardObject)
+    {
+        if(cardObjects.Contains(newCardObject))
+        {
+            cardObjects.Remove(newCardObject);
+        }
+        GameObject newCard = Instantiate(newCardObject, transform);
         cardObjects.Add(newCard);
     }
 
