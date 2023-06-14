@@ -35,7 +35,7 @@ public struct TileMaterialColorSettings
             }
             if(compatible)return rMat.material;
         }
-        Debug.Log($"Tile property count: {tile.tileProperties.Count} \nMaterial property count: {ruleMaterials[0].associatedProperties.Count}");
+        //Debug.Log($"Tile property count: {tile.tileProperties.Count} \nMaterial property count: {ruleMaterials[0].associatedProperties.Count}");
         return defaultMaterial;
     }
 
