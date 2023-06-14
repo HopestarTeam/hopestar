@@ -38,7 +38,7 @@ public class DeckScroll : MonoBehaviour
     float oldValue = -1;
     void Update()
     {
-        scrollValue = scrollValue + Input.mouseScrollDelta.y / (deck.cardObjects.Count);
+        scrollValue = scrollValue + -Input.mouseScrollDelta.y / (deck.cardObjects.Count);
         if(scrollValue != oldValue)
         {
             oldValue = scrollValue;
