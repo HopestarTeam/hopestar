@@ -6,6 +6,9 @@ using System;
 [Serializable]
 public class GlobalVariables
 {
+    public GameObject IndustryOverlay;
+    public GameObject UrbanOverlay;
+    public GameObject MineralOverlay;
     public Dictionary<GlobalVariableEnum,float> variables;
     public void Initialize()
     {

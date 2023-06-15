@@ -942,6 +942,10 @@ PrefabInstance:
       propertyPath: tileMaterialSetter
       value: 
       objectReference: {fileID: 2065526798}
+    - target: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
+      propertyPath: variables.IndustryOverlay
+      value: 
+      objectReference: {fileID: 6288632033745489800, guid: 6eb11739e7b1160488fa33dd8a6c766d, type: 3}
     - target: {fileID: 496768691838329689, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1068,6 +1072,14 @@ PrefabInstance:
     - target: {fileID: 3731978450528056208, guid: ae7b7a797236b0c46875495b2204641d, type: 3}
       propertyPath: tileProperties.Array.data[1].area.height
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731978450528056208, guid: ae7b7a797236b0c46875495b2204641d, type: 3}
+      propertyPath: tileProperties.Array.data[0].properties.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731978450528056208, guid: ae7b7a797236b0c46875495b2204641d, type: 3}
+      propertyPath: tileProperties.Array.data[0].properties.Array.data[2]
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3731978450528056208, guid: ae7b7a797236b0c46875495b2204641d, type: 3}
       propertyPath: tileProperties.Array.data[1].properties.Array.data[0]

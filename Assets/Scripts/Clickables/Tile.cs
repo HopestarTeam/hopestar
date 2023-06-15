@@ -63,6 +63,20 @@ public class Tile : MonoBehaviour
     {
         GameManager.gm.menuManager.toolTip.visible = false;
     }
+
+    public void CheckForProperties()
+    {
+        foreach(TileProperty tile in tileProperties)
+        {
+            Debug.Log(tile);
+            if (tile == TileProperty.INDUSTRY)
+            {
+                // Instantiate prefab above tile
+                Instantiate (GameManager.gm.variables.IndustryOverlay,transform.position+ new Vector3(0,0.01f,0),transform.rotation,transform);
+            }
+        }
+    }
+  
 }
 
 [Serializable]
@@ -70,3 +84,4 @@ public struct TilePropertyPreset
 {
     public List<TileProperty> properties;
 }
+
