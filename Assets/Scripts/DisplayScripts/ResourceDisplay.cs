@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ResourceDisplay : MonoBehaviour
 {
-    [SerializeField] GameObject resourceManager;    //this is for testing, the values hould be fetched from the GameManager instead !!!!!
     int resourceProduction = 0;
     int resourceSpent = 0;
     int resourceInUpkeep = 0;
