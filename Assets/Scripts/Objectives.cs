@@ -18,36 +18,22 @@ public class Objectives : MonoBehaviour
     //int emissionsTarget = 0;
     List<ResourceObjective> listOfObjectives;
 
-    /*public static Dictionary<string, List<int>> resourceProduction = new Dictionary<string, List<int>>(){};
-
-    private void UpdateResourceProduction(){
-        //the list has 4 values:
-        //the first three {production, spent, in_upkeep} are taken from the game manager (resource authority)
-        //the fourth value is surplus calculated as: surplus = production - spent - in_upkeep
-        resourceProduction["Energy"] = new List<int>(){0, 0, 0, 0};
-        resourceProduction["Food"] = new List<int>(){0, 0, 0, 0};
-        resourceProduction["Material"] = new List<int>(){0, 0, 0, 0};
-        resourceProduction["Industry"] = new List<int>(){0, 0, 0, 0};
-        resourceProduction["Consumer"] = new List<int>(){0, 0, 0, 0};
-        resourceProduction["Science"] = new List<int>(){0, 0, 0, 0};
-    }*/
-
     class ResourceObjective{
         //a class that collects the name of a resource, the target objective and the two sprites (unfulfilled and fulfilled) for display
-        public string name;
+        public GlobalVariableEnum nameEnum;
         public int target;
         public Sprite unfulfilledSprite;
         public Sprite fulfilledSprite;
         
-        public ResourceObjective(string theName, int theTarget, Sprite spent, Sprite produced){
-            name = theName;
+        public ResourceObjective(GlobalVariableEnum theName, int theTarget, Sprite spent, Sprite produced){
+            nameEnum = theName;
             target = theTarget;
             unfulfilledSprite = spent;
             fulfilledSprite = produced;
         }
 
         public bool IsFulfilled(){
-            int surplus = GameManager.gm.variables.variables[(GlobalVariableEnum)Enum.Parse(typeof(GlobalVariableEnum), name)].GetSurplus();
+            int surplus = GameManager.gm.variables.variables[nameEnum].GetSurplus();
             return  surplus >= target;
         }
     }
@@ -55,7 +41,7 @@ public class Objectives : MonoBehaviour
     private void CheckObjectiveComplete(){
         int numberOfObjectivesSatisfied = 0;
         foreach (ResourceObjective objective in listOfObjectives){
-            if (objective.IsFulfilled()){ numberOfObjectivesSatisfied++;}
+            if (objective.IsFulfilled()){numberOfObjectivesSatisfied++;}
         }
 
         if (numberOfObjectivesSatisfied == listOfObjectives.Count){objectiveComplete = true;}
@@ -65,42 +51,42 @@ public class Objectives : MonoBehaviour
     private void Awake() {
         //we create a list of the objectives for this scene
         if (energyTarget != 0){
-            ResourceObjective energyObjective = new ResourceObjective("Energy", 
+            ResourceObjective energyObjective = new ResourceObjective(GlobalVariableEnum.Energy, 
                                                                         energyTarget,
                                                                         Resources.Load<Sprite>("Icons/energy_spent"),
                                                                         Resources.Load<Sprite>("Icons/energy"));
             listOfObjectives.Add(energyObjective);
         }
         if (foodTarget != 0){
-            ResourceObjective foodObjective = new ResourceObjective("Food", 
+            ResourceObjective foodObjective = new ResourceObjective(GlobalVariableEnum.Food, 
                                                                         foodTarget,
                                                                         Resources.Load<Sprite>("Icons/food_spent"),
                                                                         Resources.Load<Sprite>("Icons/food"));
             listOfObjectives.Add(foodObjective);
         }
         if (materialTarget != 0){
-            ResourceObjective materialObjective = new ResourceObjective("Material", 
+            ResourceObjective materialObjective = new ResourceObjective(GlobalVariableEnum.Material, 
                                                                         materialTarget,
                                                                         Resources.Load<Sprite>("Icons/material_spent"),
                                                                         Resources.Load<Sprite>("Icons/material"));
             listOfObjectives.Add(materialObjective);
         }
         if (industryTarget != 0){
-            ResourceObjective industryObjective = new ResourceObjective("Industry", 
+            ResourceObjective industryObjective = new ResourceObjective(GlobalVariableEnum.Industry, 
                                                                         industryTarget,
-                                                                        Resources.Load<Sprite>("Icons/industrial_spent"),
-                                                                        Resources.Load<Sprite>("Icons/industrial"));
+                                                                        Resources.Load<Sprite>("Icons/industry_spent"),
+                                                                        Resources.Load<Sprite>("Icons/industry"));
             listOfObjectives.Add(industryObjective);
         }
         if (consumerTarget != 0){
-            ResourceObjective consumerObjective = new ResourceObjective("Consumer", 
+            ResourceObjective consumerObjective = new ResourceObjective(GlobalVariableEnum.Consumer, 
                                                                         consumerTarget,
                                                                         Resources.Load<Sprite>("Icons/consumer_spent"),
                                                                         Resources.Load<Sprite>("Icons/consumer"));
             listOfObjectives.Add(consumerObjective);
         }
         if (scienceTarget != 0){
-            ResourceObjective scienceObjective = new ResourceObjective("Science", 
+            ResourceObjective scienceObjective = new ResourceObjective(GlobalVariableEnum.Science, 
                                                                         scienceTarget,
                                                                         Resources.Load<Sprite>("Icons/science_spent"),
                                                                         Resources.Load<Sprite>("Icons/science"));
@@ -115,7 +101,16 @@ public class Objectives : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
+        CheckObjectiveComplete();  
+        ForDebugDisplayObjectives();      
+    }
 
-        CheckObjectiveComplete();        
+    void ForDebugDisplayObjectives(){
+        if (Input.GetKeyDown(KeyCode.Space)){
+            foreach (ResourceObjective objective in listOfObjectives){
+                Debug.Log($"{objective.nameEnum}: {GameManager.gm.variables.variables[objective.nameEnum].GetSurplus()}/{objective.target}");
+            }
+            Debug.Log($"Objective complete: {objectiveComplete}");
+        }
     }
 }

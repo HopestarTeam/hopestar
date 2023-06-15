@@ -67,26 +67,26 @@ public class MenuManager
         TextElement raw = CurrentContainer.Q<TextElement>(name:"RawText");
         TextElement food = CurrentContainer.Q<TextElement>(name:"FoodText");
         TextElement consumer = CurrentContainer.Q<TextElement>(name:"ConsumerText");
-        TextElement industrial = CurrentContainer.Q<TextElement>(name:"IndustrialText");
+        TextElement industry = CurrentContainer.Q<TextElement>(name:"industryText");
         TextElement happiness = UpkeepContainer.Q<TextElement>(name:"HappinessText");
         TextElement energyUpkeep = UpkeepContainer.Q<TextElement>(name:"EnergyUpkeepText");
         TextElement rawUpkeep = UpkeepContainer.Q<TextElement>(name:"RawUpkeepText");
         TextElement foodUpkeep = UpkeepContainer.Q<TextElement>(name:"FoodUpkeepText");
         TextElement consumerUpkeep = UpkeepContainer.Q<TextElement>(name:"ConsumerUpkeepText");
-        TextElement industrialUpkeep = UpkeepContainer.Q<TextElement>(name:"IndustrialUpkeepText");
+        TextElement industryUpkeep = UpkeepContainer.Q<TextElement>(name:"industryUpkeepText");
 
         emission.text = $"Emission: {variables.CO2}";
         energy.text = $"Energy: {variables.Energy}";
         raw.text = $"Raw Resources: {variables.RawResources}";
         food.text = $"Food: {variables.Food}";
         consumer.text = $"Consumer Goods: {variables.ConsumerGoods}";
-        industrial.text = $"Industrial Goods: {variables.IndustryGoods}";
+        industry.text = $"industry Goods: {variables.IndustryGoods}";
         happiness.text = $"Happiness: {-variables.CitizenUnrest}";
         energyUpkeep.text = $"Energy Upkeep: {variables.EnergyUpkeep}";
         rawUpkeep.text = $"Raw Resources Upkeep: {variables.RawResourcesUpkeep}";
         foodUpkeep.text = $"Food Upkeep: {variables.FoodUpkeep}";
         consumerUpkeep.text = $"Consumer Goods Upkeep: {variables.ConsumerGoodsUpkeep}";
-        industrialUpkeep.text = $"Industry Goods Upkeep: {variables.IndustryGoodsUpkeep}";
+        industryUpkeep.text = $"Industry Goods Upkeep: {variables.IndustryGoodsUpkeep}";
     }
 
     public void Update()

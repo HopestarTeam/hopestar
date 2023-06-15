@@ -38,9 +38,9 @@ public class IndustryDisplay : MonoBehaviour
             newIcon.transform.SetParent(transform);
 
             newIcon.GetComponent<ResourceIcon>().SetIcons(
-                Resources.Load<Sprite>("Icons/industrial"),
-                Resources.Load<Sprite>("Icons/industrial_spent"),
-                Resources.Load<Sprite>("Icons/industrial_locked")
+                Resources.Load<Sprite>("Icons/industry"),
+                Resources.Load<Sprite>("Icons/industry_spent"),
+                Resources.Load<Sprite>("Icons/industry_locked")
             );
 
             listOfIcons.Add(newIcon);
