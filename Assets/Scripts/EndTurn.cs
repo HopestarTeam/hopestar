@@ -27,7 +27,13 @@ public class EndTurn : MonoBehaviour
     bool CheckUpkeep()
     {
         //check all variables on global variables and return false if got negative incomes
-        //foreach()
+        foreach (KeyValuePair<GlobalVariableEnum, float> variable in GameManager.gm.variables.variables)
+        {
+            if(variable.Key != GlobalVariableEnum.CO2 && variable.Key != GlobalVariableEnum.CitizenUnrest && variable.Value < 0)
+            {
+                return false;
+            }
+        }
         return true;
     }
     public void EndTurnFunction()
