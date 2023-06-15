@@ -35,7 +35,7 @@ public struct TileMaterialColorSettings
             }
             if(compatible)return rMat.material;
         }
-        Debug.Log($"Tile property count: {tile.tileProperties.Count} \nMaterial property count: {ruleMaterials[0].associatedProperties.Count}");
+        //Debug.Log($"Tile property count: {tile.tileProperties.Count} \nMaterial property count: {ruleMaterials[0].associatedProperties.Count}");
         return defaultMaterial;
     }
 
@@ -45,6 +45,7 @@ public struct TileMaterialColorSettings
         {
             ruleMaterials[i].material = new Material(defaultMaterial);
             ruleMaterials[i].material.color = ruleMaterials[i].InitialColor;
+            if(ruleMaterials[i].texture != null)ruleMaterials[i].material.mainTexture = ruleMaterials[i].texture;
         }
     }
 }
@@ -54,6 +55,7 @@ public class RuleMaterial
 {
     [HideInInspector]public Material material;
     public Color InitialColor;
+    public Texture2D texture;
     public List<TileProperty> associatedProperties;
 
 
