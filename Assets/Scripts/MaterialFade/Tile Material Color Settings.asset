@@ -23,7 +23,7 @@ MonoBehaviour:
       InitialColor: {r: 0.745728, g: 0.9245283, b: 0.92122906, a: 1}
       associatedProperties: 0102
     - material: {fileID: 0}
-      InitialColor: {r: 0, g: 1, b: 0.40715814, a: 1}
+      InitialColor: {r: 0.43867922, g: 1, b: 0.5050873, a: 1}
       associatedProperties: 0103
     - material: {fileID: 0}
       InitialColor: {r: 0.09784131, g: 0.6509434, b: 0, a: 1}
