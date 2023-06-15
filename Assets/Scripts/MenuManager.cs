@@ -67,6 +67,7 @@ public class MenuManager
     public void UpdateHud()
     {
         GlobalVariables variables = GameManager.gm.variables;
+        /*
         VisualElement CurrentContainer = Hud.rootVisualElement.Query(name:"CurrentResources");
         VisualElement UpkeepContainer = Hud.rootVisualElement.Query(name:"UpkeepResources");
         TextElement emission = CurrentContainer.Q<TextElement>(name:"EmissionText");
@@ -94,6 +95,7 @@ public class MenuManager
         foodUpkeep.text = $"Food Upkeep: {variables.variables[GlobalVariableEnum.Food].upkeep}";
         consumerUpkeep.text = $"Consumer Goods Upkeep: {variables.variables[GlobalVariableEnum.Consumer].upkeep}";
         industryUpkeep.text = $"Industry Goods Upkeep: {variables.variables[GlobalVariableEnum.Industry].upkeep}";
+    */
     }
 
     public void Update()
