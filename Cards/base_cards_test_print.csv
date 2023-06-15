@@ -5,4 +5,4 @@ Forestry,,Q,Q,Non-Dry,Non-Urban,,<center>(material)(material),<center>(co2),,mat
 Fossil Fuel Power Station,MM,,MM,,,,<center>(energy)(energy)(energy),<center>(co2)(co2)(co2)(co2),,energy,4
 Solar Farm,MM,,MM,,,,<center>(energy),<center>if Hot: (energy),,energy,4
 Commercial District,M,QW,QWM,Urban,,,<center>(consumer)(consumer),,,consumer,2
-Steel Mill,MM,QR,QRMM,Industrial,,,<center>(industry)(industry),<center>(co2)(co2),,industry,2
+Steel Mill,MM,QR,QRMM,industry,,,<center>(industry)(industry),<center>(co2)(co2),,industry,2

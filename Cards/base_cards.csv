@@ -15,3 +15,4 @@ Commercial D.,M,QW,QWM,Urban,,,<center>(consumer)(consumer),,,consumer,3
 Steel Mill,MM,QR,QRMM,Industrial,,,<center>(industry)(industry),<center>(co2)(co2),,industry,6
 Chip Foundry,MMI,QQR,QQRMMI,Industrial,,,<center>(industry)(industry),<center>(consumer)(consumer),<center>(co2),industry-consumer,3
 University,MMC,Q,QMMC,Urban,,,<center>(science)(science)(science),,,science,3
+Urbanization,,QQWWRR,QQWWRR,,,,<center>2T: slot -> Urban,<center>(co2),,unique,1
