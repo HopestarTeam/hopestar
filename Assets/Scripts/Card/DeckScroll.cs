@@ -53,7 +53,7 @@ public class DeckScroll : MonoBehaviour
                 {
                     checker = Mathf.Abs(placer - 0.5f);
                     CurrentTop = cardGO;
-                    Debug.Log(cardGO.name + checker);
+                    //Debug.Log(cardGO.name + checker);
                 }
                 posy = Mathf.Lerp(minY,maxY,upCurve.Evaluate(placer));
                 posz = Mathf.Lerp(minZ,maxZ,forwardCurve.Evaluate(placer));
