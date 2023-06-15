@@ -16,7 +16,7 @@ public class Objectives : MonoBehaviour
     [SerializeField] int scienceTarget = 0;
     //int happinessTarget = 0;
     //int emissionsTarget = 0;
-    List<ResourceObjective> listOfObjectives;
+    List<ResourceObjective> listOfObjectives = new List<ResourceObjective>();
 
     class ResourceObjective{
         //a class that collects the name of a resource, the target objective and the two sprites (unfulfilled and fulfilled) for display
