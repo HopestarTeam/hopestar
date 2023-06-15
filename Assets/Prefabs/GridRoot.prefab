@@ -95,5 +95,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetGrid: {fileID: 3731978450528056215}
   tileProperties:
-  - properties: 0003
-  - properties: 0002
+  - area:
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    properties: 0003
+  - area:
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    properties: 0103
