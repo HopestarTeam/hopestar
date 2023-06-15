@@ -62,9 +62,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fd284da4b8745854299e1ee020386b03, type: 2}
   - {fileID: 11400000, guid: 6f6a303f9ddf1f64f8579ff741cfa386, type: 2}
   - {fileID: 11400000, guid: 86833238a0209264aa048002d77d04cf, type: 2}
-  deckMatrixMaxWidth: 5
-  widthSpace: 4
-  depthSpace: 5.5
+  cardObjects: []
 --- !u!114 &270563472414309620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,3 +75,97 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea708c038eb3004696f9c0ad9ef3a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 7.2384863
+      outSlope: 1.5
+      tangentMode: 65
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.44594505
+    - serializedVersion: 3
+      time: 0.1
+      value: 0.15
+      inSlope: 1.5
+      outSlope: 1.8333333
+      tangentMode: 5
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.4
+      value: 0.8
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 2
+      outSlope: -1.9999994
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6
+      value: 0.8
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9
+      value: 0.15
+      inSlope: -1.8333334
+      outSlope: -1.4999998
+      tangentMode: 65
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.4999998
+      outSlope: -8.189121
+      tangentMode: 5
+      weightedMode: 0
+      inWeight: 0.42252538
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  forwardCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  CurrentTop: {fileID: 0}
