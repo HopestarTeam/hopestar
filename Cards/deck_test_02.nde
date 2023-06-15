@@ -14,13 +14,14 @@ BORDER = RECTANGLE, #000000, 3
 [color_consumer] = #2B3467
 [color_science] = #BAD7E9
 [color_industry-consumer] = #2B3467#EB455F@90
+[color_unique] = #A67C00#BF9B30
 [colborder] = [color_[BorderColor]]
 
 ;Icons
 ICON = , F, food.png
 ICON = , E, energy.png
 ICON = , M, material.png
-ICON = , I, industrial.png
+ICON = , I, industry.png
 ICON = , C, consumer.png
 ICON = , S, science.png
 ICON = , X, CO2Icon.png
@@ -28,7 +29,7 @@ ICON = , X, CO2Icon.png
 ICON = , W, food_locked.png
 ICON = , Q, energy_locked.png
 ICON = , R, material_locked.png
-ICON = , Y, industrial_locked.png
+ICON = , Y, industry_locked.png
 ICON = , T, consumer_locked.png
 ICON = , U, science_locked.png
 
@@ -36,7 +37,7 @@ ICON = , U, science_locked.png
 HTMLIMAGE = , (food), food.png, 8, 8
 HTMLIMAGE = , (energy), energy.png, 8, 8
 HTMLIMAGE = , (material), material.png, 8, 8
-HTMLIMAGE = , (industry), industrial.png, 8, 8
+HTMLIMAGE = , (industry), industry.png, 8, 8
 HTMLIMAGE = , (consumer), consumer.png, 8, 8
 HTMLIMAGE = , (science), science.png, 8, 8
 HTMLIMAGE = , (co2), CO2Icon.png, 8, 8

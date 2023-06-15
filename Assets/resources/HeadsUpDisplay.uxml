@@ -8,7 +8,7 @@
             <ui:Label text="Raw Resources:" display-tooltip-when-elided="true" name="RawText" style="height: 12px;" />
             <ui:Label text="Food:" display-tooltip-when-elided="true" name="FoodText" style="height: 12px;" />
             <ui:Label text="Consumer Goods:" display-tooltip-when-elided="true" name="ConsumerText" style="height: 12px;" />
-            <ui:Label text="Industrial Goods:" display-tooltip-when-elided="true" name="IndustrialText" style="height: 12px;" />
+            <ui:Label text="industry Goods:" display-tooltip-when-elided="true" name="industryText" style="height: 12px;" />
         </ui:VisualElement>
         <ui:VisualElement name="UpkeepResources" style="width: 150px;">
             <ui:Label text="Happiness:" display-tooltip-when-elided="true" name="HappinessText" style="height: 12px;" />
@@ -16,7 +16,7 @@
             <ui:Label text="Raw Resources Upkeep:" display-tooltip-when-elided="true" name="RawUpkeepText" style="height: 12px;" />
             <ui:Label text="Food Upkeep:" display-tooltip-when-elided="true" name="FoodUpkeepText" style="height: 12px;" />
             <ui:Label text="Consumer Goods Upkeep:" display-tooltip-when-elided="true" name="ConsumerUpkeepText" style="height: 12px;" />
-            <ui:Label text="Industrial Goods Upkeep:" display-tooltip-when-elided="true" name="IndustrialUpkeepText" style="height: 12px;" />
+            <ui:Label text="industry Goods Upkeep:" display-tooltip-when-elided="true" name="industryUpkeepText" style="height: 12px;" />
         </ui:VisualElement>
         <ui:VisualElement name="VisualElement" style="-unity-text-align: upper-left; width: 150px; margin-top: 7px;">
             <ui:VisualElement name="BottomBarButtons" style="display: flex; justify-content: center; flex-wrap: wrap; flex-direction: row; -unity-text-align: upper-left;">

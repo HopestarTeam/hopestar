@@ -7,7 +7,7 @@ public class CardHandler : MonoBehaviour
 {
     public CardSO properties;
 
-    GlobalVariables variables;
+    GlobalVariables global;
     public DeckBehaviour deck;
     public Tile placedOn;
     public bool placedThisTurn;
@@ -25,7 +25,7 @@ public class CardHandler : MonoBehaviour
         emsissionAmount = properties.emsissionAmount;
 
         gameObject.name = properties.cardName;
-        variables = GameManager.gm.variables;
+        global = GameManager.gm.variables;
         deck = transform.parent.GetComponent<DeckBehaviour>();
 
         mesh = transform.GetChild(0).GetComponent<MeshRenderer>();
@@ -104,27 +104,33 @@ public class CardHandler : MonoBehaviour
                         energyCosts += definition.amount;
                         break;
                     case ResourceTypeDefinition.ResourceType.CONSUMER:
-                        variables.ConsumerGoodsUpkeep -= definition.amount;
+                        consumerCosts += definition.amount;
                         break;
                     case ResourceTypeDefinition.ResourceType.INDUSTRY:
-                        variables.IndustryGoodsUpkeep -= definition.amount;
+                        industryCosts += definition.amount;
                         break;
                     default:
                         break;
                 }
             }
-            foreach(KeyValuePair<GlobalVariableEnum,float> kvp in variables.variables)
+            foreach(KeyValuePair<GlobalVariableEnum, GlobalVariables.ResourceVariable> kvp in global.variables)
             {
                 switch(kvp.Key)
                 {
                     case GlobalVariableEnum.Food:
-                        result = variables.variables[kvp.Key] >= foodCosts;
+                        result = global.variables[kvp.Key].GetSurplus() >= foodCosts;
                         break;
-                    case GlobalVariableEnum.RawResources:
-                        result = variables.variables[kvp.Key] >= rawCosts;
+                    case GlobalVariableEnum.Material:
+                        result = global.variables[kvp.Key].GetSurplus() >= rawCosts;
                         break;
                     case GlobalVariableEnum.Energy:
-                        result = variables.variables[kvp.Key] >= energyCosts;
+                        result = global.variables[kvp.Key].GetSurplus() >= energyCosts;
+                        break;
+                    case GlobalVariableEnum.Consumer:
+                        result = global.variables[kvp.Key].GetSurplus() >= consumerCosts;
+                        break;
+                    case GlobalVariableEnum.Industry:
+                        result = global.variables[kvp.Key].GetSurplus() >= industryCosts;
                         break;
                     default:
                         break;
@@ -138,12 +144,15 @@ public class CardHandler : MonoBehaviour
 
     public void RunCosts(bool runCosts = true)
     {
-        float flipper = 1, rawCosts = 0, foodCosts = 0, energyCosts = 0, consumerCosts = 0, industryCosts = 0;
+        int flipper = 1,
+        rawCosts = 0, foodCosts = 0, energyCosts = 0, consumerCosts = 0, industryCosts = 0,
+        rawUpkeep = 0, foodUpkeep = 0, energyUpkeep = 0, consumerUpkeep = 0, industryUpkeep = 0;
         if(!runCosts)
         {
             flipper = -1;
             placedThisTurn = false;
         }
+
         if(!placedThisTurn)
         {
             if(resourceCosts != null)
@@ -152,19 +161,19 @@ public class CardHandler : MonoBehaviour
                 switch(definition.resourceType)
                 {
                     case ResourceTypeDefinition.ResourceType.RAW:
-                        rawCosts += definition.amount;
+                        rawCosts = definition.amount;
                         break;
                     case ResourceTypeDefinition.ResourceType.FOOD:
-                        foodCosts += definition.amount;
+                        foodCosts = definition.amount;
                         break;
                     case ResourceTypeDefinition.ResourceType.ENERGY:
-                        energyCosts += definition.amount;
+                        energyCosts = definition.amount;
                         break;
                     case ResourceTypeDefinition.ResourceType.CONSUMER:
-                        consumerCosts += definition.amount;
+                        consumerCosts = definition.amount;
                         break;
                     case ResourceTypeDefinition.ResourceType.INDUSTRY:
-                        industryCosts += definition.amount;
+                        industryCosts = definition.amount;
                         break;
                     default:
                         break;
@@ -176,56 +185,87 @@ public class CardHandler : MonoBehaviour
                 switch(definition.resourceType)
                 {
                     case ResourceTypeDefinition.ResourceType.RAW:
-                        rawCosts += definition.amount;
+                        rawUpkeep = definition.amount;
                         break;
                     case ResourceTypeDefinition.ResourceType.FOOD:
-                        foodCosts += definition.amount;
+                        foodUpkeep = definition.amount;
                         break;
                     case ResourceTypeDefinition.ResourceType.ENERGY:
-                        energyCosts += definition.amount;
+                        energyUpkeep = definition.amount;
                         break;
                     case ResourceTypeDefinition.ResourceType.CONSUMER:
-                        consumerCosts += definition.amount;
+                        consumerUpkeep = definition.amount;
                         break;
                     case ResourceTypeDefinition.ResourceType.INDUSTRY:
-                        industryCosts += definition.amount;
+                        industryUpkeep = definition.amount;
                         break;
                     default:
                         break;
                 }
             }
-            Dictionary<GlobalVariableEnum,float> tmp = new Dictionary<GlobalVariableEnum, float>();
-            foreach(KeyValuePair<GlobalVariableEnum,float> kvp in variables.variables)
+            foreach(KeyValuePair<GlobalVariableEnum, GlobalVariables.ResourceVariable> kvp in global.variables)
             {
+                GlobalVariables.ResourceVariable newVars = new GlobalVariables.ResourceVariable();
                 switch(kvp.Key)
                 {
                     case GlobalVariableEnum.Food:
-                        tmp.Add(kvp.Key,kvp.Value - foodCosts * flipper);
+                        newVars = new GlobalVariables.ResourceVariable(
+                            global.variables[GlobalVariableEnum.Food].production,
+                            global.variables[GlobalVariableEnum.Food].upkeep + foodUpkeep * flipper,
+                            global.variables[GlobalVariableEnum.Food].spent + foodCosts * flipper
+                        );
+                        global.variables.Remove(GlobalVariableEnum.Food);
+                        global.variables.Add(GlobalVariableEnum.Food, newVars);
                         break;
-                    case GlobalVariableEnum.RawResources:
-                        tmp.Add(kvp.Key,kvp.Value - rawCosts * flipper);
+                    case GlobalVariableEnum.Material:
+                        newVars = new GlobalVariables.ResourceVariable(
+                            global.variables[GlobalVariableEnum.Material].production,
+                            global.variables[GlobalVariableEnum.Material].upkeep + rawUpkeep * flipper,
+                            global.variables[GlobalVariableEnum.Material].spent + rawCosts * flipper
+                        );
+                        global.variables.Remove(GlobalVariableEnum.Material);
+                        global.variables.Add(GlobalVariableEnum.Material, newVars);
                         break;
                     case GlobalVariableEnum.Energy:
-                        tmp.Add(kvp.Key,kvp.Value - energyCosts * flipper);
+                        newVars = new GlobalVariables.ResourceVariable(
+                            global.variables[GlobalVariableEnum.Energy].production,
+                            global.variables[GlobalVariableEnum.Energy].upkeep + energyUpkeep * flipper,
+                            global.variables[GlobalVariableEnum.Energy].spent + energyCosts * flipper
+                        );
+                        global.variables.Remove(GlobalVariableEnum.Energy);
+                        global.variables.Add(GlobalVariableEnum.Energy, newVars);
                         break;
-                    case GlobalVariableEnum.ConsumerGoods:
-                        tmp.Add(kvp.Key,kvp.Value - consumerCosts * flipper);
+                    case GlobalVariableEnum.Consumer:
+                        newVars = new GlobalVariables.ResourceVariable(
+                            global.variables[GlobalVariableEnum.Consumer].production,
+                            global.variables[GlobalVariableEnum.Consumer].upkeep + consumerUpkeep * flipper,
+                            global.variables[GlobalVariableEnum.Consumer].spent + consumerCosts * flipper
+                        );
+                        global.variables.Remove(GlobalVariableEnum.Consumer);
+                        global.variables.Add(GlobalVariableEnum.Consumer, newVars);
                         break;
-                    case GlobalVariableEnum.IndustryGoods:
-                        tmp.Add(kvp.Key,kvp.Value - industryCosts * flipper);
+                    case GlobalVariableEnum.Industry:
+                        newVars = new GlobalVariables.ResourceVariable(
+                            global.variables[GlobalVariableEnum.Industry].production,
+                            global.variables[GlobalVariableEnum.Industry].upkeep + industryUpkeep * flipper,
+                            global.variables[GlobalVariableEnum.Industry].spent + industryCosts * flipper
+                        );
+                        global.variables.Remove(GlobalVariableEnum.Industry);
+                        global.variables.Add(GlobalVariableEnum.Industry, newVars);
                         break;
                     default:
-                        tmp.Add(kvp.Key,kvp.Value);
                         break;
                 }
             }
-            variables.variables = tmp;
         }
     }
 
     public void ResolveCard()
     {
-        variables.CO2 += emsissionAmount;
+        //global.CO2 += emsissionAmount;
+        int
+        rawProduction = 0, foodProduction = 0, energyProduction = 0, consumerProduction = 0, industryProduction = 0,
+        rawUpkeep = 0, foodUpkeep = 0, energyUpkeep = 0, consumerUpkeep = 0, industryUpkeep = 0;
         if(properties.hasFunction)
         {
             switch (properties.functionType)
@@ -269,19 +309,19 @@ public class CardHandler : MonoBehaviour
             switch(definition.resourceType)
             {
                 case ResourceTypeDefinition.ResourceType.RAW:
-                    variables.RawResourcesUpkeep += definition.amount;
+                    rawProduction = definition.amount;
                     break;
                 case ResourceTypeDefinition.ResourceType.FOOD:
-                    variables.FoodUpkeep += definition.amount;
+                    foodProduction = definition.amount;
                     break;
                 case ResourceTypeDefinition.ResourceType.ENERGY:
-                    variables.EnergyUpkeep += definition.amount;
+                    energyProduction = definition.amount;
                     break;
                 case ResourceTypeDefinition.ResourceType.CONSUMER:
-                    variables.ConsumerGoodsUpkeep += definition.amount;
+                    consumerProduction = definition.amount;
                     break;
                 case ResourceTypeDefinition.ResourceType.INDUSTRY:
-                    variables.IndustryGoodsUpkeep += definition.amount;
+                    industryProduction = definition.amount;
                     break;
                 default:
                     break;
@@ -294,23 +334,77 @@ public class CardHandler : MonoBehaviour
             switch(definition.resourceType)
             {
                 case ResourceTypeDefinition.ResourceType.RAW:
-                    variables.RawResourcesUpkeep -= definition.amount;
+                    rawUpkeep = definition.amount;
                     break;
                 case ResourceTypeDefinition.ResourceType.FOOD:
-                    variables.FoodUpkeep -= definition.amount;
+                    foodUpkeep = definition.amount;
                     break;
                 case ResourceTypeDefinition.ResourceType.ENERGY:
-                    variables.EnergyUpkeep -= definition.amount;
+                    energyUpkeep = definition.amount;
                     break;
                 case ResourceTypeDefinition.ResourceType.CONSUMER:
-                    variables.ConsumerGoodsUpkeep -= definition.amount;
+                    consumerUpkeep = definition.amount;
                     break;
                 case ResourceTypeDefinition.ResourceType.INDUSTRY:
-                    variables.IndustryGoodsUpkeep -= definition.amount;
+                    industryUpkeep = definition.amount;
                     break;
                 default:
                     break;
             }
         }
+        foreach(KeyValuePair<GlobalVariableEnum, GlobalVariables.ResourceVariable> kvp in global.variables)
+            {
+                GlobalVariables.ResourceVariable newVars = new GlobalVariables.ResourceVariable();
+                switch(kvp.Key)
+                {
+                    case GlobalVariableEnum.Food:
+                        newVars = new GlobalVariables.ResourceVariable(
+                            global.variables[GlobalVariableEnum.Food].production + foodProduction,
+                            global.variables[GlobalVariableEnum.Food].upkeep + foodUpkeep,
+                            0
+                        );
+                        global.variables.Remove(GlobalVariableEnum.Food);
+                        global.variables.Add(GlobalVariableEnum.Food, newVars);
+                        break;
+                    case GlobalVariableEnum.Material:
+                        newVars = new GlobalVariables.ResourceVariable(
+                            global.variables[GlobalVariableEnum.Material].production + rawProduction,
+                            global.variables[GlobalVariableEnum.Material].upkeep + rawUpkeep,
+                            0
+                        );
+                        global.variables.Remove(GlobalVariableEnum.Material);
+                        global.variables.Add(GlobalVariableEnum.Material, newVars);
+                        break;
+                    case GlobalVariableEnum.Energy:
+                        newVars = new GlobalVariables.ResourceVariable(
+                            global.variables[GlobalVariableEnum.Energy].production + energyProduction,
+                            global.variables[GlobalVariableEnum.Energy].upkeep + energyUpkeep,
+                            0
+                        );
+                        global.variables.Remove(GlobalVariableEnum.Energy);
+                        global.variables.Add(GlobalVariableEnum.Energy, newVars);
+                        break;
+                    case GlobalVariableEnum.Consumer:
+                        newVars = new GlobalVariables.ResourceVariable(
+                            global.variables[GlobalVariableEnum.Consumer].production + consumerProduction,
+                            global.variables[GlobalVariableEnum.Consumer].upkeep + consumerUpkeep,
+                            0
+                        );
+                        global.variables.Remove(GlobalVariableEnum.Consumer);
+                        global.variables.Add(GlobalVariableEnum.Consumer, newVars);
+                        break;
+                    case GlobalVariableEnum.Industry:
+                        newVars = new GlobalVariables.ResourceVariable(
+                            global.variables[GlobalVariableEnum.Industry].production + industryProduction,
+                            global.variables[GlobalVariableEnum.Industry].upkeep + industryUpkeep,
+                            0
+                        );
+                        global.variables.Remove(GlobalVariableEnum.Industry);
+                        global.variables.Add(GlobalVariableEnum.Industry, newVars);
+                        break;
+                    default:
+                        break;
+                }
+            }
     }
 }

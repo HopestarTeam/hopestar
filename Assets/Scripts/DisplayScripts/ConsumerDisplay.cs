@@ -13,16 +13,16 @@ public class ConsumerDisplay : MonoBehaviour
     List<GameObject> listOfIcons = new List<GameObject>();
 
     private void GetResourceValues(){   //modify this function to get the right resource type   !!!!!!
-        resourceProduction = Mathf.Min(resourceManager.GetComponent<DebugResourceManagement>().GetEnegyProduction(), 30);
-        resourceSpent = resourceManager.GetComponent<DebugResourceManagement>().GetEnegySpent();
-        resourceInUpkeep = resourceManager.GetComponent<DebugResourceManagement>().GetEnegyInUpkeep();
+        resourceProduction = Mathf.Min(GameManager.gm.variables.variables[GlobalVariableEnum.Consumer].production, 30);
+        resourceSpent = GameManager.gm.variables.variables[GlobalVariableEnum.Consumer].spent;
+        resourceInUpkeep = GameManager.gm.variables.variables[GlobalVariableEnum.Consumer].upkeep;
     }
 
     private void UpdateDisplay(){    
         //we check if the values have changed, if they have not, we don't need to refresh the display
-        if (resourceProduction !=  resourceManager.GetComponent<DebugResourceManagement>().GetEnegyProduction()
-         || resourceSpent != resourceManager.GetComponent<DebugResourceManagement>().GetEnegySpent()
-         || resourceInUpkeep != resourceManager.GetComponent<DebugResourceManagement>().GetEnegyInUpkeep()
+        if (resourceProduction !=  GameManager.gm.variables.variables[GlobalVariableEnum.Consumer].production
+         || resourceSpent != GameManager.gm.variables.variables[GlobalVariableEnum.Consumer].spent
+         || resourceInUpkeep != GameManager.gm.variables.variables[GlobalVariableEnum.Consumer].upkeep
         ){
             GetResourceValues();
             ClearDisplay();
