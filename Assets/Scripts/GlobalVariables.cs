@@ -18,6 +18,19 @@ public class GlobalVariables
             this.spent = spent;
         }
 
+        public void SetProductionToValue(int value){
+            production = value;
+            //call update display and update objectives functions   !!!
+        }
+        public void SetUpkeepToValue(int value){
+            upkeep = value;
+            //call update display and update objectives functions   !!!
+        }
+        public void SetSpentToValue(int value){
+            spent = value;
+            //call update display and update objectives functions   !!!
+        }
+
         public void AddValueToProduction(int value){
             production += value;
             //call update display and update objectives functions   !!!
