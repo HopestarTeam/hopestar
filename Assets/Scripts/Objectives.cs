@@ -16,7 +16,7 @@ public class Objectives : MonoBehaviour
     [SerializeField] int scienceTarget = 0;
     //int happinessTarget = 0;
     //int emissionsTarget = 0;
-    List<ResourceObjective> listOfObjectives;
+    List<ResourceObjective> listOfObjectives = new List<ResourceObjective>();
 
     class ResourceObjective{
         //a class that collects the name of a resource, the target objective and the two sprites (unfulfilled and fulfilled) for display
@@ -39,13 +39,17 @@ public class Objectives : MonoBehaviour
     }
 
     private void CheckObjectiveComplete(){
-        int numberOfObjectivesSatisfied = 0;
-        foreach (ResourceObjective objective in listOfObjectives){
-            if (objective.IsFulfilled()){numberOfObjectivesSatisfied++;}
-        }
+        if (listOfObjectives == null){Debug.Log("you don't have any objectives");}
+        else {
+            int numberOfObjectivesSatisfied = 0;
+            foreach (ResourceObjective objective in listOfObjectives){
+                if (objective.IsFulfilled()){numberOfObjectivesSatisfied++;}
+            }
 
-        if (numberOfObjectivesSatisfied == listOfObjectives.Count){objectiveComplete = true;}
-        else {objectiveComplete = false;}
+            if (numberOfObjectivesSatisfied == listOfObjectives.Count){objectiveComplete = true;}
+            else {objectiveComplete = false;}
+        }
+        
     }
 
     private void Awake() {
@@ -111,6 +115,12 @@ public class Objectives : MonoBehaviour
                 Debug.Log($"{objective.nameEnum}: {GameManager.gm.variables.variables[objective.nameEnum].GetSurplus()}/{objective.target}");
             }
             Debug.Log($"Objective complete: {objectiveComplete}");
+        }
+    }
+
+    void ForDebugAddEnergyProduction(){
+        if (Input.GetKeyDown(KeyCode.E)){
+            GameManager.gm.variables.variables[GlobalVariableEnum.Energy].AddValueToProduction(1);
         }
     }
 }
