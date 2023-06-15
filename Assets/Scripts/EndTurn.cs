@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using NativeClassExtensions;
 
 public class EndTurn : MonoBehaviour
 {
@@ -26,10 +28,9 @@ public class EndTurn : MonoBehaviour
 
     bool CheckUpkeep()
     {
-        //check all variables on global variables and return false if got negative incomes
-        foreach (KeyValuePair<GlobalVariableEnum, float> variable in GameManager.gm.variables.variables)
+        foreach (KeyValuePair<GlobalVariableEnum, GlobalVariables.ResourceVariable> variable in GameManager.gm.variables.variables)
         {
-            if(variable.Key != GlobalVariableEnum.CO2 && variable.Key != GlobalVariableEnum.CitizenUnrest && variable.Value < 0)
+            if(variable.Key != GlobalVariableEnum.CO2 && variable.Value.upkeep < 0)
             {
                 return false;
             }
@@ -43,12 +44,16 @@ public class EndTurn : MonoBehaviour
             Debug.Log("Upkeep fugd, no turn end for you :)");
             return;
         }
-
-        variables.ConsumerGoodsUpkeep = 0f;
-        variables.EnergyUpkeep = 0f;
-        variables.FoodUpkeep = 0f;
-        variables.RawResourcesUpkeep = 0f;
-        variables.IndustryGoodsUpkeep = 0f;
+        
+        GlobalVariableEnum[] enums = (GlobalVariableEnum[])Enum.GetValues(typeof(GlobalVariableEnum));
+        
+        foreach(GlobalVariableEnum current in EnumExtensions.GlobalVariableEnumAsArray())
+        {
+            if(current == GlobalVariableEnum.CO2)continue;
+            GlobalVariables.ResourceVariable currentVar = variables.variables[current];
+            currentVar.upkeep = 0;
+            variables.variables[current] = currentVar;
+        }
 
         for (int i = 0; i < listSize; i++)
         {
@@ -70,11 +75,18 @@ public class EndTurn : MonoBehaviour
         }
 
         // Here the script should set Raw Resources, Food, Energy, ConsumerGoods and IndustryGoods to upkeep.
-        variables.RawResources = variables.RawResourcesUpkeep;
-        variables.Food = variables.FoodUpkeep;
-        variables.Energy = variables.EnergyUpkeep;
-        variables.ConsumerGoods = variables.ConsumerGoodsUpkeep;
-        variables.IndustryGoods = variables.IndustryGoodsUpkeep;
+        // Turned this into a loop to make it more flexible
+        foreach(GlobalVariableEnum current in EnumExtensions.GlobalVariableEnumAsArray())
+        {
+            if(current == GlobalVariableEnum.CO2)continue;
+            GlobalVariables.ResourceVariable currentvar = variables.variables[current];
+            currentvar.production = variables.variables[current].upkeep;
+        }
+        //variables.RawResources = variables.RawResourcesUpkeep;
+        //variables.Food = variables.FoodUpkeep;
+        //variables.Energy = variables.EnergyUpkeep;
+        //variables.ConsumerGoods = variables.ConsumerGoodsUpkeep;
+        //variables.IndustryGoods = variables.IndustryGoodsUpkeep;
 
         // Here should come a popup window with stats and a close button.
         GameManager.gm.menuManager.ShowInfoScreen(GameManager.gm.variables);
