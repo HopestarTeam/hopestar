@@ -39,13 +39,17 @@ public class Objectives : MonoBehaviour
     }
 
     private void CheckObjectiveComplete(){
-        int numberOfObjectivesSatisfied = 0;
-        foreach (ResourceObjective objective in listOfObjectives){
-            if (objective.IsFulfilled()){numberOfObjectivesSatisfied++;}
-        }
+        if (listOfObjectives == null){Debug.Log("you don't have any objectives");}
+        else {
+            int numberOfObjectivesSatisfied = 0;
+            foreach (ResourceObjective objective in listOfObjectives){
+                if (objective.IsFulfilled()){numberOfObjectivesSatisfied++;}
+            }
 
-        if (numberOfObjectivesSatisfied == listOfObjectives.Count){objectiveComplete = true;}
-        else {objectiveComplete = false;}
+            if (numberOfObjectivesSatisfied == listOfObjectives.Count){objectiveComplete = true;}
+            else {objectiveComplete = false;}
+        }
+        
     }
 
     private void Awake() {
@@ -101,7 +105,7 @@ public class Objectives : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        CheckObjectiveComplete();  
+        CheckObjectiveComplete(); 
 
         ForDebugDisplayObjectives(); 
         ForDebugAddEnergyProduction();     
@@ -118,8 +122,8 @@ public class Objectives : MonoBehaviour
 
     void ForDebugAddEnergyProduction(){
         if (Input.GetKeyDown(KeyCode.E)){
-            GameManager.gm.variables.variables[GlobalVariableEnum.Energy].AddValueToProduction(1);
-            Debug.Log("added 1 energy");
+            GameManager.gm.AddValueToProduction(GlobalVariableEnum.Energy, 1);
+            Debug.Log("added 1 energy production");
             Debug.Log(GameManager.gm.variables.variables[GlobalVariableEnum.Energy].production);
         }
     }

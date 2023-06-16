@@ -51,4 +51,67 @@ public class GameManager : MonoBehaviour
     {
         menuManager.Update();
     }
+
+    //get and set functions that help manage the global variables
+    public void AddValueToProduction(GlobalVariableEnum resource, int value){
+        GlobalVariables.ResourceVariable newValue = new GlobalVariables.ResourceVariable(
+                                                                    GameManager.gm.variables.variables[resource].production + value,
+                                                                    GameManager.gm.variables.variables[resource].upkeep,
+                                                                    GameManager.gm.variables.variables[resource].spent
+        );
+        GameManager.gm.variables.variables[resource] = newValue;
+
+        //call update display and update objectives functions   !!!
+    }
+    public void AddValueToUpkeep(GlobalVariableEnum resource, int value){
+        GlobalVariables.ResourceVariable newValue = new GlobalVariables.ResourceVariable(
+                                                                    GameManager.gm.variables.variables[resource].production,
+                                                                    GameManager.gm.variables.variables[resource].upkeep + value,
+                                                                    GameManager.gm.variables.variables[resource].spent
+        );
+        GameManager.gm.variables.variables[resource] = newValue;
+
+        //call update display and update objectives functions   !!!
+    }
+    public void AddValueToSpent(GlobalVariableEnum resource, int value){
+        GlobalVariables.ResourceVariable newValue = new GlobalVariables.ResourceVariable(
+                                                                    GameManager.gm.variables.variables[resource].production,
+                                                                    GameManager.gm.variables.variables[resource].upkeep,
+                                                                    GameManager.gm.variables.variables[resource].spent + value
+        );
+        GameManager.gm.variables.variables[resource] = newValue;
+
+        //call update display and update objectives functions   !!!
+    }
+
+    public void SetProductionToValue(GlobalVariableEnum resource, int value){
+        GlobalVariables.ResourceVariable newValue = new GlobalVariables.ResourceVariable(
+                                                                    value,
+                                                                    GameManager.gm.variables.variables[resource].upkeep,
+                                                                    GameManager.gm.variables.variables[resource].spent
+        );
+        GameManager.gm.variables.variables[resource] = newValue;
+
+        //call update display and update objectives functions   !!!
+    }
+    public void SetUpkeepToValue(GlobalVariableEnum resource, int value){
+        GlobalVariables.ResourceVariable newValue = new GlobalVariables.ResourceVariable(
+                                                                    GameManager.gm.variables.variables[resource].production,
+                                                                    value,
+                                                                    GameManager.gm.variables.variables[resource].spent
+        );
+        GameManager.gm.variables.variables[resource] = newValue;
+
+        //call update display and update objectives functions   !!!
+    }
+    public void SetSpentToValue(GlobalVariableEnum resource, int value){
+        GlobalVariables.ResourceVariable newValue = new GlobalVariables.ResourceVariable(
+                                                                    GameManager.gm.variables.variables[resource].production,
+                                                                    GameManager.gm.variables.variables[resource].upkeep,
+                                                                    value
+        );
+        GameManager.gm.variables.variables[resource] = newValue;
+
+        //call update display and update objectives functions   !!!
+    }
 }
