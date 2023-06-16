@@ -5,25 +5,67 @@ using System;
 
 [Serializable]
 public class GlobalVariables
-{
-    public GameObject IndustryOverlay;
-    public GameObject UrbanOverlay;
-    public GameObject MineralOverlay;
-    public Dictionary<GlobalVariableEnum,float> variables;
+{   
+    [Serializable] public struct ResourceVariable{
+        //structure that collects the production, upkeep and spent values of a single resource type
+        public int production;
+        public int upkeep;
+        public int spent;
+
+        public ResourceVariable(int production, int upkeep, int spent){
+            this.production = production;
+            this.upkeep = upkeep;
+            this.spent = spent;
+        }
+
+        public void SetProductionToValue(int value){
+            production = value;
+            //call update display and update objectives functions   !!!
+        }
+        public void SetUpkeepToValue(int value){
+            upkeep = value;
+            //call update display and update objectives functions   !!!
+        }
+        public void SetSpentToValue(int value){
+            spent = value;
+            //call update display and update objectives functions   !!!
+        }
+
+        public void AddValueToProduction(int value){
+            production += value;
+            //call update display and update objectives functions   !!!
+        }
+        public void AddValueToUpkeep(int value){
+            upkeep += value;
+            //call update display and update objectives functions   !!!
+        }
+        public void AddValueToSpent(int value){
+            spent += value;
+            //call update display and update objectives functions   !!!
+        }
+
+        public int GetSurplus(){
+            return production - upkeep - spent;
+        }
+    }
+
+    public Dictionary<GlobalVariableEnum, ResourceVariable> variables;
     public void Initialize()
     {
         //Get an array of the enums
         GlobalVariableEnum[] enums = (GlobalVariableEnum[])Enum.GetValues(typeof(GlobalVariableEnum));
         
-        variables = new Dictionary<GlobalVariableEnum, float>(enums.Length);
+        variables = new Dictionary<GlobalVariableEnum, ResourceVariable>(enums.Length);
         foreach(GlobalVariableEnum current in enums)
         {
-            variables.Add(current, 0);
+            variables.Add(current, new ResourceVariable(0, 0, 0));
             //Debug.Log($"{current}: {variables[current]}");
         }
     }
 
-    public float CO2
+    
+
+    /*public float CO2
     {
         get
         {
@@ -177,23 +219,16 @@ public class GlobalVariables
         {
             variables[GlobalVariableEnum.CitizenUnrestUpkeep] = value;
         }
-    }
+    }*/
 }
 
 public enum GlobalVariableEnum
 {
     CO2,
-    RawResources,
     Food,
     Energy,
-    ConsumerGoods,
-    IndustryGoods,
-    RawResourcesUpkeep,
-    FoodUpkeep,
-    EnergyUpkeep,
-    ConsumerGoodsUpkeep,
-    IndustryGoodsUpkeep,
-    CitizenUnrest,
-    CO2Upkeep,
-    CitizenUnrestUpkeep
+    Material,
+    Industry,
+    Consumer,
+    Science
 }
