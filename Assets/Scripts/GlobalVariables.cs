@@ -6,11 +6,13 @@ using System;
 [Serializable]
 public class GlobalVariables
 {   
+    public GameObject IndustryOverlay;
     [Serializable] public struct ResourceVariable{
         //structure that collects the production, upkeep and spent values of a single resource type
         public int production;
         public int upkeep;
         public int spent;
+
 
         public ResourceVariable(int production, int upkeep, int spent){
             this.production = production;
