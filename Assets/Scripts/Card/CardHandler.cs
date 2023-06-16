@@ -203,6 +203,7 @@ public class CardHandler : MonoBehaviour
                         break;
                 }
             }
+            Dictionary<GlobalVariableEnum, GlobalVariables.ResourceVariable> tmp = new Dictionary<GlobalVariableEnum, GlobalVariables.ResourceVariable>();
             foreach(KeyValuePair<GlobalVariableEnum, GlobalVariables.ResourceVariable> kvp in global.variables)
             {
                 GlobalVariables.ResourceVariable newVars = new GlobalVariables.ResourceVariable();
@@ -214,8 +215,8 @@ public class CardHandler : MonoBehaviour
                             global.variables[GlobalVariableEnum.Food].upkeep + foodUpkeep * flipper,
                             global.variables[GlobalVariableEnum.Food].spent + foodCosts * flipper
                         );
-                        global.variables.Remove(GlobalVariableEnum.Food);
-                        global.variables.Add(GlobalVariableEnum.Food, newVars);
+                        //global.variables.Remove(GlobalVariableEnum.Food);
+                        tmp.Add(GlobalVariableEnum.Food, newVars);
                         break;
                     case GlobalVariableEnum.Material:
                         newVars = new GlobalVariables.ResourceVariable(
@@ -223,8 +224,8 @@ public class CardHandler : MonoBehaviour
                             global.variables[GlobalVariableEnum.Material].upkeep + rawUpkeep * flipper,
                             global.variables[GlobalVariableEnum.Material].spent + rawCosts * flipper
                         );
-                        global.variables.Remove(GlobalVariableEnum.Material);
-                        global.variables.Add(GlobalVariableEnum.Material, newVars);
+                        //global.variables.Remove(GlobalVariableEnum.Material);
+                        tmp.Add(GlobalVariableEnum.Material, newVars);
                         break;
                     case GlobalVariableEnum.Energy:
                         newVars = new GlobalVariables.ResourceVariable(
@@ -232,8 +233,8 @@ public class CardHandler : MonoBehaviour
                             global.variables[GlobalVariableEnum.Energy].upkeep + energyUpkeep * flipper,
                             global.variables[GlobalVariableEnum.Energy].spent + energyCosts * flipper
                         );
-                        global.variables.Remove(GlobalVariableEnum.Energy);
-                        global.variables.Add(GlobalVariableEnum.Energy, newVars);
+                        //global.variables.Remove(GlobalVariableEnum.Energy);
+                        tmp.Add(GlobalVariableEnum.Energy, newVars);
                         break;
                     case GlobalVariableEnum.Consumer:
                         newVars = new GlobalVariables.ResourceVariable(
@@ -241,8 +242,8 @@ public class CardHandler : MonoBehaviour
                             global.variables[GlobalVariableEnum.Consumer].upkeep + consumerUpkeep * flipper,
                             global.variables[GlobalVariableEnum.Consumer].spent + consumerCosts * flipper
                         );
-                        global.variables.Remove(GlobalVariableEnum.Consumer);
-                        global.variables.Add(GlobalVariableEnum.Consumer, newVars);
+                        //global.variables.Remove(GlobalVariableEnum.Consumer);
+                        tmp.Add(GlobalVariableEnum.Consumer, newVars);
                         break;
                     case GlobalVariableEnum.Industry:
                         newVars = new GlobalVariables.ResourceVariable(
@@ -250,13 +251,15 @@ public class CardHandler : MonoBehaviour
                             global.variables[GlobalVariableEnum.Industry].upkeep + industryUpkeep * flipper,
                             global.variables[GlobalVariableEnum.Industry].spent + industryCosts * flipper
                         );
-                        global.variables.Remove(GlobalVariableEnum.Industry);
-                        global.variables.Add(GlobalVariableEnum.Industry, newVars);
+                        //global.variables.Remove(GlobalVariableEnum.Industry);
+                        tmp.Add(GlobalVariableEnum.Industry, newVars);
                         break;
                     default:
+                        tmp.Add(kvp.Key,kvp.Value);
                         break;
                 }
             }
+            global.variables = tmp;
         }
     }
 
