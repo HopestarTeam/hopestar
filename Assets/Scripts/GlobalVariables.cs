@@ -6,7 +6,7 @@ using System;
 [Serializable]
 public class GlobalVariables
 {   
-    [Serializable] public struct ResourceVariable{
+    [Serializable] public class ResourceVariable{
         //structure that collects the production, upkeep and spent values of a single resource type
         public int production;
         public int upkeep;
@@ -20,6 +20,7 @@ public class GlobalVariables
 
         public void AddValueToProduction(int value){
             production += value;
+            Debug.Log($"production: {production}");
             //call update display and update objectives functions   !!!
         }
         public void AddValueToUpkeep(int value){

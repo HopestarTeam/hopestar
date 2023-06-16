@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public MenuManager menuManager;
     EndTurn end;
     Button endTurnButton;
+
+    public PassiveProductionSettings tilePassiveProductionSettings;
     
     [SerializeField]public TileMaterialSetter tileMaterialSetter;
 
@@ -34,6 +36,10 @@ public class GameManager : MonoBehaviour
                 //{
                 //    Debug.Log($"{current.Key}: {current.Value}");
                 //}
+            }
+            foreach (Tile tile in FindObjectsByType(typeof(Tile),FindObjectsSortMode.None))
+            {
+                tile.ResolveTile();
             }
             end = GetComponent<EndTurn>();
             endTurnButton = menuManager.Hud.rootVisualElement.Q("EndTurnButton") as Button;
