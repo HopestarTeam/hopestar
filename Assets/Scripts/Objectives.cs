@@ -102,7 +102,9 @@ public class Objectives : MonoBehaviour
     // Update is called once per frame
     void Update(){
         CheckObjectiveComplete();  
-        ForDebugDisplayObjectives();      
+
+        ForDebugDisplayObjectives(); 
+        ForDebugAddEnergyProduction();     
     }
 
     void ForDebugDisplayObjectives(){
@@ -111,6 +113,14 @@ public class Objectives : MonoBehaviour
                 Debug.Log($"{objective.nameEnum}: {GameManager.gm.variables.variables[objective.nameEnum].GetSurplus()}/{objective.target}");
             }
             Debug.Log($"Objective complete: {objectiveComplete}");
+        }
+    }
+
+    void ForDebugAddEnergyProduction(){
+        if (Input.GetKeyDown(KeyCode.E)){
+            GameManager.gm.variables.variables[GlobalVariableEnum.Energy].AddValueToProduction(1);
+            Debug.Log("added 1 energy");
+            Debug.Log(GameManager.gm.variables.variables[GlobalVariableEnum.Energy].production);
         }
     }
 }
