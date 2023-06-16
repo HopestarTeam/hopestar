@@ -127,6 +127,8 @@ public class DragAndDrop : MonoBehaviour
             GameManager.gm.tileMaterialSetter.ReturnColor();
             Cursor.visible = true;
             if (target == null){
+                if(currentSlot != null)
+                    handler.RunCosts(false);
                 StartCoroutine(MoveCardWithLerp(initialPosition, lerpDuration, () => Destroy(gameObject)));
                 //MoveCard(initialPosition);
                 //Destroy(gameObject,lerpDuration*0.9f);
