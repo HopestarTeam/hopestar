@@ -71,17 +71,17 @@ public class Tile : MonoBehaviour
             if (tile == TileProperty.INDUSTRY)
             {
                 // Instantiate prefab above tile
-                Instantiate (GameManager.gm.variables.IndustryOverlay,transform.position+ new Vector3(0,0.01f,0),transform.rotation,transform);
+                Instantiate (GameManager.gm.variables.IndustryOverlay,transform.position+ new Vector3(0,0.001f,0),transform.rotation,transform);
             }
             
             if (tile == TileProperty.URBAN)
             {
-                Instantiate (GameManager.gm.variables.UrbanOverlay,transform.position+ new Vector3(0,0.1f,0),transform.rotation,transform);
+                Instantiate (GameManager.gm.variables.UrbanOverlay,transform.position+ new Vector3(0,0.001f,0),transform.rotation,transform);
             }
 
             if (tile == TileProperty.RESOURCERICH)
             {
-                Instantiate (GameManager.gm.variables.MineralOverlay,transform.position+ new Vector3(0,0.1f,0),transform.rotation,transform);
+                Instantiate (GameManager.gm.variables.MineralOverlay,transform.position+ new Vector3(0,0.001f,0),transform.rotation,transform);
             }
 
 
