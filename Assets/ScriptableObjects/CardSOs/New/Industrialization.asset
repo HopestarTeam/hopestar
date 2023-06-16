@@ -12,19 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e48f32db141228a4e958282b8aba5bc8, type: 3}
   m_Name: Industrialization
   m_EditorClassIdentifier: 
-  _cardName: 
+  _cardName: Insustrializaton
   cardImage: {fileID: 0}
-  _cardType: 0
+  _cardType: 3
   _requiredTileProperties: 
-  _blockedTileProperties: 
+  _blockedTileProperties: 05
   _resourceCosts: []
-  _resourceUpkeep: []
+  _resourceUpkeep:
+  - resourceType: 0
+    amount: 2
+  - resourceType: 1
+    amount: 3
+  - resourceType: 2
+    amount: 1
   _resourceGains: []
   _emsissionAmount: 0
-  _hasFunction: 0
-  _functionType: 0
-  _cardTimer: 0
+  _hasFunction: 1
+  _functionType: 2
+  _cardTimer: 2
   flavorText: 
-  fromProperty: 0
-  toProperty: 0
-  destroyedOnFinish: 0
+  fromProperty: 7
+  toProperty: 5
+  destroyedOnFinish: 1

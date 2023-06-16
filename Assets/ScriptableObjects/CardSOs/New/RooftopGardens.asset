@@ -12,18 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5ae3cfc984498499e7c0658b34c7b0, type: 3}
   m_Name: RooftopGardens
   m_EditorClassIdentifier: 
-  _cardName: 
+  _cardName: Rooftop Gardens
   cardImage: {fileID: 0}
-  _cardType: 0
+  _cardType: 2
   _requiredTileProperties: 
-  _blockedTileProperties: 
-  _resourceCosts: []
+  _blockedTileProperties: 02
+  _resourceCosts:
+  - resourceType: 2
+    amount: 1
   _resourceUpkeep: []
   _resourceGains: []
-  _emsissionAmount: 0
-  _hasFunction: 0
-  _functionType: 0
+  _emsissionAmount: 2
+  _hasFunction: 1
+  _functionType: 1
   _cardTimer: 0
   flavorText: 
-  _conditionalTileProperties: 
-  _conditionalResourceGains: []
+  _conditionalTileProperties: 04
+  _conditionalResourceGains:
+  - resourceType: 2
+    amount: 3
