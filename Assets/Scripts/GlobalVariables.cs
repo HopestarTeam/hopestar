@@ -7,6 +7,8 @@ using System;
 public class GlobalVariables
 {   
     public GameObject IndustryOverlay;
+    public GameObject UrbanOverlay;
+    public GameObject MineralOverlay;
     [Serializable] public struct ResourceVariable{
         //structure that collects the production, upkeep and spent values of a single resource type
         public int production;
