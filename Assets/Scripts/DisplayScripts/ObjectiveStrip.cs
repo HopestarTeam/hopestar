@@ -10,8 +10,8 @@ public class ObjectiveStrip : MonoBehaviour
 
     string name;
     int target;
-    Sprite defaultSprite;
-    Sprite fulfilledSprite;
+    [HideInInspector] public Sprite defaultSprite;
+    [HideInInspector] public Sprite fulfilledSprite;
 
     TextMeshProUGUI nameOfStrip;
 
@@ -29,7 +29,7 @@ public class ObjectiveStrip : MonoBehaviour
 
     private void DisplayObjectiveIcons(){
         for (int i = 0; i < target; i++){
-            GameObject newIcon = Instantiate(icon.gameObject);
+            GameObject newIcon = Instantiate(icon);
             newIcon.transform.SetParent(iconGrid.transform);
         }
     }

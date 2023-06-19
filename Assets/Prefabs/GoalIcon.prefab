@@ -89,3 +89,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8b057c083d54d245b4f0bb10c3f311b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectiveStrip: {fileID: 7948970888301956762, guid: e36744d263d1b4049a592fd869fb78f8, type: 3}

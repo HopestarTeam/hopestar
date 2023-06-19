@@ -26,11 +26,11 @@ public class Objectives : MonoBehaviour
         public Sprite unfulfilledSprite;
         public Sprite fulfilledSprite;
         
-        public ResourceObjective(GlobalVariableEnum theName, int theTarget, Sprite spent, Sprite produced){
+        public ResourceObjective(GlobalVariableEnum theName, int theTarget, Sprite unfulfilled, Sprite fulfilled){
             nameEnum = theName;
             target = theTarget;
-            unfulfilledSprite = spent;
-            fulfilledSprite = produced;
+            unfulfilledSprite = unfulfilled;
+            fulfilledSprite = fulfilled;
         }
 
         public bool IsFulfilled(){
