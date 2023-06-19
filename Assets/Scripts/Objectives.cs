@@ -123,7 +123,7 @@ public class Objectives : MonoBehaviour
     }
     void ForDebugAddEnergyProduction(){
         if (Input.GetKeyDown(KeyCode.E)){
-            GameManager.gm.AddValueToProduction(GlobalVariableEnum.Energy, 1);
+            GameManager.gm.variables.variables[GlobalVariableEnum.Energy].production += 1;
             Debug.Log("added 1 energy production");
             Debug.Log(GameManager.gm.variables.variables[GlobalVariableEnum.Energy].production);
         }

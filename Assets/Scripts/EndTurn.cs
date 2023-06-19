@@ -50,12 +50,13 @@ public class EndTurn : MonoBehaviour
         foreach(GlobalVariableEnum current in EnumExtensions.GlobalVariableEnumAsArray())
         {
             if(current == GlobalVariableEnum.CO2)continue;
-            GlobalVariables.ResourceVariable currentVar = variables.variables[current];
-            currentVar.upkeep = 0;
-            currentVar.production = 0;
-            currentVar.spent = 0;
-            variables.variables[current] = currentVar;
+            variables.variables[current].upkeep = 0;
         }
+
+        foreach (Tile tile in FindObjectsByType(typeof(Tile),FindObjectsSortMode.None))
+            {
+                tile.ResolveTile();
+            }
 
         for (int i = 0; i < listSize; i++)
         {
@@ -80,9 +81,8 @@ public class EndTurn : MonoBehaviour
         // Turned this into a loop to make it more flexible
         foreach(GlobalVariableEnum current in EnumExtensions.GlobalVariableEnumAsArray())
         {
-            if(current == GlobalVariableEnum.CO2)continue;
-            GlobalVariables.ResourceVariable currentvar = variables.variables[current];
-            currentvar.production = variables.variables[current].upkeep;
+            if(current != GlobalVariableEnum.CO2)continue;
+            variables.variables[current].production = variables.variables[current].upkeep;
         }
         //variables.RawResources = variables.RawResourcesUpkeep;
         //variables.Food = variables.FoodUpkeep;
