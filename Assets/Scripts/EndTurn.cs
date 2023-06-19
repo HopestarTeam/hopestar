@@ -30,7 +30,7 @@ public class EndTurn : MonoBehaviour
     {
         foreach (KeyValuePair<GlobalVariableEnum, GlobalVariables.ResourceVariable> variable in GameManager.gm.variables.variables)
         {
-            if(variable.Key != GlobalVariableEnum.CO2 && variable.Value.upkeep < 0)
+            if(variable.Key != GlobalVariableEnum.CO2 && variable.Value.upkeep > variable.Value.production)
             {
                 return false;
             }

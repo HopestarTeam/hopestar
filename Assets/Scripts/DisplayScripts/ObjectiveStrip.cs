@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 public class ObjectiveStrip : MonoBehaviour
-{    
+{
     [SerializeField] GameObject icon;
     [SerializeField] GameObject iconGrid;
 
@@ -18,9 +18,9 @@ public class ObjectiveStrip : MonoBehaviour
     TextMeshProUGUI nameOfStrip;
     List<GameObject> listOfIcons = new List<GameObject>();
 
-    public void SetNameAs(string name){
+    public void SetNameAs(string stripName){
         nameOfStrip = GetComponentInChildren<TextMeshProUGUI>();
-        nameOfStrip.text = name;
+        nameOfStrip.text = stripName;
     }
     
     public void SetPropertiesAs(Objectives.ResourceObjective obj){

@@ -45,7 +45,7 @@ public class DragAndDrop : MonoBehaviour
         }
 
         EndAction();
-        Debug.Log("Stopped Moving");
+        //Debug.Log("Stopped Moving");
         moving = false;
     }
     private void MoveCard(Vector3 targetPosition){   //this function should lerp in the final version
@@ -135,7 +135,7 @@ public class DragAndDrop : MonoBehaviour
                 //the card goes back to the card pool
             }
             else{
-                 // if enough resources to place the card and tile accepts
+                // if enough resources to place the card and tile accepts
                 if(handler.CheckCard() && target.GetComponent<Tile>().IsCompatibleWith(handler.properties))
                 {
                     handler.RunCosts();
@@ -180,12 +180,12 @@ public class DragAndDrop : MonoBehaviour
                 Tile targetTile = hit.collider.GetComponent<Tile>();
                 if(targetTile != null && targetTile.cardHandler == null)
                 {
-                    Debug.Log("Slot found!");
+                    //Debug.Log("Slot found!");
                     return hit.collider.gameObject;
                 }
             }
         }
-        Debug.Log("Slot Not Found");
+        //Debug.Log("Slot Not Found");
         return null;
     }
 

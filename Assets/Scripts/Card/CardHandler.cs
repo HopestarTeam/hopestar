@@ -10,8 +10,8 @@ public class CardHandler : MonoBehaviour
     GlobalVariables global;
     public DeckBehaviour deck;
     public Tile placedOn;
-    public bool placedThisTurn;
-    [SerializeField] TextMeshProUGUI cardName, costText, upkeepText, gainsText, emissionText, flavorText;
+    public bool placedThisTurn = false;
+    //[SerializeField] TextMeshProUGUI cardName, costText, upkeepText, gainsText, emissionText, flavorText;
     MeshRenderer mesh;
     public ResourceTypeDefinition[] resourceCosts, resourceUpkeep, resourceGains;
     public int emsissionAmount, cardTimer;
@@ -146,15 +146,39 @@ public class CardHandler : MonoBehaviour
     {
         int flipper = 1,
         rawCosts = 0, foodCosts = 0, energyCosts = 0, consumerCosts = 0, industryCosts = 0,
+        rawGains = 0, foodGains = 0, energyGains = 0, consumerGains = 0, industryGains = 0,
         rawUpkeep = 0, foodUpkeep = 0, energyUpkeep = 0, consumerUpkeep = 0, industryUpkeep = 0;
         if(!runCosts)
         {
             flipper = -1;
-            placedThisTurn = false;
         }
 
-        if(!placedThisTurn)
+        if(!placedThisTurn || !runCosts)
         {
+            if(resourceGains != null)
+            foreach(ResourceTypeDefinition definition in resourceGains)
+            {
+                switch(definition.resourceType)
+                {
+                    case ResourceTypeDefinition.ResourceType.RAW:
+                        rawGains = definition.amount;
+                        break;
+                    case ResourceTypeDefinition.ResourceType.FOOD:
+                        foodGains = definition.amount;
+                        break;
+                    case ResourceTypeDefinition.ResourceType.ENERGY:
+                        energyGains = definition.amount;
+                        break;
+                    case ResourceTypeDefinition.ResourceType.CONSUMER:
+                        consumerGains = definition.amount;
+                        break;
+                    case ResourceTypeDefinition.ResourceType.INDUSTRY:
+                        industryGains = definition.amount;
+                        break;
+                    default:
+                        break;
+                }
+            }
             if(resourceCosts != null)
             foreach(ResourceTypeDefinition definition in resourceCosts)
             {
@@ -229,7 +253,7 @@ public class CardHandler : MonoBehaviour
                             global.variables[GlobalVariableEnum.Industry].spent += industryCosts * flipper;
                         break;
                     default:
-                        tmp.Add(kvp.Key,kvp.Value);
+
                         break;
                 }
             }
@@ -328,6 +352,7 @@ public class CardHandler : MonoBehaviour
                     break;
             }
         }
+        Dictionary<GlobalVariableEnum, GlobalVariables.ResourceVariable> tmp = new Dictionary<GlobalVariableEnum, GlobalVariables.ResourceVariable>();
         foreach(KeyValuePair<GlobalVariableEnum, GlobalVariables.ResourceVariable> kvp in global.variables)
             {
                 switch(kvp.Key)
