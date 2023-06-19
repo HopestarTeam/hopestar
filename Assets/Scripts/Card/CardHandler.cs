@@ -355,59 +355,58 @@ public class CardHandler : MonoBehaviour
                     break;
             }
         }
+        Dictionary<GlobalVariableEnum, GlobalVariables.ResourceVariable> tmp = new Dictionary<GlobalVariableEnum, GlobalVariables.ResourceVariable>();
         foreach(KeyValuePair<GlobalVariableEnum, GlobalVariables.ResourceVariable> kvp in global.variables)
+        {
+            GlobalVariables.ResourceVariable newVars = new GlobalVariables.ResourceVariable();
+            switch(kvp.Key)
             {
-                GlobalVariables.ResourceVariable newVars = new GlobalVariables.ResourceVariable();
-                switch(kvp.Key)
-                {
-                    case GlobalVariableEnum.Food:
-                        newVars = new GlobalVariables.ResourceVariable(
-                            global.variables[GlobalVariableEnum.Food].production + foodProduction,
-                            global.variables[GlobalVariableEnum.Food].upkeep + foodUpkeep,
-                            0
-                        );
-                        global.variables.Remove(GlobalVariableEnum.Food);
-                        global.variables.Add(GlobalVariableEnum.Food, newVars);
-                        break;
-                    case GlobalVariableEnum.Material:
-                        newVars = new GlobalVariables.ResourceVariable(
-                            global.variables[GlobalVariableEnum.Material].production + rawProduction,
-                            global.variables[GlobalVariableEnum.Material].upkeep + rawUpkeep,
-                            0
-                        );
-                        global.variables.Remove(GlobalVariableEnum.Material);
-                        global.variables.Add(GlobalVariableEnum.Material, newVars);
-                        break;
-                    case GlobalVariableEnum.Energy:
-                        newVars = new GlobalVariables.ResourceVariable(
-                            global.variables[GlobalVariableEnum.Energy].production + energyProduction,
-                            global.variables[GlobalVariableEnum.Energy].upkeep + energyUpkeep,
-                            0
-                        );
-                        global.variables.Remove(GlobalVariableEnum.Energy);
-                        global.variables.Add(GlobalVariableEnum.Energy, newVars);
-                        break;
-                    case GlobalVariableEnum.Consumer:
-                        newVars = new GlobalVariables.ResourceVariable(
-                            global.variables[GlobalVariableEnum.Consumer].production + consumerProduction,
-                            global.variables[GlobalVariableEnum.Consumer].upkeep + consumerUpkeep,
-                            0
-                        );
-                        global.variables.Remove(GlobalVariableEnum.Consumer);
-                        global.variables.Add(GlobalVariableEnum.Consumer, newVars);
-                        break;
-                    case GlobalVariableEnum.Industry:
-                        newVars = new GlobalVariables.ResourceVariable(
-                            global.variables[GlobalVariableEnum.Industry].production + industryProduction,
-                            global.variables[GlobalVariableEnum.Industry].upkeep + industryUpkeep,
-                            0
-                        );
-                        global.variables.Remove(GlobalVariableEnum.Industry);
-                        global.variables.Add(GlobalVariableEnum.Industry, newVars);
-                        break;
-                    default:
-                        break;
-                }
+                case GlobalVariableEnum.Food:
+                    newVars = new GlobalVariables.ResourceVariable(
+                        global.variables[GlobalVariableEnum.Food].production + foodProduction,
+                        global.variables[GlobalVariableEnum.Food].upkeep + foodUpkeep,
+                        0
+                    );
+                    tmp.Add(kvp.Key, newVars);
+                    break;
+                case GlobalVariableEnum.Material:
+                    newVars = new GlobalVariables.ResourceVariable(
+                        global.variables[GlobalVariableEnum.Material].production + rawProduction,
+                        global.variables[GlobalVariableEnum.Material].upkeep + rawUpkeep,
+                        0
+                    );
+                    tmp.Add(kvp.Key, newVars);
+                    break;
+                case GlobalVariableEnum.Energy:
+                    newVars = new GlobalVariables.ResourceVariable(
+                        global.variables[GlobalVariableEnum.Energy].production + energyProduction,
+                        global.variables[GlobalVariableEnum.Energy].upkeep + energyUpkeep,
+                        0
+                    );
+                    tmp.Add(kvp.Key, newVars);
+                    break;
+                case GlobalVariableEnum.Consumer:
+                    newVars = new GlobalVariables.ResourceVariable(
+                        global.variables[GlobalVariableEnum.Consumer].production + consumerProduction,
+                        global.variables[GlobalVariableEnum.Consumer].upkeep + consumerUpkeep,
+                        0
+                    );
+                    tmp.Add(kvp.Key, newVars);
+                    break;
+                case GlobalVariableEnum.Industry:
+                    newVars = new GlobalVariables.ResourceVariable(
+                        global.variables[GlobalVariableEnum.Industry].production + industryProduction,
+                        global.variables[GlobalVariableEnum.Industry].upkeep + industryUpkeep,
+                        0
+                    );
+                    tmp.Add(kvp.Key, newVars);
+                    break;
+                default:
+                    tmp.Add(kvp.Key, kvp.Value);
+                    break;
             }
+        }
+        global.variables = tmp;
+
     }
 }
