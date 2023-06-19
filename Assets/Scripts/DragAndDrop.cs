@@ -135,7 +135,7 @@ public class DragAndDrop : MonoBehaviour
                 //the card goes back to the card pool
             }
             else{
-                 // if enough resources to place the card and tile accepts
+                // if enough resources to place the card and tile accepts
                 if(handler.CheckCard() && target.GetComponent<Tile>().IsCompatibleWith(handler.properties))
                 {
                     handler.RunCosts();
