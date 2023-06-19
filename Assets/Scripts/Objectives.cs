@@ -16,9 +16,10 @@ public class Objectives : MonoBehaviour
     [SerializeField] int scienceTarget = 0;
     //int happinessTarget = 0;
     //int emissionsTarget = 0;
-    List<ResourceObjective> listOfObjectives = new List<ResourceObjective>();
+    [HideInInspector] public List<ResourceObjective> listOfObjectives = new List<ResourceObjective>();
+    [HideInInspector] public int numberOfObjectives;
 
-    class ResourceObjective{
+    public class ResourceObjective{
         //a class that collects the name of a resource, the target objective and the two sprites (unfulfilled and fulfilled) for display
         public GlobalVariableEnum nameEnum;
         public int target;
@@ -96,6 +97,7 @@ public class Objectives : MonoBehaviour
                                                                         Resources.Load<Sprite>("Icons/science"));
             listOfObjectives.Add(scienceObjective);
         }
+        numberOfObjectives = listOfObjectives.Count;
     }
 
     // Start is called before the first frame update
@@ -119,7 +121,6 @@ public class Objectives : MonoBehaviour
             Debug.Log($"Objective complete: {objectiveComplete}");
         }
     }
-
     void ForDebugAddEnergyProduction(){
         if (Input.GetKeyDown(KeyCode.E)){
             GameManager.gm.AddValueToProduction(GlobalVariableEnum.Energy, 1);
