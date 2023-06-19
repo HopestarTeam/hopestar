@@ -98,6 +98,7 @@ MonoBehaviour:
   menuManager:
     Hud: {fileID: 496768690896938883}
     OnElement: 0
+  tileMaterialSetter: {fileID: 0}
 --- !u!114 &9019645980576864443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,4 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c5aebbbcebe9b4ba1bef965848d4a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  values: []
+  values:
+  - variable: 3
+    initialValue: 4
+  - variable: 2
+    initialValue: 4

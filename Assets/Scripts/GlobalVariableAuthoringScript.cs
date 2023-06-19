@@ -11,7 +11,11 @@ public class GlobalVariableAuthoringScript : MonoBehaviour
     {
         foreach(AuthoringStruct current in values)
         {
-            GameManager.gm.variables.variables[current.variable] = current.initialValue;
+            GlobalVariables.ResourceVariable currentVar = new GlobalVariables.ResourceVariable()
+            {
+                production = current.initialValue
+            };
+            GameManager.gm.variables.variables[current.variable] = currentVar;
         }
         Destroy(this);
     }
@@ -20,6 +24,6 @@ public class GlobalVariableAuthoringScript : MonoBehaviour
     public struct AuthoringStruct
     {
         public GlobalVariableEnum variable;
-        public float initialValue;
+        public int initialValue;
     }
 }

@@ -63,6 +63,33 @@ public class Tile : MonoBehaviour
     {
         GameManager.gm.menuManager.toolTip.visible = false;
     }
+
+    public void CheckForProperties()
+    {
+        foreach(TileProperty tile in tileProperties)
+        {
+            if (tile == TileProperty.INDUSTRY)
+            {
+                // Instantiate prefab above tile
+                Instantiate (GameManager.gm.variables.IndustryOverlay,transform.position+ new Vector3(0,0.001f,0),transform.rotation,transform);
+            }
+            
+            if (tile == TileProperty.URBAN)
+            {
+                Instantiate (GameManager.gm.variables.UrbanOverlay,transform.position+ new Vector3(0,0.001f,0),transform.rotation,transform);
+            }
+
+            if (tile == TileProperty.RESOURCERICH)
+            {
+                Instantiate (GameManager.gm.variables.MineralOverlay,transform.position+ new Vector3(0,0.001f,0),transform.rotation,transform);
+            }
+
+
+
+
+        }
+    }
+  
 }
 
 [Serializable]
@@ -70,3 +97,4 @@ public struct TilePropertyPreset
 {
     public List<TileProperty> properties;
 }
+

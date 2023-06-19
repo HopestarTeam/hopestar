@@ -51,9 +51,9 @@ public class ResourceIcon : MonoBehaviour
             break;
 
             case "IndustryDisplay":
-                resourceProductionSprite = Resources.Load<Sprite>("Icons/industrial");
-                resourceSpentSprite = Resources.Load<Sprite>("Icons/industrial_spent");
-                resourceInUpkeepSprite = Resources.Load<Sprite>("Icons/industrial_locked");
+                resourceProductionSprite = Resources.Load<Sprite>("Icons/industry");
+                resourceSpentSprite = Resources.Load<Sprite>("Icons/industry_spent");
+                resourceInUpkeepSprite = Resources.Load<Sprite>("Icons/industry_locked");
             break;
 
             case "ConsumerDisplay":

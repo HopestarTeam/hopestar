@@ -38,7 +38,7 @@ public class DeckScroll : MonoBehaviour
     float oldValue = -1;
     void Update()
     {
-        scrollValue = scrollValue + Input.mouseScrollDelta.y / (deck.cardObjects.Count);
+        scrollValue = scrollValue + -Input.mouseScrollDelta.y / (deck.cardObjects.Count);
         if(scrollValue != oldValue)
         {
             oldValue = scrollValue;
@@ -53,7 +53,7 @@ public class DeckScroll : MonoBehaviour
                 {
                     checker = Mathf.Abs(placer - 0.5f);
                     CurrentTop = cardGO;
-                    Debug.Log(cardGO.name + checker);
+                    //Debug.Log(cardGO.name + checker);
                 }
                 posy = Mathf.Lerp(minY,maxY,upCurve.Evaluate(placer));
                 posz = Mathf.Lerp(minZ,maxZ,forwardCurve.Evaluate(placer));

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5ae3cfc984498499e7c0658b34c7b0, type: 3}
+  m_Name: DeepDigging
+  m_EditorClassIdentifier: 
+  _cardName: Deep Digging
+  cardImage: {fileID: 0}
+  _cardType: 0
+  _requiredTileProperties: 02
+  _blockedTileProperties: 
+  _resourceCosts: []
+  _resourceUpkeep:
+  - resourceType: 0
+    amount: 1
+  _resourceGains:
+  - resourceType: 1
+    amount: 1
+  _emsissionAmount: 1
+  _hasFunction: 0
+  _functionType: 0
+  _cardTimer: 0
+  flavorText: 
+  _conditionalTileProperties: 06
+  _conditionalResourceGains:
+  - resourceType: 1
+    amount: 3
