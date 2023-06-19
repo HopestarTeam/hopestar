@@ -6,9 +6,9 @@ public class GameOver : MonoBehaviour
 {
     private bool IsThereSurplusProduction(){    //currently only checks for energy and material production
         int surplusProduction = 0;
-        foreach (var keyValuePair in GameManager.gm.variables.variables){
-            if (keyValuePair.Key == GlobalVariableEnum.Energy || keyValuePair.Key == GlobalVariableEnum.Material){
-                surplusProduction += keyValuePair.Value.GetSurplus();
+        foreach (KeyValuePair<GlobalVariableEnum, GlobalVariables.ResourceVariable> kvp in GameManager.gm.variables.variables){
+            if (kvp.Key == GlobalVariableEnum.Energy || kvp.Key == GlobalVariableEnum.Material){
+                surplusProduction += kvp.Value.GetSurplus();
             }   
         }
         return surplusProduction > 0;
