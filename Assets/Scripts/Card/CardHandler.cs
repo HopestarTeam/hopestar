@@ -132,12 +132,6 @@ public class CardHandler : MonoBehaviour
                     case GlobalVariableEnum.Industry:
                         result = global.variables[kvp.Key].GetSurplus() >= industryCosts;
                         break;
-                    case GlobalVariableEnum.ConsumerGoods:
-                        result = variables.variables[kvp.Key] >= consumerCosts;
-                        break;
-                    case GlobalVariableEnum.IndustryGoods:
-                        result = variables.variables[kvp.Key] >= industryCosts;
-                        break;
                     default:
                         break;
                 }
