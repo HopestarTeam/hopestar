@@ -8,12 +8,15 @@ public class ObjectiveStrip : MonoBehaviour
     [SerializeField] GameObject icon;
     [SerializeField] GameObject iconGrid;
 
-    string name;
+    GlobalVariableEnum theName;
     int target;
-    [HideInInspector] public Sprite defaultSprite;
-    [HideInInspector] public Sprite fulfilledSprite;
+    public Sprite defaultSprite;
+    public Sprite fulfilledSprite;
+
+    int surplusProduction;
 
     TextMeshProUGUI nameOfStrip;
+    List<GameObject> listOfIcons = new List<GameObject>();
 
     public void SetNameAs(string name){
         nameOfStrip = GetComponentInChildren<TextMeshProUGUI>();
@@ -21,7 +24,8 @@ public class ObjectiveStrip : MonoBehaviour
     }
     
     public void SetPropertiesAs(Objectives.ResourceObjective obj){
-        SetNameAs(obj.nameEnum.ToString());
+        theName = obj.nameEnum;
+        SetNameAs(theName.ToString());
         target = obj.target;
         defaultSprite = obj.unfulfilledSprite;
         fulfilledSprite = obj.fulfilledSprite;
@@ -31,7 +35,17 @@ public class ObjectiveStrip : MonoBehaviour
         for (int i = 0; i < target; i++){
             GameObject newIcon = Instantiate(icon);
             newIcon.transform.SetParent(iconGrid.transform);
+            listOfIcons.Add(newIcon);
         }
+    }
+    private void UpdateObjectiveIcons(){
+        surplusProduction = Mathf.Min(GameManager.gm.variables.variables[theName].GetSurplus(), target);
+        if (listOfIcons != null){
+            foreach (var icon in listOfIcons){icon.GetComponent<GoalIcon>().SetAsUnfulfilled();}
+            for (int i = 0; i < surplusProduction; i++){
+                listOfIcons[i].GetComponent<GoalIcon>().SetAsFulfilled();
+            }
+        }  
     }
 
 
@@ -40,11 +54,12 @@ public class ObjectiveStrip : MonoBehaviour
     void Start()
     {
        DisplayObjectiveIcons();
+       UpdateObjectiveIcons();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateObjectiveIcons();
     }
 }
