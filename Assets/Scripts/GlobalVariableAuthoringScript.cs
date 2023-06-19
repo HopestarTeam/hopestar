@@ -11,11 +11,7 @@ public class GlobalVariableAuthoringScript : MonoBehaviour
     {
         foreach(AuthoringStruct current in values)
         {
-            GlobalVariables.ResourceVariable currentVar = new GlobalVariables.ResourceVariable()
-            {
-                production = current.initialValue
-            };
-            GameManager.gm.variables.variables[current.variable] = currentVar;
+            GameManager.gm.variables.variables[current.variable].production = current.initialValue;
         }
         Destroy(this);
     }

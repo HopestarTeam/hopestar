@@ -98,6 +98,8 @@ MonoBehaviour:
   menuManager:
     Hud: {fileID: 496768690896938883}
     OnElement: 0
+  tilePassiveProductionSettings: {fileID: 11400000, guid: de8b4309c6a5c33478c427ca03a7203e, type: 2}
+  tileMaterialSetter: {fileID: 0}
   tileMaterialSetter: {fileID: 0}
 --- !u!114 &9019645980576864443
 MonoBehaviour:

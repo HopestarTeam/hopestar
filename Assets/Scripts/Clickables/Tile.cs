@@ -37,6 +37,24 @@ public class Tile : MonoBehaviour
         return true;
     }
 
+    public void ResolveTile()
+    {
+        if(GameManager.gm.tilePassiveProductionSettings)
+        foreach(PassiveProductionSetting current in GameManager.gm.tilePassiveProductionSettings.settings)
+        {
+            if(tileProperties.Contains(current.property))
+            {
+                foreach(ProductionDefinition prod in current.Production)
+                {
+                    if(GameManager.gm.variables.variables[prod.variable].production + prod.amount < 0)
+                        GameManager.gm.variables.variables[prod.variable].production = 0;
+                    else
+                    GameManager.gm.variables.variables[prod.variable].production += prod.amount;
+                }
+            }
+        }
+    }
+
     public void OnMouseEnter()
     {
         if(!GameManager.gm.menuManager.OnElement)
