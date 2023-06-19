@@ -529,6 +529,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2806085881152668257, guid: 1cc3239f2672d554d927f339e501188e, type: 3}
+      propertyPath: scienceTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2806085881152668257, guid: 1cc3239f2672d554d927f339e501188e, type: 3}
+      propertyPath: consumerTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2806085881152668257, guid: 1cc3239f2672d554d927f339e501188e, type: 3}
       propertyPath: industryTarget
       value: 1
       objectReference: {fileID: 0}
@@ -704,6 +712,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4249445382358683269, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 634
+      objectReference: {fileID: 0}
     - target: {fileID: 4249445383483798743, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
       propertyPath: m_Pivot.x
       value: 0
