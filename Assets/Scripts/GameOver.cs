@@ -11,17 +11,19 @@ public class GameOver : MonoBehaviour
                 surplusProduction += kvp.Value.GetSurplus();
             }   
         }
+        Debug.Log($"Total Surplus: {surplusProduction}");
         return surplusProduction > 0;
     }
 
-    private void TheGameIsOver(){
+    public void TheGameIsOver(){
         Debug.Log("game over, man, game over!");
     }
 
-    public void CheckGameOver(){   //this should be called after the 'end turn' button is pressed and all the production is calculated
+    public bool CheckGameOver(){   //this should be called after the 'end turn' button is pressed and all the production is calculated
         if (!IsThereSurplusProduction()){
             TheGameIsOver();
         }
+        return IsThereSurplusProduction();
     }
 
     // Start is called before the first frame update

@@ -7,7 +7,7 @@ using NativeClassExtensions;
 public class EndTurn : MonoBehaviour
 {
     [SerializeField] Grid myGrid;
-
+    [SerializeField] GameOver gameOver;
 
     GlobalVariables variables;
 
@@ -44,6 +44,7 @@ public class EndTurn : MonoBehaviour
             Debug.Log("Upkeep fugd, no turn end for you :)");
             return;
         }
+        
         
         GlobalVariableEnum[] enums = (GlobalVariableEnum[])Enum.GetValues(typeof(GlobalVariableEnum));
         
@@ -86,6 +87,8 @@ public class EndTurn : MonoBehaviour
             if(current != GlobalVariableEnum.CO2)continue;
             variables.variables[current].production = variables.variables[current].upkeep;
         }
+
+        if(gameOver.CheckGameOver()) return;
         //variables.RawResources = variables.RawResourcesUpkeep;
         //variables.Food = variables.FoodUpkeep;
         //variables.Energy = variables.EnergyUpkeep;

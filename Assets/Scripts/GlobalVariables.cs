@@ -38,6 +38,7 @@ public class GlobalVariables
         }
 
         public int GetSurplus(){
+            int surplus = production - upkeep - spent;
             return production - upkeep - spent;
         }
     }

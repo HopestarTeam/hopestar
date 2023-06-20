@@ -33,12 +33,9 @@ MonoBehaviour:
         width: 1
         height: 1
       properties: 00030405
-  initialVariableValues: []
   objectives:
   - variable: 1
-    value: 8
-  - variable: 2
-    value: 4
+    value: 5
   Deck:
   - {fileID: 11400000, guid: 1b506db3077b6464293d2166e3b96c44, type: 2}
   - {fileID: 11400000, guid: 86833238a0209264aa048002d77d04cf, type: 2}
