@@ -10,7 +10,7 @@ public class DeckScroll : MonoBehaviour
     public GameObject CurrentTop;
 
 
-    private void Start() {
+    private void Awake() {
         deck = GetComponent<DeckBehaviour>();
     }
 

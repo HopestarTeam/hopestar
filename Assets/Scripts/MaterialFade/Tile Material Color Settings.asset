@@ -18,6 +18,30 @@ MonoBehaviour:
     ruleMaterials:
     - material: {fileID: 0}
       InitialColor: {r: 1, g: 1, b: 1, a: 1}
+      texture: {fileID: 2800000, guid: 97d5d514bd89d3743a5a569964690c2a, type: 3}
+      associatedProperties: 00030405
+    - material: {fileID: 0}
+      InitialColor: {r: 1, g: 1, b: 1, a: 1}
+      texture: {fileID: 2800000, guid: f7b6f3c16a952a746bb8ea9690956632, type: 3}
+      associatedProperties: 01030405
+    - material: {fileID: 0}
+      InitialColor: {r: 1, g: 1, b: 1, a: 1}
+      texture: {fileID: 2800000, guid: 97d5d514bd89d3743a5a569964690c2a, type: 3}
+      associatedProperties: 000304
+    - material: {fileID: 0}
+      InitialColor: {r: 1, g: 1, b: 1, a: 1}
+      texture: {fileID: 2800000, guid: f7b6f3c16a952a746bb8ea9690956632, type: 3}
+      associatedProperties: 010304
+    - material: {fileID: 0}
+      InitialColor: {r: 1, g: 1, b: 1, a: 1}
+      texture: {fileID: 2800000, guid: f7b6f3c16a952a746bb8ea9690956632, type: 3}
+      associatedProperties: 010305
+    - material: {fileID: 0}
+      InitialColor: {r: 1, g: 1, b: 1, a: 1}
+      texture: {fileID: 2800000, guid: 97d5d514bd89d3743a5a569964690c2a, type: 3}
+      associatedProperties: 000305
+    - material: {fileID: 0}
+      InitialColor: {r: 1, g: 1, b: 1, a: 1}
       texture: {fileID: 2800000, guid: 29ecd7fad7e42ad42b408d5f7c9c0279, type: 3}
       associatedProperties: 0002
     - material: {fileID: 0}
@@ -32,7 +56,3 @@ MonoBehaviour:
       InitialColor: {r: 1, g: 1, b: 1, a: 1}
       texture: {fileID: 2800000, guid: 97d5d514bd89d3743a5a569964690c2a, type: 3}
       associatedProperties: 0003
-    - material: {fileID: 0}
-      InitialColor: {r: 1, g: 1, b: 1, a: 1}
-      texture: {fileID: 2800000, guid: a54d19b7c20946b46a694e3b2d3ea019, type: 3}
-      associatedProperties: 05
