@@ -12,6 +12,8 @@ public class Initializer : MonoBehaviour
     public DeckBehaviour deck;
     public Objectives objectives;
 
+    public GameObject dropDownButton;
+
     void Initialize(LevelData data)
     {
         grid.size = data.grid.gridSize;
@@ -55,7 +57,7 @@ public class Initializer : MonoBehaviour
             }
         }
 
-
+        dropDownButton.SetActive(data.showExtendButton);
     }
 
     void Awake()

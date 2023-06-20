@@ -6,6 +6,7 @@ using System;
 [CreateAssetMenu(menuName = "HopeStar/LevelData", fileName = "new LevelData")]
 public class LevelData : ScriptableObject
 {
+    public bool showExtendButton = false;
     public GridInitData grid;
 
     //public List<GlobalVariableAuthoringScript.AuthoringStruct> initialVariableValues;
