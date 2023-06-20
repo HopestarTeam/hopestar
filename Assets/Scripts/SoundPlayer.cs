@@ -8,6 +8,8 @@ public class SoundPlayer : MonoBehaviour
     public AudioSource audioUse;
 
     public AudioClip placeCard;
+
+    public AudioClip scrollDeck;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +26,10 @@ public class SoundPlayer : MonoBehaviour
     public void PlaceCardSound()
     {
         audioUse.PlayOneShot(placeCard, 1f);
+    }
+
+    public void ScrollDeckSound()
+    {
+        audioUse.PlayOneShot(scrollDeck, 1f);
     }
 }
