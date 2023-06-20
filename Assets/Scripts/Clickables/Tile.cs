@@ -14,10 +14,14 @@ public class Tile : MonoBehaviour
     public bool IsCompatibleWith(CardSO card)
     {
         bool result = true;
-        if(card.blockedTileProperties.Length != 0)
-            result = !HasProperties(card.blockedTileProperties);
-        if(card.requiredTileProperties.Length != 0 && result)
-            result = HasProperties(card.requiredTileProperties);
+        foreach(TileProperty current in card.requiredTileProperties)
+        {
+            if(!HasProperty(current))return false;
+        }
+        foreach(TileProperty current in card.blockedTileProperties)
+        {
+            if(HasProperty(current))return false;
+        }
         return result;
     }
 
