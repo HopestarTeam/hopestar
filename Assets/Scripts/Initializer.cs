@@ -22,10 +22,10 @@ public class Initializer : MonoBehaviour
 
         //Initialize the variables
         gameManager.variables.Initialize();
-        foreach(GlobalVariableAuthoringScript.AuthoringStruct current in data.initialVariableValues)
-        {
-            gameManager.variables.variables[current.variable].production = current.value;
-        }
+        //foreach(GlobalVariableAuthoringScript.AuthoringStruct current in data.initialVariableValues)
+        //{
+        //    gameManager.variables.variables[current.variable].production = current.value;
+        //}
 
         foreach(GlobalVariableAuthoringScript.AuthoringStruct current in data.objectives)
         {

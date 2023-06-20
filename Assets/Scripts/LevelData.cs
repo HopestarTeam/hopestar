@@ -8,7 +8,7 @@ public class LevelData : ScriptableObject
 {
     public GridInitData grid;
 
-    public List<GlobalVariableAuthoringScript.AuthoringStruct> initialVariableValues;
+    //public List<GlobalVariableAuthoringScript.AuthoringStruct> initialVariableValues;
     
     public List<GlobalVariableAuthoringScript.AuthoringStruct> objectives;
 

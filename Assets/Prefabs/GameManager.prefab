@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 496768691838329689}
   - component: {fileID: 496768691838329688}
   - component: {fileID: 9019645980576864443}
-  - component: {fileID: 8333967867083660814}
+  - component: {fileID: 1871445421}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -95,11 +95,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8621c2caa898b4543857dd34c2a11b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  variables:
+    initialized: 0
+    IndustryOverlay: {fileID: 6288632033745489800, guid: 6eb11739e7b1160488fa33dd8a6c766d, type: 3}
+    UrbanOverlay: {fileID: 9022486994883605608, guid: be5b37f56202a0045bd1bbbcd7d54d77, type: 3}
+    MineralOverlay: {fileID: 8385287828547644479, guid: 1e5fe0546380c7f4dbd23f66fefc45dc, type: 3}
   menuManager:
     Hud: {fileID: 496768690896938883}
     OnElement: 0
   tilePassiveProductionSettings: {fileID: 11400000, guid: de8b4309c6a5c33478c427ca03a7203e, type: 2}
-  tileMaterialSetter: {fileID: 0}
   tileMaterialSetter: {fileID: 0}
 --- !u!114 &9019645980576864443
 MonoBehaviour:
@@ -114,7 +118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myGrid: {fileID: 0}
---- !u!114 &8333967867083660814
+  gameOver: {fileID: 1871445421}
+--- !u!114 &1871445421
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,11 +128,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 496768691838329691}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95c5aebbbcebe9b4ba1bef965848d4a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b6155d7085f8f749ba28252c2a97a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  values:
-  - variable: 3
-    initialValue: 4
-  - variable: 2
-    initialValue: 4

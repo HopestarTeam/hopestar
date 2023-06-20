@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -30, y: 35}
+  m_AnchoredPosition: {x: -205, y: 35}
   m_SizeDelta: {x: 590, y: 160}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &479087501
@@ -488,9 +488,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectiveComplete: 0
   energyTarget: 0
-  foodTarget: 3
+  foodTarget: 5
   materialTarget: 0
   industryTarget: 0
   consumerTarget: 0
   scienceTarget: 0
+  listOfObjectives: []
   numberOfObjectives: 0
