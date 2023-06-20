@@ -18,7 +18,7 @@ public class GameOver : MonoBehaviour
         Debug.Log("game over, man, game over!");
     }
 
-    private void CheckGameOver(){   //this should be called after the 'end turn' button is pressed and all the production is calculated
+    public void CheckGameOver(){   //this should be called after the 'end turn' button is pressed and all the production is calculated
         if (!IsThereSurplusProduction()){
             TheGameIsOver();
         }
@@ -33,6 +33,6 @@ public class GameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckGameOver();    //testing only, remove this line later
+        //CheckGameOver();    //testing only, remove this line later
     }
 }
