@@ -33,11 +33,7 @@ MonoBehaviour:
         width: 1
         height: 1
       properties: 00030405
-  initialVariableValues:
-  - variable: 1
-    value: 1
-  - variable: 2
-    value: 1
+  initialVariableValues: []
   objectives:
   - variable: 1
     value: 8

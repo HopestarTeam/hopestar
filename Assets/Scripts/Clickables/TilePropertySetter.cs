@@ -16,7 +16,6 @@ public class TilePropertySetter : MonoBehaviour
             for(int y = current.area.y; y < current.area.height + current.area.y && y < targetGrid.size.y; y++)
             {
                 targetGrid[x,y].GetComponent<Tile>().tileProperties =  new List<TileProperty>(current.properties);
-                targetGrid[x,y].GetComponent<Tile>().CheckForProperties();
             }
         }
     }
