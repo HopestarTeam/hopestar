@@ -41,7 +41,13 @@ public class DeckScroll : MonoBehaviour
         scrollValue = scrollValue + -Input.mouseScrollDelta.y / (deck.cardObjects.Count);
         if(scrollValue != oldValue)
         {
+            if (oldValue != -1)
+            {
+                SoundPlayer.sm.ScrollDeckSound();
+            }
+            
             oldValue = scrollValue;
+            
             float cardSpace = 1f/deck.cardObjects.Count;
             scrollValue = Mathf.Clamp(scrollValue, -0.5f + cardSpace/2, 0.5f - cardSpace/2);
             float placer = Mathf.Clamp(cardSpace/2 + scrollValue, -1f + cardSpace, 1f - cardSpace);
