@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm {get; private set;}
@@ -53,6 +53,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+    }
+    void OnDestroy()
+    {
+        gm = null;
+    }
     void ClickEndTurn(ClickEvent evt)
     {
         end.EndTurnFunction();

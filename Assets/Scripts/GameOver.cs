@@ -23,7 +23,7 @@ public class GameOver : MonoBehaviour
         if (!IsThereSurplusProduction()){
             TheGameIsOver();
         }
-        return IsThereSurplusProduction();
+        return !IsThereSurplusProduction();
     }
 
     // Start is called before the first frame update

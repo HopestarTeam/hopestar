@@ -6,7 +6,7 @@ using TMPro;
 public class CardHandler : MonoBehaviour
 {
     public CardSO properties;
-
+    public bool locked;
     GlobalVariables global;
     public DeckBehaviour deck;
     public Tile placedOn;
@@ -263,6 +263,7 @@ public class CardHandler : MonoBehaviour
 
     public void ResolveCard()
     {
+        if(!locked) locked = true;
         //global.CO2 += emsissionAmount;
         int
         rawProduction = 0, foodProduction = 0, energyProduction = 0, consumerProduction = 0, industryProduction = 0,

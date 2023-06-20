@@ -10,6 +10,7 @@ public class EndTurn : MonoBehaviour
     [SerializeField] GameOver gameOver;
 
     GlobalVariables variables;
+    public GameObject gameOverScreen;
 
     int listSize;
 
@@ -88,7 +89,11 @@ public class EndTurn : MonoBehaviour
             variables.variables[current].production = variables.variables[current].upkeep;
         }
 
-        if(gameOver.CheckGameOver()) return;
+        if(gameOver.CheckGameOver())
+        {
+            gameOverScreen.SetActive(true);
+            return;
+        }
         //variables.RawResources = variables.RawResourcesUpkeep;
         //variables.Food = variables.FoodUpkeep;
         //variables.Energy = variables.EnergyUpkeep;

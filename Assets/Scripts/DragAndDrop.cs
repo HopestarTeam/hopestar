@@ -83,7 +83,7 @@ public class DragAndDrop : MonoBehaviour
     }
 
     public void OnMouseDown() {
-        if(!moving && !GameManager.gm.menuManager.OnElement){
+        if(!moving && !GameManager.gm.menuManager.OnElement && !handler.locked){
             GameManager.gm.tileMaterialSetter.GrayIncompatible(handler.properties);
             if (target != null) // = if card is in a slot
             {
