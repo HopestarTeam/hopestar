@@ -39,7 +39,6 @@ public class GlobalVariables
 
         public int GetSurplus(){
             int surplus = production - upkeep - spent;
-            Debug.Log($"Surplus: {surplus}");
             return production - upkeep - spent;
         }
     }
