@@ -8,17 +8,18 @@ public class Objectives : MonoBehaviour
     [HideInInspector] public bool objectiveComplete = false;
 
     //remove serializefield after testing
-    [SerializeField] int energyTarget = 0;
-    [SerializeField] int foodTarget = 3;
-    [SerializeField] int materialTarget = 0;
-    [SerializeField] int industryTarget = 0;
-    [SerializeField] int consumerTarget = 0;
-    [SerializeField] int scienceTarget = 0;
+    [SerializeField] public int energyTarget = 0;
+    [SerializeField] public int foodTarget = 3;
+    [SerializeField] public int materialTarget = 0;
+    [SerializeField] public int industryTarget = 0;
+    [SerializeField] public int consumerTarget = 0;
+    [SerializeField] public int scienceTarget = 0;
     //int happinessTarget = 0;
     //int emissionsTarget = 0;
     [HideInInspector] public List<ResourceObjective> listOfObjectives = new List<ResourceObjective>();
     [HideInInspector] public int numberOfObjectives;
 
+    [Serializable]
     public class ResourceObjective{
         //a class that collects the name of a resource, the target objective and the two sprites (unfulfilled and fulfilled) for display
         public GlobalVariableEnum nameEnum;

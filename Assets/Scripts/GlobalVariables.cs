@@ -6,6 +6,7 @@ using System;
 [Serializable]
 public class GlobalVariables
 {   
+    public bool initialized;
     public GameObject IndustryOverlay;
     public GameObject UrbanOverlay;
     public GameObject MineralOverlay;
@@ -44,6 +45,7 @@ public class GlobalVariables
     public Dictionary<GlobalVariableEnum, ResourceVariable> variables;
     public void Initialize()
     {
+
         //Get an array of the enums
         GlobalVariableEnum[] enums = (GlobalVariableEnum[])Enum.GetValues(typeof(GlobalVariableEnum));
         
@@ -53,6 +55,8 @@ public class GlobalVariables
             variables.Add(current, new ResourceVariable(0, 0, 0));
             //Debug.Log($"{current}: {variables[current]}");
         }
+        
+        initialized = true;
     }
 
     

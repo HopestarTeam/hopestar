@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gm {get; private set;}
 
+
     public GlobalVariables variables;
 
     public MenuManager menuManager;
@@ -27,15 +28,18 @@ public class GameManager : MonoBehaviour
         {
             gm = this;
             menuManager.Initialize();
-            variables.Initialize();
-            GlobalVariableAuthoringScript authorer;
-            if(TryGetComponent<GlobalVariableAuthoringScript>(out authorer))
+            if(!variables.initialized)
             {
-                authorer.Author();
-                //foreach(KeyValuePair<GlobalVariableEnum,float> current in variables.variables)
-                //{
-                //    Debug.Log($"{current.Key}: {current.Value}");
-                //}
+                variables.Initialize();
+                GlobalVariableAuthoringScript authorer;
+                if(TryGetComponent<GlobalVariableAuthoringScript>(out authorer))
+                {
+                    authorer.Author();
+                    //foreach(KeyValuePair<GlobalVariableEnum,float> current in variables.variables)
+                    //{
+                    //    Debug.Log($"{current.Key}: {current.Value}");
+                    //}
+                }
             }
             foreach (Tile tile in FindObjectsByType(typeof(Tile),FindObjectsSortMode.None))
             {
