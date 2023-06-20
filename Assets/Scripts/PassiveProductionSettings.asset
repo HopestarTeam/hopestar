@@ -25,3 +25,7 @@ MonoBehaviour:
       amount: 1
     - variable: 0
       amount: 1
+  - property: 5
+    Production:
+    - variable: 0
+      amount: 1

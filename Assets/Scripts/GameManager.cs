@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
             }
             foreach (Tile tile in FindObjectsByType(typeof(Tile),FindObjectsSortMode.None))
             {
+                tile.CheckForProperties();
                 tile.ResolveTile();
             }
             end = GetComponent<EndTurn>();

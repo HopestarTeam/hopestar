@@ -50,7 +50,9 @@ public class EndTurn : MonoBehaviour
         foreach(GlobalVariableEnum current in EnumExtensions.GlobalVariableEnumAsArray())
         {
             if(current == GlobalVariableEnum.CO2)continue;
+            variables.variables[current].production = 0;
             variables.variables[current].upkeep = 0;
+            variables.variables[current].spent = 0;
         }
 
         foreach (Tile tile in FindObjectsByType(typeof(Tile),FindObjectsSortMode.None))

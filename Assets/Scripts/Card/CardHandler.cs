@@ -258,6 +258,7 @@ public class CardHandler : MonoBehaviour
                 }
             }
         }
+        SoundPlayer.sm.PlaceCardSound();
     }
 
     public void ResolveCard()
