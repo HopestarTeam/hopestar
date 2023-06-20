@@ -66,7 +66,7 @@ public class Grid : MonoBehaviour, IEnumerable
 
     void Awake()
     {
-        Generate();
+        //Generate();
     }
     
     public void Generate()
