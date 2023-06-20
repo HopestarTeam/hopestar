@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CurrentCard
   - Card
+  - Objectives
   layers:
   - Default
   - TransparentFX

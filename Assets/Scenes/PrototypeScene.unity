@@ -657,23 +657,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2806085881152668257, guid: 1cc3239f2672d554d927f339e501188e, type: 3}
       propertyPath: energyTarget
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2806085881152668257, guid: 1cc3239f2672d554d927f339e501188e, type: 3}
       propertyPath: scienceTarget
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2806085881152668257, guid: 1cc3239f2672d554d927f339e501188e, type: 3}
       propertyPath: consumerTarget
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2806085881152668257, guid: 1cc3239f2672d554d927f339e501188e, type: 3}
       propertyPath: industryTarget
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2806085881152668257, guid: 1cc3239f2672d554d927f339e501188e, type: 3}
       propertyPath: materialTarget
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3190482002747275896, guid: 1cc3239f2672d554d927f339e501188e, type: 3}
       propertyPath: m_Name
