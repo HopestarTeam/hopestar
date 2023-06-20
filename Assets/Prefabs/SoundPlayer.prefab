@@ -76,7 +76,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -175,3 +175,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioUse: {fileID: 0}
   placeCard: {fileID: 8300000, guid: 7399add1bced5f64799511c1a0332a5b, type: 3}
+  scrollDeck: {fileID: 8300000, guid: 1d7c46e6d51b9fd4e9f85222bfbc16a1, type: 3}
