@@ -488,8 +488,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectiveComplete: 0
   energyTarget: 0
-  foodTarget: 5
-  materialTarget: 0
+  foodTarget: 3
+  materialTarget: 2
   industryTarget: 0
   consumerTarget: 0
   scienceTarget: 0
