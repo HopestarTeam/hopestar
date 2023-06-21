@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CommercialDistrict
   m_EditorClassIdentifier: 
   _cardName: Commercial District
-  cardImage: {fileID: 21300000, guid: e42570f19ad2fa54f843d71ff81e2f8c, type: 3}
+  cardImage: {fileID: 21300000, guid: 4eb5b8a3dfa56ab4d857f380496a9947, type: 3}
   _cardType: 4
   _requiredTileProperties: 04
   _blockedTileProperties: 
