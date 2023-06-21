@@ -224,6 +224,7 @@ public class GlobalVariables
 
 public enum GlobalVariableEnum
 {
+    CO2,
     Food,
     Energy,
     Material,

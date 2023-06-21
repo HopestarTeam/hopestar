@@ -23,6 +23,7 @@ public class MenuManager
 
     public Dictionary<GlobalVariableEnum, string> GlobalVariableNames = new Dictionary<GlobalVariableEnum, string>()
     {
+        {GlobalVariableEnum.CO2, "CO<sub>2</sub>"},
         {GlobalVariableEnum.Material, "Materials"},
         {GlobalVariableEnum.Consumer, "Consumer Goods"},
         {GlobalVariableEnum.Energy, "Energy"},
