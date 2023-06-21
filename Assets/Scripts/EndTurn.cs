@@ -92,23 +92,21 @@ public class EndTurn : MonoBehaviour
         }
 
         if(objectives.GetComponent<Objectives>().CheckObjectiveComplete()){
-            victoryScreen.SetActive(true);
-            SoundPlayer.sm.VictorySound();
-            //Debug.Log("victoly");
+            if(DontDestroyData.data.levelNumber == DontDestroyData.data.numberOfLevels){
+                finishGameScreen.SetActive(true);
+                SoundPlayer.sm.GameOverSound();
+            }
+            else{
+                victoryScreen.SetActive(true);
+                SoundPlayer.sm.VictorySound();
+                //Debug.Log("victoly");
+            }       
         }
         else{
             if(GameOver.CheckGameOver()){
-                if(GameManager.gm.GetComponent<DontDestroyData>().levelNumber 
-                    == GameManager.gm.GetComponent<DontDestroyData>().numberOfLevels){
-                    finishGameScreen.SetActive(true);
-                    SoundPlayer.sm.GameOverSound();
-                }
-                else{
-                    gameOverScreen.SetActive(true);
-                    SoundPlayer.sm.GameOverSound();
-                    return;
-                }
-                
+                gameOverScreen.SetActive(true);
+                SoundPlayer.sm.GameOverSound();
+                return;               
             }   
         }
         
