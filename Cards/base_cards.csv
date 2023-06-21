@@ -7,7 +7,7 @@ Cattle Ranch,M,,M,Wet,Non-Urban,,<center>(food),<center>(co2)(co2),,food,6
 Coal Mine,,Q,Q,Resource,,,<center>(material)(material)(material),<center>(co2)(co2),,material,6
 Quarry,,Q,Q,Non-Wet,,,<center>(material),<center>(co2)(co2),,material,6
 Forestry,,Q,Q,Non-Dry,Non-Urban,,<center>(material)(material),<center>(co2),,material,6
-Bad Forestry,,Q,Q,Non-Dry,Non-Urban,,<center>3(turn): slot(arrow)Dry,<center>(material)(material)(material),<center>(co2),material,6
+Naughty Forestry,,Q,Q,Non-Dry,Non-Urban,,<center>3(turn): slot(arrow)Dry,<center>(material)(material)(material),<center>(co2),material,6
 Fossil Fuel Power Station,MM,,MM,,,,<center>(energy)(energy)(energy),<center>(co2)(co2)(co2)(co2),,energy,6
 Solar Farm,MM,,MM,,,,<center>(energy),<center>if Hot: (energy),,energy,6
 Nuclear Plant,MMMMI,Y,YMMMMI,,,,<center>(energy)(energy)(energy)(energy),,,energy,3
