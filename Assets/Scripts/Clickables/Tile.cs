@@ -59,6 +59,11 @@ public class Tile : MonoBehaviour
             {
                 foreach(ProductionDefinition prod in current.Production)
                 {
+                    if(prod.variable == GlobalVariableEnum.CO2)
+                    {
+                        GameManager.gm.variables.CO2 += prod.amount;
+                        continue;
+                    }
                     if(GameManager.gm.variables.variables[prod.variable].production + prod.amount < 0)
                         GameManager.gm.variables.variables[prod.variable].production = 0;
                     else

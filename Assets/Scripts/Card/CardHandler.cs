@@ -264,7 +264,7 @@ public class CardHandler : MonoBehaviour
     public void ResolveCard()
     {
         if(!locked) locked = true;
-        //global.CO2 += emsissionAmount;
+        global.CO2 += emsissionAmount;
         int
         rawProduction = 0, foodProduction = 0, energyProduction = 0, consumerProduction = 0, industryProduction = 0,
         rawUpkeep = 0, foodUpkeep = 0, energyUpkeep = 0, consumerUpkeep = 0, industryUpkeep = 0;

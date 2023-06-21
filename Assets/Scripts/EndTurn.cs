@@ -60,9 +60,9 @@ public class EndTurn : MonoBehaviour
         }
 
         foreach (Tile tile in FindObjectsByType(typeof(Tile),FindObjectsSortMode.None))
-            {
-                tile.ResolveTile();
-            }
+        {
+            tile.ResolveTile();
+        }
 
         for (int i = 0; i < listSize; i++)
         {
@@ -120,6 +120,8 @@ public class EndTurn : MonoBehaviour
 
         // Here should come a popup window with stats and a close button.
         //GameManager.gm.menuManager.ShowInfoScreen(GameManager.gm.variables);
+        if(GameManager.gm.variables.CO2 < 0)
+            GameManager.gm.variables.CO2 = 0;
         GameManager.gm.menuManager.UpdateHud();
 
     }
