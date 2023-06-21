@@ -12,6 +12,7 @@ public class EndTurn : MonoBehaviour
     GlobalVariables variables;
     public GameObject gameOverScreen;
     public GameObject victoryScreen;
+    public GameObject finishGameScreen;
 
     int listSize;
 
@@ -93,13 +94,21 @@ public class EndTurn : MonoBehaviour
         if(objectives.GetComponent<Objectives>().CheckObjectiveComplete()){
             victoryScreen.SetActive(true);
             SoundPlayer.sm.VictorySound();
-            Debug.Log("victoly");
+            //Debug.Log("victoly");
         }
         else{
             if(GameOver.CheckGameOver()){
-                gameOverScreen.SetActive(true);
-                SoundPlayer.sm.GameOverSound();
-                return;
+                if(GameManager.gm.GetComponent<DontDestroyData>().levelNumber 
+                    == GameManager.gm.GetComponent<DontDestroyData>().numberOfLevels){
+                    finishGameScreen.SetActive(true);
+                    SoundPlayer.sm.GameOverSound();
+                }
+                else{
+                    gameOverScreen.SetActive(true);
+                    SoundPlayer.sm.GameOverSound();
+                    return;
+                }
+                
             }   
         }
         

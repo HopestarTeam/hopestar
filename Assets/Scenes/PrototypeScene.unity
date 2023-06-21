@@ -255,6 +255,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3190482002747275896, guid: 1cc3239f2672d554d927f339e501188e, type: 3}
   m_PrefabInstance: {fileID: 891507816}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &452964820 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3938612352770975399, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
+  m_PrefabInstance: {fileID: 992837211}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &558830917 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1556908039361432761, guid: 95061bb809bf9824f8913670733528c4, type: 3}
@@ -1691,6 +1696,14 @@ PrefabInstance:
       propertyPath: gameOverScreen
       value: 
       objectReference: {fileID: 61321843}
+    - target: {fileID: 9019645980576864443, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
+      propertyPath: finishGameScreen
+      value: 
+      objectReference: {fileID: 452964820}
+    - target: {fileID: 9019645980576864443, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
+      propertyPath: finishedGameScreen
+      value: 
+      objectReference: {fileID: 452964820}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
 --- !u!114 &2065526794 stripped
