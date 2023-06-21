@@ -32,7 +32,7 @@ public class EndTurn : MonoBehaviour
     {
         foreach (KeyValuePair<GlobalVariableEnum, GlobalVariables.ResourceVariable> variable in GameManager.gm.variables.variables)
         {
-            if(variable.Key != GlobalVariableEnum.CO2 && variable.Value.upkeep > variable.Value.production)
+            if(variable.Value.upkeep > variable.Value.production)
             {
                 return false;
             }
@@ -52,7 +52,6 @@ public class EndTurn : MonoBehaviour
         
         foreach(GlobalVariableEnum current in EnumExtensions.GlobalVariableEnumAsArray())
         {
-            if(current == GlobalVariableEnum.CO2)continue;
             variables.variables[current].production = 0;
             variables.variables[current].upkeep = 0;
             variables.variables[current].spent = 0;
@@ -86,7 +85,6 @@ public class EndTurn : MonoBehaviour
         // Turned this into a loop to make it more flexible
         foreach(GlobalVariableEnum current in EnumExtensions.GlobalVariableEnumAsArray())
         {
-            if(current != GlobalVariableEnum.CO2)continue;
             variables.variables[current].production = variables.variables[current].upkeep;
         }
 
