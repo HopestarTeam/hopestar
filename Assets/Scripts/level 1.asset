@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c21a38faa636a44870d7e69e10eda4, type: 3}
   m_Name: level 1
   m_EditorClassIdentifier: 
+  showExtendButton: 0
   grid:
     gridSize: {x: 2, y: 2}
     gridTileProperties:

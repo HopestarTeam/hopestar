@@ -110,8 +110,10 @@ public class Objectives : MonoBehaviour
     void Update(){
         CheckObjectiveComplete(); 
 
+        #if DEBUG
         ForDebugDisplayObjectives(); 
         ForDebugAddEnergyProduction();     
+        #endif
     }
 
     void ForDebugDisplayObjectives(){
@@ -122,6 +124,8 @@ public class Objectives : MonoBehaviour
             Debug.Log($"Objective complete: {objectiveComplete}");
         }
     }
+
+    #if DEBUG
     void ForDebugAddEnergyProduction(){
         if (Input.GetKeyDown(KeyCode.E)){
             GameManager.gm.variables.variables[GlobalVariableEnum.Energy].production += 1;
@@ -129,4 +133,5 @@ public class Objectives : MonoBehaviour
             Debug.Log(GameManager.gm.variables.variables[GlobalVariableEnum.Energy].production);
         }
     }
+    #endif
 }
