@@ -91,14 +91,16 @@ public class EndTurn : MonoBehaviour
         if(objectives.GetComponent<Objectives>().CheckObjectiveComplete()){
             victoryScreen.SetActive(true);
             SoundPlayer.sm.VictorySound();
+            Debug.Log("victoly");
         }
-
-        if(GameOver.CheckGameOver())
-        {
-            gameOverScreen.SetActive(true);
-            SoundPlayer.sm.GameOverSound();
-            return;
+        else{
+            if(GameOver.CheckGameOver()){
+                gameOverScreen.SetActive(true);
+                SoundPlayer.sm.GameOverSound();
+                return;
+            }   
         }
+        
         //variables.RawResources = variables.RawResourcesUpkeep;
         //variables.Food = variables.FoodUpkeep;
         //variables.Energy = variables.EnergyUpkeep;
