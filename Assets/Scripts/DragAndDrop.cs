@@ -33,6 +33,7 @@ public class DragAndDrop : MonoBehaviour
     private IEnumerator MoveCardWithLerp(Vector3 EndPosition, float duration, Action EndAction)
     {
         Vector3 initialPosition = transform.position;
+        Vector3 initialSize = transform.localScale;
         moving = true;
         //x/y = x*(1/y) so we only need to do the division just once 
         float OneDividedByDuration = 1/duration;
@@ -41,6 +42,7 @@ public class DragAndDrop : MonoBehaviour
         for(float elapsed = 0; elapsed <= duration; elapsed += Time.deltaTime)
         {
             rb.position = Vector3.Lerp(initialPosition, EndPosition, elapsed * OneDividedByDuration);
+            transform.localScale = Vector3.Lerp(initialSize, Vector3.one, elapsed * OneDividedByDuration);
             yield return null;
         }
 
