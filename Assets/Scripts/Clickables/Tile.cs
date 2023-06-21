@@ -41,6 +41,15 @@ public class Tile : MonoBehaviour
         return true;
     }
 
+    public bool HasAnyProperty(TileProperty[] properties)
+    {
+        foreach(TileProperty property in properties)
+        {
+            if(tileProperties.Contains(property))return true;
+        }
+        return false;
+    }
+
     public void ResolveTile()
     {
         if(GameManager.gm.tilePassiveProductionSettings)

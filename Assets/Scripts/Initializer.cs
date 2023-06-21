@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using NativeClassExtensions;
 
 public class Initializer : MonoBehaviour
 {
@@ -14,20 +15,22 @@ public class Initializer : MonoBehaviour
 
     public GameObject dropDownButton;
 
-    void Initialize(LevelData data)
+    public void Initialize(LevelData data)
     {
+        this.data = null;
         grid.size = data.grid.gridSize;
         grid.Generate();
 
         tps.tileProperties = new List<TilePropertyArea>(data.grid.gridTileProperties);
+        tps.SetTileProperties();
         deck.cardSOs = new List<CardSO>(data.Deck).ToArray();
 
         //Initialize the variables
         gameManager.variables.Initialize();
-        //foreach(GlobalVariableAuthoringScript.AuthoringStruct current in data.initialVariableValues)
-        //{
-        //    gameManager.variables.variables[current.variable].production = current.value;
-        //}
+        foreach(GlobalVariableEnum current in EnumExtensions.GlobalVariableEnumAsArray())
+        {
+            gameManager.variables.variables[current] = new GlobalVariables.ResourceVariable(0,0,0);
+        }
 
         foreach(GlobalVariableAuthoringScript.AuthoringStruct current in data.objectives)
         {
@@ -62,7 +65,7 @@ public class Initializer : MonoBehaviour
 
     void Awake()
     {
-        if(data)
+        if(data != null)
         {
             Initialize(data);
         }

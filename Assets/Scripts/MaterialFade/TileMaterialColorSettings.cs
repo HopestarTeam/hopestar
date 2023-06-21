@@ -23,7 +23,7 @@ public struct TileMaterialColorSettings
     {   
         Material bestMatch =
             (from ruleMaterial in ruleMaterials
-            where ruleMaterial.HasProperties(tile.tileProperties.ToArray())
+            where ruleMaterial.HasProperties(tile.tileProperties.ToArray()) && tile.HasProperties(ruleMaterial.associatedProperties.ToArray())
             select ruleMaterial.material).FirstOrDefault();
             if(bestMatch == null)
             {
@@ -61,5 +61,14 @@ public class RuleMaterial
             if(!associatedProperties.Contains(property))return false;
         }
         return true;
+    }
+
+    public bool HasAnyProperty(TileProperty[] properties)
+    {
+        foreach(TileProperty property in properties)
+        {
+            if(associatedProperties.Contains(property))return true;
+        }
+        return false;
     }
 }

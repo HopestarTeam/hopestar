@@ -20,12 +20,12 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if(gm)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
+        //if(gm)
+        //{
+        //    Destroy(this.gameObject);
+        //}
+        //else
+        //{
             gm = this;
             menuManager.Initialize();
             if(!variables.initialized)
@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
             //endTurnButton = menuManager.Hud.rootVisualElement.Q("EndTurnButton") as Button;
             //endTurnButton.RegisterCallback<ClickEvent>(ClickEndTurn);
             //menuManager.UpdateHud();
-        }
+        //}
     }
 
     public void RestartLevel()
