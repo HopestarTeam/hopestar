@@ -5,4 +5,4 @@ Victory:
 Victory Sound 1.wav by SilverIllusionist | License: Attribution 4.0
 
 Game over:
-S: negative_beeps.wav by themusicalnomad | License: Creative Commons 0
+negative_beeps.wav by themusicalnomad | License: Creative Commons 0
