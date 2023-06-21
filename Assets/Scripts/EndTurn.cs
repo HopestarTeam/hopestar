@@ -7,7 +7,6 @@ using NativeClassExtensions;
 public class EndTurn : MonoBehaviour
 {
     [SerializeField] Grid myGrid;
-    //[SerializeField] GameOver gameOver;
     [SerializeField] GameObject objectives;
 
     GlobalVariables variables;
