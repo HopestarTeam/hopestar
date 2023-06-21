@@ -1910,7 +1910,8 @@ PrefabInstance:
       propertyPath: gameOverScreen
       value: 
       objectReference: {fileID: 1988869937}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1871445421, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
 --- !u!1 &2123004322
 GameObject:
@@ -1956,7 +1957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fef8fb076e78e498ae191d94410501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: f46f4e2c7ef74384cb52e802b8187a8b, type: 2}
+  data: {fileID: 11400000, guid: b777d6b13d91f1a4ea71e4de28c46600, type: 2}
   grid: {fileID: 815423546}
   tps: {fileID: 815423543}
   gameManager: {fileID: 1871445419}

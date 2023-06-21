@@ -7,7 +7,6 @@ using NativeClassExtensions;
 public class EndTurn : MonoBehaviour
 {
     [SerializeField] Grid myGrid;
-    [SerializeField] GameOver gameOver;
 
     GlobalVariables variables;
     public GameObject gameOverScreen;
@@ -89,7 +88,7 @@ public class EndTurn : MonoBehaviour
             variables.variables[current].production = variables.variables[current].upkeep;
         }
 
-        if(gameOver.CheckGameOver())
+        if(GameOver.CheckGameOver())
         {
             gameOverScreen.SetActive(true);
             return;
