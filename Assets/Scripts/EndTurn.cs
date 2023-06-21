@@ -7,9 +7,12 @@ using NativeClassExtensions;
 public class EndTurn : MonoBehaviour
 {
     [SerializeField] Grid myGrid;
+    [SerializeField] GameOver gameOver;
+    [SerializeField] GameObject objectives;
 
     GlobalVariables variables;
     public GameObject gameOverScreen;
+    public GameObject victoryScreen;
 
     int listSize;
 
@@ -88,9 +91,15 @@ public class EndTurn : MonoBehaviour
             variables.variables[current].production = variables.variables[current].upkeep;
         }
 
-        if(GameOver.CheckGameOver())
+        if(objectives.GetComponent<Objectives>().CheckObjectiveComplete()){
+            victoryScreen.SetActive(true);
+            //play sound here
+        }
+
+        if(gameOver.CheckGameOver())
         {
             gameOverScreen.SetActive(true);
+            //play sound here
             return;
         }
         //variables.RawResources = variables.RawResourcesUpkeep;

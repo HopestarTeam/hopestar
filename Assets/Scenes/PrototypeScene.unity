@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &61321843 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 403907366167006486, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
+  m_PrefabInstance: {fileID: 992837211}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &337378368
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,6 +250,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 337378368}
   m_CullTransparentMesh: 1
+--- !u!1 &368693584 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3190482002747275896, guid: 1cc3239f2672d554d927f339e501188e, type: 3}
+  m_PrefabInstance: {fileID: 891507816}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,10 +702,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1051831378}
-    - target: {fileID: 403907366167006486, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4249445383483798743, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -926,7 +932,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9019645980576864443, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
   m_PrefabInstance: {fileID: 2049469230}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1923961899}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9751e345cf432024092e49641c8bf807, type: 3}
@@ -1555,23 +1561,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95061bb809bf9824f8913670733528c4, type: 3}
---- !u!1 &1923961899 stripped
+--- !u!1 &1705147179 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 496768691838329691, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-  m_PrefabInstance: {fileID: 2049469230}
+  m_CorrespondingSourceObject: {fileID: 8684121349999188278, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
+  m_PrefabInstance: {fileID: 992837211}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1923961903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1923961899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b6155d7085f8f749ba28252c2a97a44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2049469230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1667,6 +1661,18 @@ PrefabInstance:
       propertyPath: myGrid
       value: 
       objectReference: {fileID: 2065526794}
+    - target: {fileID: 9019645980576864443, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
+      propertyPath: objectives
+      value: 
+      objectReference: {fileID: 368693584}
+    - target: {fileID: 9019645980576864443, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
+      propertyPath: victoryScreen
+      value: 
+      objectReference: {fileID: 1705147179}
+    - target: {fileID: 9019645980576864443, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
+      propertyPath: gameOverScreen
+      value: 
+      objectReference: {fileID: 61321843}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
 --- !u!114 &2065526794 stripped
