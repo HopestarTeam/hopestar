@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
             //endTurnButton = menuManager.Hud.rootVisualElement.Q("EndTurnButton") as Button;
             //endTurnButton.RegisterCallback<ClickEvent>(ClickEndTurn);
             //menuManager.UpdateHud();
-        }
+        //}
 
         if(DontDestroyData.data == null)
         {
