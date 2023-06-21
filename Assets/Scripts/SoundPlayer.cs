@@ -12,6 +12,9 @@ public class SoundPlayer : MonoBehaviour
     public AudioClip scrollDeck;
 
     public AudioClip endTurn;
+    public AudioClip gameOver;
+    public AudioClip victory;
+
 
     // Start is called before the first frame update
     void Start()
@@ -39,5 +42,15 @@ public class SoundPlayer : MonoBehaviour
     public void EndTurnSound()
     {
         audioUse.PlayOneShot(endTurn, 1f);
+    }
+
+    public void GameOverSound()
+    {
+        audioUse.PlayOneShot(gameOver, 1f);
+    }
+
+    public void VictorySound()
+    {
+        audioUse.PlayOneShot(victory, 1f);
     }
 }

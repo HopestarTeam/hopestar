@@ -1519,6 +1519,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1556908039361432761, guid: 95061bb809bf9824f8913670733528c4, type: 3}
+      propertyPath: victory
+      value: 
+      objectReference: {fileID: 8300000, guid: 202d57ee7c8e2674f9d43cce205b5b0a, type: 3}
+    - target: {fileID: 1556908039361432761, guid: 95061bb809bf9824f8913670733528c4, type: 3}
+      propertyPath: gameOver
+      value: 
+      objectReference: {fileID: 8300000, guid: db78a0bba9923c94e95a7912e210f366, type: 3}
     - target: {fileID: 6089469586110146140, guid: 95061bb809bf9824f8913670733528c4, type: 3}
       propertyPath: m_Name
       value: SoundPlayer

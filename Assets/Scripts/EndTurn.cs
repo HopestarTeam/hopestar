@@ -92,13 +92,13 @@ public class EndTurn : MonoBehaviour
 
         if(objectives.GetComponent<Objectives>().CheckObjectiveComplete()){
             victoryScreen.SetActive(true);
-            //play sound here
+            SoundPlayer.sm.VictorySound();
         }
 
         if(GameOver.CheckGameOver())
         {
             gameOverScreen.SetActive(true);
-            //play sound here
+            SoundPlayer.sm.GameOverSound();
             return;
         }
         //variables.RawResources = variables.RawResourcesUpkeep;
