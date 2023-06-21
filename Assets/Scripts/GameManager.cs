@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
-        if(SceneManager.GetActiveScene().name.Contains("level_"))
+        if(SceneManager.GetActiveScene().name.Contains("level_",System.StringComparison.InvariantCultureIgnoreCase))
         {
             string[] sceneName = SceneManager.GetActiveScene().name.Split("_");
             int levelNumber = int.Parse(sceneName[1]);
@@ -78,7 +78,10 @@ public class GameManager : MonoBehaviour
             {
                 SceneManager.LoadScene("level_" + (DontDestroyData.data.levelNumber + 1));
                 if(DontDestroyData.data.levelNumber > DontDestroyData.data.levelsCompleted)
+                {
                     DontDestroyData.data.levelsCompleted = DontDestroyData.data.levelNumber;
+                    DontDestroyData.data.levelNumber += 1;
+                }
             }
         }
         else
