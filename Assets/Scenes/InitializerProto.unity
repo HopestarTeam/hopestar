@@ -123,6 +123,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &158569678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 158569680}
+  - component: {fileID: 158569679}
+  m_Layer: 0
+  m_Name: InitializerMessenger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &158569679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158569678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc5e67ad31136a41b603674cc3d80d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &158569680
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158569678}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.364645, y: -1.3522949, z: -1.8914948}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &337378368
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +701,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2806085881152668257, guid: 1cc3239f2672d554d927f339e501188e, type: 3}
+      propertyPath: foodTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2806085881152668257, guid: 1cc3239f2672d554d927f339e501188e, type: 3}
+      propertyPath: materialTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3190482002747275896, guid: 1cc3239f2672d554d927f339e501188e, type: 3}
       propertyPath: m_Name
       value: Objectives
@@ -1759,6 +1811,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95061bb809bf9824f8913670733528c4, type: 3}
+--- !u!1 &1771764508 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4249445382697607624, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
+  m_PrefabInstance: {fileID: 992837211}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1871445419 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
@@ -1853,7 +1910,8 @@ PrefabInstance:
       propertyPath: gameOverScreen
       value: 
       objectReference: {fileID: 1988869937}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1871445421, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
 --- !u!1 &2123004322
 GameObject:
@@ -1905,3 +1963,4 @@ MonoBehaviour:
   gameManager: {fileID: 1871445419}
   deck: {fileID: 728042782}
   objectives: {fileID: 1997775422}
+  dropDownButton: {fileID: 1771764508}

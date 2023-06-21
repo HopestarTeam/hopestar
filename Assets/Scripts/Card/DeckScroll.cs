@@ -10,7 +10,7 @@ public class DeckScroll : MonoBehaviour
     public GameObject CurrentTop;
 
 
-    private void Start() {
+    private void Awake() {
         deck = GetComponent<DeckBehaviour>();
     }
 
@@ -67,6 +67,7 @@ public class DeckScroll : MonoBehaviour
                 cardGO.transform.position = new Vector3(transform.position.x + posx,
                                             transform.position.y + posy,
                                             transform.position.z + posz);
+                cardGO.transform.localScale = Vector3.one * (0.75f + (posy/4));
                 placer += (1f/deck.cardObjects.Count);
                 placer = Mathf.Clamp(placer, -1f + cardSpace, 1f - cardSpace);
             }

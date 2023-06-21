@@ -20,23 +20,18 @@ public struct TileMaterialColorSettings
     }
 
     public Material GetMatchingMaterial(Tile tile)
-    {
-        foreach(RuleMaterial rMat in ruleMaterials)
-        {
-            bool compatible = false;
-            foreach(TileProperty rProp in rMat.associatedProperties)
+    {   
+        Material bestMatch =
+            (from ruleMaterial in ruleMaterials
+            where tile.HasProperties(ruleMaterial.associatedProperties.ToArray())
+            select ruleMaterial.material).FirstOrDefault();
+            if(bestMatch == null)
             {
-                if(tile.tileProperties.Contains(rProp))compatible = true;
-                else
-                {
-                    compatible = false;
-                    break;
-                }
+                Debug.LogWarning($"No matching material found for property combination of \n {string.Join(',',tile.tileProperties)}. returning default material");
+                return defaultMaterial;
             }
-            if(compatible)return rMat.material;
-        }
         //Debug.Log($"Tile property count: {tile.tileProperties.Count} \nMaterial property count: {ruleMaterials[0].associatedProperties.Count}");
-        return defaultMaterial;
+        return bestMatch;
     }
 
     public void Initialize()

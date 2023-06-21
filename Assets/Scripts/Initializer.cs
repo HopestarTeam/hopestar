@@ -52,7 +52,7 @@ public class Initializer : MonoBehaviour
                     objectives.scienceTarget = current.value;
                     break;
                 default:
-                    Debug.LogWarning($"{current.variable} is an invalid target");
+                    Debug.LogWarning($"{current.variable} is an invalid objective target");
                     break;
             }
         }
