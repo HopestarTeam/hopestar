@@ -40,7 +40,7 @@ public class Objectives : MonoBehaviour
         }
     }
 
-    private void CheckObjectiveComplete(){
+    public bool CheckObjectiveComplete(){
         if (listOfObjectives == null){Debug.Log("you don't have any objectives");}
         else {
             int numberOfObjectivesSatisfied = 0;
@@ -51,7 +51,7 @@ public class Objectives : MonoBehaviour
             if (numberOfObjectivesSatisfied == listOfObjectives.Count){objectiveComplete = true;}
             else {objectiveComplete = false;}
         }
-        
+        return objectiveComplete;
     }
 
     private void Awake() {
