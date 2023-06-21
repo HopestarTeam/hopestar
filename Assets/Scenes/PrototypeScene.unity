@@ -524,7 +524,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1016772983, guid: 1cc3239f2672d554d927f339e501188e, type: 3}
       propertyPath: m_text
-      value: 'Objectives:'
+      value: Objectives
       objectReference: {fileID: 0}
     - target: {fileID: 2806085881152668257, guid: 1cc3239f2672d554d927f339e501188e, type: 3}
       propertyPath: foodTarget
