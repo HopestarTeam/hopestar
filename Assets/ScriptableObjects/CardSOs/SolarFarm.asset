@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SolarFarm
   m_EditorClassIdentifier: 
   _cardName: Solar Farm
-  cardImage: {fileID: 21300000, guid: 4be2d6dd4b1e2b141beab38f109014ff, type: 3}
+  cardImage: {fileID: 21300000, guid: c7f155e5b786b8f488479fd3e947ba4c, type: 3}
   _cardType: 0
   _requiredTileProperties: 
   _blockedTileProperties: 

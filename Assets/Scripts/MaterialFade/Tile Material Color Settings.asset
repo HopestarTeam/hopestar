@@ -56,3 +56,7 @@ MonoBehaviour:
       InitialColor: {r: 1, g: 1, b: 1, a: 1}
       texture: {fileID: 2800000, guid: 9ae9bcfaa3c36c642a0bd3a04b6f293a, type: 3}
       associatedProperties: 0003
+    - material: {fileID: 0}
+      InitialColor: {r: 1, g: 1, b: 1, a: 1}
+      texture: {fileID: 2800000, guid: c181a25f438884f46a95b781e0e3b1fc, type: 3}
+      associatedProperties: 00020405
