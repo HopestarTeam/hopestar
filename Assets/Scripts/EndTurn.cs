@@ -7,7 +7,6 @@ using NativeClassExtensions;
 public class EndTurn : MonoBehaviour
 {
     [SerializeField] Grid myGrid;
-    [SerializeField] GameOver gameOver;
     [SerializeField] GameObject objectives;
 
     GlobalVariables variables;
@@ -96,7 +95,7 @@ public class EndTurn : MonoBehaviour
             //play sound here
         }
 
-        if(gameOver.CheckGameOver())
+        if(GameOver.CheckGameOver())
         {
             gameOverScreen.SetActive(true);
             //play sound here
