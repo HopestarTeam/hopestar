@@ -255,6 +255,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3190482002747275896, guid: 1cc3239f2672d554d927f339e501188e, type: 3}
   m_PrefabInstance: {fileID: 891507816}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &558830917 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1556908039361432761, guid: 95061bb809bf9824f8913670733528c4, type: 3}
+  m_PrefabInstance: {fileID: 1380675901}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2176e7ddf70c9a46a846dd5153bc03d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,9 +714,41 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1065372969, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065372969, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065372969, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1051831378}
+    - target: {fileID: 1065372969, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 558830917}
+    - target: {fileID: 1065372969, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065372969, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: EndTurnSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065372969, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SoundPlayer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065372969, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 403907366167006486, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4249445383483798743, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
       propertyPath: m_Pivot.x
       value: 0
