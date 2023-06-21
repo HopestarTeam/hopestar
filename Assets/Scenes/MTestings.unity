@@ -781,7 +781,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512438806549455503, guid: 7aa7cc56087c36a48a1ad31152d440b7, type: 3}
       propertyPath: numberOfLevels
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4562976865783600534, guid: 7aa7cc56087c36a48a1ad31152d440b7, type: 3}
       propertyPath: m_Name
@@ -1378,6 +1378,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1335477924965350685, guid: 5c4509d45acdfce4c83fcd5d55c8a07d, type: 3}
+      propertyPath: levelButtonsRoot
+      value: 
+      objectReference: {fileID: 2003748816}
     - target: {fileID: 1335477924965350686, guid: 5c4509d45acdfce4c83fcd5d55c8a07d, type: 3}
       propertyPath: m_Name
       value: LevelSelect
