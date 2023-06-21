@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using NativeClassExtensions;
 
 [RequireComponent(typeof(Grid))]
@@ -10,6 +11,11 @@ public class TileMaterialSetter : MonoBehaviour
     [SerializeField] TileMaterialColorSettingsSO settings;
     public TileMaterialColorSettings runTimeSettings;
     public void Start()
+    {
+        Init();
+    }
+
+    public void Init()
     {
         grid = GetComponent<Grid>();
         settings.settings.Initialize();
@@ -44,23 +50,17 @@ public class TileMaterialSetter : MonoBehaviour
     }
     public void GrayIncompatible(CardSO card)
     {
-        foreach(RuleMaterial current in runTimeSettings.ruleMaterials)
+        Debug.Log($"Required: {string.Join(',',card.requiredTileProperties)}");
+        Debug.Log($"Forbidden: {string.Join(',',card.blockedTileProperties)}");
+        IEnumerable<RuleMaterial> grayed =
+        from ruleMaterial in runTimeSettings.ruleMaterials
+        where ruleMaterial.HasAnyProperty(card.blockedTileProperties) || !ruleMaterial.HasProperties(card.requiredTileProperties)
+        select ruleMaterial;
+
+        Debug.Log($"grayed material count: {grayed.Count()}");
+        foreach(RuleMaterial current in grayed)
         {   
-            bool compatible = true;
-            foreach(TileProperty requiredProperty in card.requiredTileProperties)
-            {
-                if(!current.associatedProperties.Contains(requiredProperty))compatible = false;
-            }
-            if(!compatible)
-            {
-                current.material.color = current.InitialColor.Subtractive(runTimeSettings.InCompatibleColor)/*(current.InitialColor + runTimeSettings.InCompatibleColor)/2*/;
-                continue;
-            }
-            foreach(TileProperty forbiddenProperty in card.blockedTileProperties)
-            {
-                if(current.associatedProperties.Contains(forbiddenProperty))compatible = false;
-            }
-            if(!compatible)current.material.color = current.InitialColor.Subtractive(runTimeSettings.InCompatibleColor)/*(current.InitialColor + runTimeSettings.InCompatibleColor)/2*/;
+            current.material.color = runTimeSettings.InCompatibleColor;
         }
     }
 

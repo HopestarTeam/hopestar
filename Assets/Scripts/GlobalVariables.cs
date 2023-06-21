@@ -54,9 +54,11 @@ public class GlobalVariables
         variables = new Dictionary<GlobalVariableEnum, ResourceVariable>(enums.Length);
         foreach(GlobalVariableEnum current in enums)
         {
-            variables.Add(current, new ResourceVariable(0, 0, 0));
+            if(variables.ContainsKey(current))variables[current]= new ResourceVariable(0,0,0);
+            else variables.Add(current, new ResourceVariable(0, 0, 0));
             //Debug.Log($"{current}: {variables[current]}");
         }
+        Debug.Log(string.Join(',', variables));
         
         initialized = true;
     }

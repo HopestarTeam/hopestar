@@ -1,3 +1,8 @@
 Deal card:
 https://freesound.org/people/f4ngy/sounds/240777/
 
+Victory:
+Victory Sound 1.wav by SilverIllusionist | License: Attribution 4.0
+
+Game over:
+negative_beeps.wav by themusicalnomad | License: Creative Commons 0

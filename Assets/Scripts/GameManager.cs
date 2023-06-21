@@ -20,12 +20,12 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if(gm)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
+        //if(gm)
+        //{
+        //    Destroy(this.gameObject);
+        //}
+        //else
+        //{
             gm = this;
             menuManager.Initialize();
             if(!variables.initialized)
