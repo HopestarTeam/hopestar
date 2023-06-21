@@ -92,6 +92,8 @@ public class EndTurn : MonoBehaviour
         }
 
         if(objectives.GetComponent<Objectives>().CheckObjectiveComplete()){
+            if(DontDestroyData.data.levelNumber > DontDestroyData.data.levelsCompleted)
+                DontDestroyData.data.levelsCompleted = DontDestroyData.data.levelNumber;
             if(DontDestroyData.data.levelNumber == DontDestroyData.data.numberOfLevels){
                 finishGameScreen.SetActive(true);
                 SoundPlayer.sm.GameOverSound();
