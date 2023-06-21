@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm {get; private set;}
-
+    [SerializeField] GameObject dontDestroyData;
 
     public GlobalVariables variables;
 
@@ -47,10 +47,57 @@ public class GameManager : MonoBehaviour
                 tile.ResolveTile();
             }
             end = GetComponent<EndTurn>();
+            variables.CO2 = 0;
             //endTurnButton = menuManager.Hud.rootVisualElement.Q("EndTurnButton") as Button;
             //endTurnButton.RegisterCallback<ClickEvent>(ClickEndTurn);
             //menuManager.UpdateHud();
         }
+
+        if(DontDestroyData.data == null)
+        {
+            Instantiate(dontDestroyData);
+        }
+        if(SceneManager.GetActiveScene().name.Contains("level_"))
+        {
+            string[] sceneName = SceneManager.GetActiveScene().name.Split("_");
+            DontDestroyData.data.levelNumber = int.Parse(sceneName[1]);
+        }
+    }
+
+    public void NextLevel()
+    {
+        if(SceneManager.GetActiveScene().name.Contains("level_"))
+        {
+            string[] sceneName = SceneManager.GetActiveScene().name.Split("_");
+            int levelNumber = int.Parse(sceneName[1]);
+            if(DontDestroyData.data.score[levelNumber] == 0 || variables.CO2 < DontDestroyData.data.score[levelNumber])
+                DontDestroyData.data.score[levelNumber] = variables.CO2;
+            if(levelNumber >= DontDestroyData.data.numberOfLevels)
+                SceneManager.LoadScene("SampleScene"); // Change this to main menu/game ended scene when that exists
+            else
+            {
+                SceneManager.LoadScene("level_" + (DontDestroyData.data.levelNumber + 1));
+                if(DontDestroyData.data.levelNumber > DontDestroyData.data.levelsCompleted)
+                    DontDestroyData.data.levelsCompleted = DontDestroyData.data.levelNumber;
+            }
+        }
+        else
+        {
+            SceneManager.LoadScene("level_1");
+        }
+    }
+
+    public void LoadLevel(int levelNumber)
+    {
+        if(levelNumber > 0 && levelNumber <= DontDestroyData.data.numberOfLevels)
+            SceneManager.LoadScene("level_" + levelNumber);
+        else
+            Debug.Log($"Level number {levelNumber} does not exist according to DontDestroyData.");
+    }
+
+    public void GoToMain()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void RestartLevel()

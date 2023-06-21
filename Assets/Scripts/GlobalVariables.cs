@@ -10,6 +10,7 @@ public class GlobalVariables
     public GameObject IndustryOverlay;
     public GameObject UrbanOverlay;
     public GameObject MineralOverlay;
+    public int CO2;
     [Serializable] public class ResourceVariable{
         //structure that collects the production, upkeep and spent values of a single resource type
         public int production;
@@ -221,7 +222,6 @@ public class GlobalVariables
 
 public enum GlobalVariableEnum
 {
-    CO2,
     Food,
     Energy,
     Material,

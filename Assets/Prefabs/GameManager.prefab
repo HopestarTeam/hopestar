@@ -94,11 +94,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8621c2caa898b4543857dd34c2a11b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dontDestroyData: {fileID: 4562976865783600534, guid: 7aa7cc56087c36a48a1ad31152d440b7, type: 3}
   variables:
     initialized: 0
     IndustryOverlay: {fileID: 6288632033745489800, guid: 6eb11739e7b1160488fa33dd8a6c766d, type: 3}
     UrbanOverlay: {fileID: 9022486994883605608, guid: be5b37f56202a0045bd1bbbcd7d54d77, type: 3}
     MineralOverlay: {fileID: 8385287828547644479, guid: 1e5fe0546380c7f4dbd23f66fefc45dc, type: 3}
+    CO2: 0
   menuManager:
     Hud: {fileID: 496768690896938883}
     OnElement: 0
@@ -117,4 +119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myGrid: {fileID: 0}
+  objectives: {fileID: 0}
   gameOverScreen: {fileID: 0}
+  victoryScreen: {fileID: 0}

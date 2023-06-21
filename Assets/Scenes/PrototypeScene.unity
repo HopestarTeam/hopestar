@@ -706,10 +706,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1051831378}
-    - target: {fileID: 403907366167006486, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 1673339983, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1051831379}
+    - target: {fileID: 337048875612220957, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1051831379}
+    - target: {fileID: 3522721414590136764, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1051831379}
     - target: {fileID: 4249445383483798743, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -798,6 +806,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7749904397297587284, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1051831379}
+    - target: {fileID: 8443449522679042781, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1051831379}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
 --- !u!1 &1044062859
@@ -944,6 +960,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9751e345cf432024092e49641c8bf807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1051831379 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
+  m_PrefabInstance: {fileID: 2049469230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8621c2caa898b4543857dd34c2a11b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1099858757
@@ -1589,30 +1616,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 496768690896938883, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 496768690896938885, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
       propertyPath: tileMaterialSetter
       value: 
       objectReference: {fileID: 2065526798}
-    - target: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-      propertyPath: variables.UrbanOverlay
-      value: 
-      objectReference: {fileID: 9022486994883605608, guid: be5b37f56202a0045bd1bbbcd7d54d77, type: 3}
-    - target: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-      propertyPath: variables.MineralOverlay
-      value: 
-      objectReference: {fileID: 8385287828547644479, guid: 1e5fe0546380c7f4dbd23f66fefc45dc, type: 3}
-    - target: {fileID: 496768691838329688, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-      propertyPath: variables.IndustryOverlay
-      value: 
-      objectReference: {fileID: 6288632033745489800, guid: 6eb11739e7b1160488fa33dd8a6c766d, type: 3}
     - target: {fileID: 496768691838329689, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1660,18 +1667,6 @@ PrefabInstance:
     - target: {fileID: 496768691838329691, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8333967867083660814, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-      propertyPath: values.Array.data[0].variable
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8333967867083660814, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-      propertyPath: values.Array.data[0].initialValue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8333967867083660814, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
-      propertyPath: values.Array.data[1].initialValue
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9019645980576864443, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
       propertyPath: myGrid
