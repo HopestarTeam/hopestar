@@ -18,4 +18,8 @@ public class MainMenuScript : MonoBehaviour
         main.SetActive(true);
         levelSelect.SetActive(false);
     }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
