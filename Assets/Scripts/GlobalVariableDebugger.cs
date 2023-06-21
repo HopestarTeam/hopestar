@@ -16,6 +16,7 @@ public class GlobalVariableDebugger : MonoBehaviour
         
     }
 
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
     void OnGUI()
     {
         GUILayout.BeginArea(new Rect(0,Screen.currentResolution.height*0.75f,Screen.currentResolution.width,Screen.currentResolution.height*0.25f));
@@ -25,4 +26,5 @@ public class GlobalVariableDebugger : MonoBehaviour
         }
         GUILayout.EndArea();
     }
+#endif
 }
