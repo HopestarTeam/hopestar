@@ -244,18 +244,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7217321249850978647, guid: 6ea4d2d4e5e9c8c46956d2f081423a70, type: 3}
-      propertyPath: upCurve.m_Curve.Array.data[1].inSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7217321249850978647, guid: 6ea4d2d4e5e9c8c46956d2f081423a70, type: 3}
-      propertyPath: upCurve.m_Curve.Array.data[1].outSlope
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7217321249850978647, guid: 6ea4d2d4e5e9c8c46956d2f081423a70, type: 3}
-      propertyPath: upCurve.m_Curve.Array.data[1].tangentMode
-      value: 69
-      objectReference: {fileID: 0}
     - target: {fileID: 7487286587236238488, guid: 6ea4d2d4e5e9c8c46956d2f081423a70, type: 3}
       propertyPath: data
       value: 
