@@ -256,5 +256,9 @@ PrefabInstance:
       propertyPath: upCurve.m_Curve.Array.data[1].tangentMode
       value: 69
       objectReference: {fileID: 0}
+    - target: {fileID: 7487286587236238488, guid: 6ea4d2d4e5e9c8c46956d2f081423a70, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: b777d6b13d91f1a4ea71e4de28c46600, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ea4d2d4e5e9c8c46956d2f081423a70, type: 3}

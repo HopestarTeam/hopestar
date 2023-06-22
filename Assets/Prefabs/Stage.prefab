@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fef8fb076e78e498ae191d94410501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: b777d6b13d91f1a4ea71e4de28c46600, type: 2}
+  data: {fileID: 11400000, guid: 5c44682207b07e344a9539e9b1fb2681, type: 2}
   grid: {fileID: 7487286586331323654}
   tps: {fileID: 7487286586331323659}
   gameManager: {fileID: 6993191942115718474}
@@ -917,6 +917,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8684121349999188278, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
   m_PrefabInstance: {fileID: 7487286586206602087}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5854939456205055424 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3938612352770975399, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
+  m_PrefabInstance: {fileID: 7487286586206602087}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6706211090641527471 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4249445382697607624, guid: 4de1f2fd8497ba94e8ac5a93e96aae86, type: 3}
@@ -1145,6 +1150,10 @@ PrefabInstance:
       propertyPath: gameOverScreen
       value: 
       objectReference: {fileID: 7093970850195967601}
+    - target: {fileID: 9019645980576864443, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
+      propertyPath: finishGameScreen
+      value: 
+      objectReference: {fileID: 5854939456205055424}
     m_RemovedComponents:
     - {fileID: 1871445421, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 21efb616a6a559f4596283ddfcc2491b, type: 3}
