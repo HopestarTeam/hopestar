@@ -5,7 +5,7 @@ using UnityEngine;
 public class DeckBehaviour : MonoBehaviour
 {
     [SerializeField] GameObject cardPrefab;
-    [SerializeField] CardSO[] cardSOs;
+    [SerializeField] public CardSO[] cardSOs;
     public List<GameObject> cardObjects;
 
     DeckScroll scrollScript;

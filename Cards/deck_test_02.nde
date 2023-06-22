@@ -41,6 +41,8 @@ HTMLIMAGE = , (industry), industry.png, 8, 8
 HTMLIMAGE = , (consumer), consumer.png, 8, 8
 HTMLIMAGE = , (science), science.png, 8, 8
 HTMLIMAGE = , (co2), CO2Icon.png, 8, 8
+HTMLIMAGE = , (turn), turn.png, 4, 4
+HTMLIMAGE = , (arrow), arrow.png, 7, 3.5
 
 
 ;Visual

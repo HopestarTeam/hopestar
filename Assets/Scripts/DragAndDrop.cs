@@ -33,6 +33,7 @@ public class DragAndDrop : MonoBehaviour
     private IEnumerator MoveCardWithLerp(Vector3 EndPosition, float duration, Action EndAction)
     {
         Vector3 initialPosition = transform.position;
+        Vector3 initialSize = transform.localScale;
         moving = true;
         //x/y = x*(1/y) so we only need to do the division just once 
         float OneDividedByDuration = 1/duration;
@@ -41,11 +42,12 @@ public class DragAndDrop : MonoBehaviour
         for(float elapsed = 0; elapsed <= duration; elapsed += Time.deltaTime)
         {
             rb.position = Vector3.Lerp(initialPosition, EndPosition, elapsed * OneDividedByDuration);
+            transform.localScale = Vector3.Lerp(initialSize, Vector3.one, elapsed * OneDividedByDuration);
             yield return null;
         }
 
         EndAction();
-        Debug.Log("Stopped Moving");
+        //Debug.Log("Stopped Moving");
         moving = false;
     }
     private void MoveCard(Vector3 targetPosition){   //this function should lerp in the final version
@@ -83,7 +85,7 @@ public class DragAndDrop : MonoBehaviour
     }
 
     public void OnMouseDown() {
-        if(!moving && !GameManager.gm.menuManager.OnElement){
+        if(!moving && !GameManager.gm.menuManager.OnElement && !handler.locked){
             GameManager.gm.tileMaterialSetter.GrayIncompatible(handler.properties);
             if (target != null) // = if card is in a slot
             {
@@ -127,13 +129,15 @@ public class DragAndDrop : MonoBehaviour
             GameManager.gm.tileMaterialSetter.ReturnColor();
             Cursor.visible = true;
             if (target == null){
+                if(currentSlot != null)
+                    handler.RunCosts(false);
                 StartCoroutine(MoveCardWithLerp(initialPosition, lerpDuration, () => Destroy(gameObject)));
                 //MoveCard(initialPosition);
                 //Destroy(gameObject,lerpDuration*0.9f);
                 //the card goes back to the card pool
             }
             else{
-                 // if enough resources to place the card and tile accepts
+                // if enough resources to place the card and tile accepts
                 if(handler.CheckCard() && target.GetComponent<Tile>().IsCompatibleWith(handler.properties))
                 {
                     handler.RunCosts();
@@ -178,12 +182,12 @@ public class DragAndDrop : MonoBehaviour
                 Tile targetTile = hit.collider.GetComponent<Tile>();
                 if(targetTile != null && targetTile.cardHandler == null)
                 {
-                    Debug.Log("Slot found!");
+                    //Debug.Log("Slot found!");
                     return hit.collider.gameObject;
                 }
             }
         }
-        Debug.Log("Slot Not Found");
+        //Debug.Log("Slot Not Found");
         return null;
     }
 

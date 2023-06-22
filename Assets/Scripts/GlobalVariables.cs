@@ -6,11 +6,17 @@ using System;
 [Serializable]
 public class GlobalVariables
 {   
-    [Serializable] public struct ResourceVariable{
+    public bool initialized;
+    public GameObject IndustryOverlay;
+    public GameObject UrbanOverlay;
+    public GameObject MineralOverlay;
+    public int CO2;
+    [Serializable] public class ResourceVariable{
         //structure that collects the production, upkeep and spent values of a single resource type
         public int production;
         public int upkeep;
         public int spent;
+
 
         public ResourceVariable(int production, int upkeep, int spent){
             this.production = production;
@@ -18,7 +24,22 @@ public class GlobalVariables
             this.spent = spent;
         }
 
+        public void AddValueToProduction(int value){
+            production += value;
+            Debug.Log($"production: {production}");
+            //call update display and update objectives functions   !!!
+        }
+        public void AddValueToUpkeep(int value){
+            upkeep += value;
+            //call update display and update objectives functions   !!!
+        }
+        public void AddValueToSpent(int value){
+            spent += value;
+            //call update display and update objectives functions   !!!
+        }
+
         public int GetSurplus(){
+            int surplus = production - upkeep - spent;
             return production - upkeep - spent;
         }
     }
@@ -26,15 +47,20 @@ public class GlobalVariables
     public Dictionary<GlobalVariableEnum, ResourceVariable> variables;
     public void Initialize()
     {
+
         //Get an array of the enums
         GlobalVariableEnum[] enums = (GlobalVariableEnum[])Enum.GetValues(typeof(GlobalVariableEnum));
         
         variables = new Dictionary<GlobalVariableEnum, ResourceVariable>(enums.Length);
         foreach(GlobalVariableEnum current in enums)
         {
-            variables.Add(current, new ResourceVariable(0, 0, 0));
+            if(variables.ContainsKey(current))variables[current]= new ResourceVariable(0,0,0);
+            else variables.Add(current, new ResourceVariable(0, 0, 0));
             //Debug.Log($"{current}: {variables[current]}");
         }
+        Debug.Log(string.Join(',', variables));
+        
+        initialized = true;
     }
 
     

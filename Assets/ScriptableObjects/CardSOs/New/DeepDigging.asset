@@ -12,17 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5ae3cfc984498499e7c0658b34c7b0, type: 3}
   m_Name: DeepDigging
   m_EditorClassIdentifier: 
-  _cardName: 
+  _cardName: Deep Digging
   cardImage: {fileID: 0}
   _cardType: 0
   _requiredTileProperties: 02
   _blockedTileProperties: 
   _resourceCosts: []
-  _resourceUpkeep: []
+  _resourceUpkeep:
+  - resourceType: 0
+    amount: 1
   _resourceGains:
   - resourceType: 1
     amount: 1
-  _emsissionAmount: 0
+  _emsissionAmount: 1
   _hasFunction: 0
   _functionType: 0
   _cardTimer: 0
@@ -30,4 +32,4 @@ MonoBehaviour:
   _conditionalTileProperties: 06
   _conditionalResourceGains:
   - resourceType: 1
-    amount: 2
+    amount: 3

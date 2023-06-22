@@ -8,28 +8,30 @@ public class Objectives : MonoBehaviour
     [HideInInspector] public bool objectiveComplete = false;
 
     //remove serializefield after testing
-    [SerializeField] int energyTarget = 0;
-    [SerializeField] int foodTarget = 3;
-    [SerializeField] int materialTarget = 0;
-    [SerializeField] int industryTarget = 0;
-    [SerializeField] int consumerTarget = 0;
-    [SerializeField] int scienceTarget = 0;
+    [SerializeField] public int energyTarget = 0;
+    [SerializeField] public int foodTarget = 3;
+    [SerializeField] public int materialTarget = 0;
+    [SerializeField] public int industryTarget = 0;
+    [SerializeField] public int consumerTarget = 0;
+    [SerializeField] public int scienceTarget = 0;
     //int happinessTarget = 0;
     //int emissionsTarget = 0;
-    List<ResourceObjective> listOfObjectives;
+    [HideInInspector] public List<ResourceObjective> listOfObjectives = new List<ResourceObjective>();
+    [HideInInspector] public int numberOfObjectives;
 
-    class ResourceObjective{
+    [Serializable]
+    public class ResourceObjective{
         //a class that collects the name of a resource, the target objective and the two sprites (unfulfilled and fulfilled) for display
         public GlobalVariableEnum nameEnum;
         public int target;
         public Sprite unfulfilledSprite;
         public Sprite fulfilledSprite;
         
-        public ResourceObjective(GlobalVariableEnum theName, int theTarget, Sprite spent, Sprite produced){
+        public ResourceObjective(GlobalVariableEnum theName, int theTarget, Sprite unfulfilled, Sprite fulfilled){
             nameEnum = theName;
             target = theTarget;
-            unfulfilledSprite = spent;
-            fulfilledSprite = produced;
+            unfulfilledSprite = unfulfilled;
+            fulfilledSprite = fulfilled;
         }
 
         public bool IsFulfilled(){
@@ -38,14 +40,18 @@ public class Objectives : MonoBehaviour
         }
     }
 
-    private void CheckObjectiveComplete(){
-        int numberOfObjectivesSatisfied = 0;
-        foreach (ResourceObjective objective in listOfObjectives){
-            if (objective.IsFulfilled()){numberOfObjectivesSatisfied++;}
-        }
+    public bool CheckObjectiveComplete(){
+        if (listOfObjectives == null){Debug.Log("you don't have any objectives");}
+        else {
+            int numberOfObjectivesSatisfied = 0;
+            foreach (ResourceObjective objective in listOfObjectives){
+                if (objective.IsFulfilled()){numberOfObjectivesSatisfied++;}
+            }
 
-        if (numberOfObjectivesSatisfied == listOfObjectives.Count){objectiveComplete = true;}
-        else {objectiveComplete = false;}
+            if (numberOfObjectivesSatisfied == listOfObjectives.Count){objectiveComplete = true;}
+            else {objectiveComplete = false;}
+        }
+        return objectiveComplete;
     }
 
     private void Awake() {
@@ -92,6 +98,7 @@ public class Objectives : MonoBehaviour
                                                                         Resources.Load<Sprite>("Icons/science"));
             listOfObjectives.Add(scienceObjective);
         }
+        numberOfObjectives = listOfObjectives.Count;
     }
 
     // Start is called before the first frame update
@@ -101,8 +108,12 @@ public class Objectives : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        CheckObjectiveComplete();  
-        ForDebugDisplayObjectives();      
+        CheckObjectiveComplete(); 
+
+        #if DEBUG
+        ForDebugDisplayObjectives(); 
+        ForDebugAddEnergyProduction();     
+        #endif
     }
 
     void ForDebugDisplayObjectives(){
@@ -113,4 +124,14 @@ public class Objectives : MonoBehaviour
             Debug.Log($"Objective complete: {objectiveComplete}");
         }
     }
+
+    #if DEBUG
+    void ForDebugAddEnergyProduction(){
+        if (Input.GetKeyDown(KeyCode.E)){
+            GameManager.gm.variables.variables[GlobalVariableEnum.Energy].production += 1;
+            Debug.Log("added 1 energy production");
+            Debug.Log(GameManager.gm.variables.variables[GlobalVariableEnum.Energy].production);
+        }
+    }
+    #endif
 }

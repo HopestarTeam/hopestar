@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c21a38faa636a44870d7e69e10eda4, type: 3}
+  m_Name: level 1
+  m_EditorClassIdentifier: 
+  showExtendButton: 0
+  grid:
+    gridSize: {x: 2, y: 2}
+    gridTileProperties:
+    - area:
+        x: 0
+        y: 0
+        width: 2
+        height: 2
+      properties: 0003
+    - area:
+        x: 0
+        y: 0
+        width: 1
+        height: 1
+      properties: 0103
+    - area:
+        x: 1
+        y: 1
+        width: 1
+        height: 1
+      properties: 00030405
+  objectives:
+  - variable: 1
+    value: 5
+  Deck:
+  - {fileID: 11400000, guid: 1b506db3077b6464293d2166e3b96c44, type: 2}
+  - {fileID: 11400000, guid: 86833238a0209264aa048002d77d04cf, type: 2}
+  - {fileID: 11400000, guid: 123a515e80238f4489f65cb94038db65, type: 2}

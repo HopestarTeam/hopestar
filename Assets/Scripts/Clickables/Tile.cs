@@ -14,10 +14,14 @@ public class Tile : MonoBehaviour
     public bool IsCompatibleWith(CardSO card)
     {
         bool result = true;
-        if(card.blockedTileProperties.Length != 0)
-            result = !HasProperties(card.blockedTileProperties);
-        if(card.requiredTileProperties.Length != 0 && result)
-            result = HasProperties(card.requiredTileProperties);
+        foreach(TileProperty current in card.requiredTileProperties)
+        {
+            if(!HasProperty(current))return false;
+        }
+        foreach(TileProperty current in card.blockedTileProperties)
+        {
+            if(HasProperty(current))return false;
+        }
         return result;
     }
 
@@ -35,6 +39,38 @@ public class Tile : MonoBehaviour
             if(!tileProperties.Contains(property))return false;
         }
         return true;
+    }
+
+    public bool HasAnyProperty(TileProperty[] properties)
+    {
+        foreach(TileProperty property in properties)
+        {
+            if(tileProperties.Contains(property))return true;
+        }
+        return false;
+    }
+
+    public void ResolveTile()
+    {
+        if(GameManager.gm.tilePassiveProductionSettings)
+        foreach(PassiveProductionSetting current in GameManager.gm.tilePassiveProductionSettings.settings)
+        {
+            if(tileProperties.Contains(current.property))
+            {
+                foreach(ProductionDefinition prod in current.Production)
+                {
+                    if(prod.variable == GlobalVariableEnum.CO2)
+                    {
+                        GameManager.gm.variables.CO2 += prod.amount;
+                        continue;
+                    }
+                    if(GameManager.gm.variables.variables[prod.variable].production + prod.amount < 0)
+                        GameManager.gm.variables.variables[prod.variable].production = 0;
+                    else
+                    GameManager.gm.variables.variables[prod.variable].production += prod.amount;
+                }
+            }
+        }
     }
 
     public void OnMouseEnter()
@@ -63,6 +99,33 @@ public class Tile : MonoBehaviour
     {
         GameManager.gm.menuManager.toolTip.visible = false;
     }
+
+    public void CheckForProperties()
+    {
+        foreach(TileProperty tile in tileProperties)
+        {
+            if (tile == TileProperty.INDUSTRY)
+            {
+                // Instantiate prefab above tile
+                Instantiate (GameManager.gm.variables.IndustryOverlay,transform.position+ new Vector3(0,0.001f,0),transform.rotation,transform);
+            }
+            
+            if (tile == TileProperty.URBAN)
+            {
+                Instantiate (GameManager.gm.variables.UrbanOverlay,transform.position+ new Vector3(0,0.001f,0),transform.rotation,transform);
+            }
+
+            if (tile == TileProperty.RESOURCERICH)
+            {
+                Instantiate (GameManager.gm.variables.MineralOverlay,transform.position+ new Vector3(0,0.001f,0),transform.rotation,transform);
+            }
+
+
+
+
+        }
+    }
+  
 }
 
 [Serializable]
@@ -70,3 +133,4 @@ public struct TilePropertyPreset
 {
     public List<TileProperty> properties;
 }
+

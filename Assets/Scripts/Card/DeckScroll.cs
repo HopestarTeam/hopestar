@@ -10,7 +10,7 @@ public class DeckScroll : MonoBehaviour
     public GameObject CurrentTop;
 
 
-    private void Start() {
+    private void Awake() {
         deck = GetComponent<DeckBehaviour>();
     }
 
@@ -41,7 +41,13 @@ public class DeckScroll : MonoBehaviour
         scrollValue = scrollValue + -Input.mouseScrollDelta.y / (deck.cardObjects.Count);
         if(scrollValue != oldValue)
         {
+            if (oldValue != -1)
+            {
+                SoundPlayer.sm.ScrollDeckSound();
+            }
+            
             oldValue = scrollValue;
+            
             float cardSpace = 1f/deck.cardObjects.Count;
             scrollValue = Mathf.Clamp(scrollValue, -0.5f + cardSpace/2, 0.5f - cardSpace/2);
             float placer = Mathf.Clamp(cardSpace/2 + scrollValue, -1f + cardSpace, 1f - cardSpace);
@@ -53,7 +59,7 @@ public class DeckScroll : MonoBehaviour
                 {
                     checker = Mathf.Abs(placer - 0.5f);
                     CurrentTop = cardGO;
-                    Debug.Log(cardGO.name + checker);
+                    //Debug.Log(cardGO.name + checker);
                 }
                 posy = Mathf.Lerp(minY,maxY,upCurve.Evaluate(placer));
                 posz = Mathf.Lerp(minZ,maxZ,forwardCurve.Evaluate(placer));
@@ -61,6 +67,7 @@ public class DeckScroll : MonoBehaviour
                 cardGO.transform.position = new Vector3(transform.position.x + posx,
                                             transform.position.y + posy,
                                             transform.position.z + posz);
+                cardGO.transform.localScale = Vector3.one * (0.75f + (posy/4));
                 placer += (1f/deck.cardObjects.Count);
                 placer = Mathf.Clamp(placer, -1f + cardSpace, 1f - cardSpace);
             }

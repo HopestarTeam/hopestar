@@ -1,32 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="InfoScreenTemplate" src="project://database/Assets/resources/InfoScreenTemplate.uxml?fileID=9197481963319205126&amp;guid=141cd3a380ce8ad479e2789a167f2181&amp;type=3#InfoScreenTemplate" />
     <Style src="project://database/Assets/resources/styles.uss?fileID=7433441132597879392&amp;guid=ea77a08c0910114469079150d92af050&amp;type=3#styles" />
-    <ui:VisualElement class="GUIBackground" style="bottom: 0; position: absolute; padding-left: 10px; padding-right: 10px; padding-top: 3px; padding-bottom: 10px; right: 0; left: 0; flex-direction: row; justify-content: space-between; border-left-width: 5px; border-right-width: 5px; border-top-width: 5px; border-bottom-width: 0; border-top-left-radius: 10px; border-bottom-left-radius: 0; border-top-right-radius: 10px; border-bottom-right-radius: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
-        <ui:VisualElement name="CurrentResources" style="width: 150px;">
-            <ui:Label text="Emissions: " display-tooltip-when-elided="true" name="EmissionText" style="height: 12px;" />
-            <ui:Label text="Energy:" display-tooltip-when-elided="true" name="EnergyText" style="height: 12px;" />
-            <ui:Label text="Raw Resources:" display-tooltip-when-elided="true" name="RawText" style="height: 12px;" />
-            <ui:Label text="Food:" display-tooltip-when-elided="true" name="FoodText" style="height: 12px;" />
-            <ui:Label text="Consumer Goods:" display-tooltip-when-elided="true" name="ConsumerText" style="height: 12px;" />
-            <ui:Label text="industry Goods:" display-tooltip-when-elided="true" name="industryText" style="height: 12px;" />
-        </ui:VisualElement>
-        <ui:VisualElement name="UpkeepResources" style="width: 150px;">
-            <ui:Label text="Happiness:" display-tooltip-when-elided="true" name="HappinessText" style="height: 12px;" />
-            <ui:Label text="Energy Upkeep:" display-tooltip-when-elided="true" name="EnergyUpkeepText" style="height: 12px;" />
-            <ui:Label text="Raw Resources Upkeep:" display-tooltip-when-elided="true" name="RawUpkeepText" style="height: 12px;" />
-            <ui:Label text="Food Upkeep:" display-tooltip-when-elided="true" name="FoodUpkeepText" style="height: 12px;" />
-            <ui:Label text="Consumer Goods Upkeep:" display-tooltip-when-elided="true" name="ConsumerUpkeepText" style="height: 12px;" />
-            <ui:Label text="industry Goods Upkeep:" display-tooltip-when-elided="true" name="industryUpkeepText" style="height: 12px;" />
-        </ui:VisualElement>
-        <ui:VisualElement name="VisualElement" style="-unity-text-align: upper-left; width: 150px; margin-top: 7px;">
-            <ui:VisualElement name="BottomBarButtons" style="display: flex; justify-content: center; flex-wrap: wrap; flex-direction: row; -unity-text-align: upper-left;">
-                <ui:Button text="Money" display-tooltip-when-elided="true" style="display: none; visibility: visible;" />
-                <ui:Button text="End Turn" display-tooltip-when-elided="true" name="EndTurnButton" />
-                <ui:Button text="Energy" display-tooltip-when-elided="true" style="display: none;" />
-                <ui:Button text="Research" display-tooltip-when-elided="true" style="display: none;" />
-            </ui:VisualElement>
-            <ui:Label text="Income Objective:&#10;5 Food&#10;3 Consumer" display-tooltip-when-elided="true" name="ObjectiveText" style="white-space: normal;" />
-        </ui:VisualElement>
-    </ui:VisualElement>
     <ui:Instance template="InfoScreenTemplate" name="InfoScreen" focusable="false" style="visibility: hidden; overflow: visible;" />
 </ui:UXML>

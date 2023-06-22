@@ -8,7 +8,13 @@ public class TilePropertySetter : MonoBehaviour
     public Grid targetGrid;
     public List<TilePropertyArea> tileProperties;
 
+    public bool SetOnLoad = true;
     void Start()
+    {
+        if(SetOnLoad) SetTileProperties();
+    }
+
+    public void SetTileProperties()
     {
         foreach(TilePropertyArea current in tileProperties)
         {

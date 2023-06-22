@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e48f32db141228a4e958282b8aba5bc8, type: 3}
   m_Name: Urbanization
   m_EditorClassIdentifier: 
-  _cardName: 
+  _cardName: Urbanization
   cardImage: {fileID: 0}
-  _cardType: 0
+  _cardType: 4
   _requiredTileProperties: 
   _blockedTileProperties: 04
   _resourceCosts: []
@@ -27,9 +27,9 @@ MonoBehaviour:
     amount: 2
   _resourceGains: []
   _emsissionAmount: 0
-  _hasFunction: 0
-  _functionType: 0
-  _cardTimer: 3
+  _hasFunction: 1
+  _functionType: 2
+  _cardTimer: 2
   flavorText: 
   fromProperty: 7
   toProperty: 4

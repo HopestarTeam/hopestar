@@ -7,6 +7,8 @@ public class Grid : MonoBehaviour, IEnumerable
     [SerializeField]
     GameObject instantiable;
 
+    [Tooltip("Leave this checked unless you want to generate the grid using an external script")]
+    [SerializeField]bool generateOnStart = true;
 
     public Vector2 tileSize;
     public Vector2Int size;
@@ -66,7 +68,7 @@ public class Grid : MonoBehaviour, IEnumerable
 
     void Awake()
     {
-        Generate();
+        if(generateOnStart)Generate();
     }
     
     public void Generate()
